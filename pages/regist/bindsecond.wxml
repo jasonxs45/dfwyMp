@@ -1,0 +1,55 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <container>
+      <view class='title'>选择所在房源</view>
+      <view class='field'>
+        <x-picker range='{{projects}}' range-key='name' class='input' placeholder='请选择您所在房源' bindchange='onChange' />
+      </view>
+      <view class='title'>请输入楼栋</view>
+      <view class='field'>
+        <x-input data-attr='building' class='input' placeholder='请输入楼栋' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入单元</view>
+      <view class='field'>
+        <x-input data-attr='unit' class='input' placeholder='请输入单元' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入房号</view>
+      <view class='field'>
+        <x-input data-attr='room' class='input' placeholder='请输入房号' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入申请人姓名</view>
+      <view class='field'>
+        <x-input data-attr='name' class='input' placeholder='请输入申请人姓名' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入身份证号</view>
+      <view class='field'>
+        <x-input data-attr='idcard' type='idcard' class='input' placeholder='请输入身份证号' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入手机号</view>
+      <view class='field'>
+        <x-input data-attr='tel' type='number' class='input' placeholder='请输入手机号' bindinput='onInput' />
+      </view>
+      <!-- <view class='title'>请上传买卖合同、房产证及身份证正反面照片</view> -->
+      <view class='imgs'>
+        <uploader
+          bindfail='uploadError'
+          bindsuccess='uploadSuccess'
+          binddelete='onDelete'
+          select='{{selectFile}}'
+          upload='{{uplaodFile}}'
+          files='{{files}}'
+          max-count='9'
+          title='请上传买卖合同、房产证及身份证正反面照片'
+        />
+        <!-- <img-group value='{{pics}}' bindchange='picChange'></img-group> -->
+      </view>
+    </container>
+  </view>
+  <navigator class='check'>查看业主权益
+    <x-icon type='help' />
+  </navigator>
+  <view>
+    <button class='blue round btn' bindtap='submit'>提交</button>
+  </view>
+</view>
+<footer custom-class='footer' />

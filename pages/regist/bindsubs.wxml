@@ -1,0 +1,27 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <container>
+      <view class='title'>请输入申请人姓名</view>
+      <view class='field'>
+        <x-input data-attr='name' class='input' placeholder='请输入申请人姓名' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入身份证号</view>
+      <view class='field'>
+        <x-input data-attr='idcard' type='idcard' class='input' placeholder='请输入身份证号' bindinput='onInput' />
+      </view>
+      <view class='title'>请输入手机号</view>
+      <view class='field'>
+        <x-input data-attr='tel' type='number' class='input' placeholder='请输入手机号' bindinput='onInput' />
+      </view>
+      <text class='tips'>{{role}}绑定房源，必须业主审核，\n请将此页面转发给业主，提醒业主审核您的家属身份。</text>
+    </container>
+  </view>
+  <navigator class='check'>查看业主权益
+    <x-icon type='help' />
+  </navigator>
+  <view>
+    <button wx:if='{{checkId}}' open-type="share" class='blue round btn'>转发到业主</button>
+    <button wx:else class='blue round btn' bindtap='submit'>提交</button>
+  </view>
+</view>
+<footer custom-class='footer' />

@@ -1,0 +1,28 @@
+<view class="sticky-wrapper">
+  <view class='main'>
+    <container>
+      <view class="tips thin">
+        【<text class='bold'>{{memberInfo.name}}</text>】要以【<text class='bold'>{{role}}</text>】身份注册会员，以下是注册信息，请确认是否属实。如果审核通过，用户将以业主等同身份享受您所在物业的服务！</view>
+      <view class='title'>请选择房源</view>
+      <view class='field'>
+        <x-picker range='{{houses}}' range-key='HouseName' class='input' placeholder='请选择房源' bindchange='onChange' />
+      </view>
+      <view class='title'>申请人姓名</view>
+      <view class='field'>
+        <x-input disabled initValue='{{memberInfo.name}}' class='input'/>
+      </view>
+      <view class='title'>申请人身份证号</view>
+      <view class='field'>
+        <x-input disabled initValue='{{memberInfo.IDCard}}' class='input'/>
+      </view>
+      <view class='title'>申请人手机号</view>
+      <view class='field'>
+        <x-input disabled initValue='{{memberInfo.Tel}}' class='input'/>
+      </view>
+    </container>
+  </view>
+  <button class='blue round btn' bindtap='submit'>审核通过</button>
+  <navigator class='exit btn' open-type="exit" target="miniProgram">关闭</navigator>
+  
+</view>
+<footer custom-class='footer' />

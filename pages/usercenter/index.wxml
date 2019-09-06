@@ -1,0 +1,37 @@
+<view class='topbg'>
+  <flex class='top' align='center'>
+    <img class='avatar' mode='aspectFill' circle src='{{memberInfo.HeadImgUrl}}' />
+    <view class='details'>
+      <block wx:if='{{memberInfo}}'>
+        <view class='nickname'>{{memberInfo.RealName||memberInfo.NickName}}
+          <text wx:if='{{memberInfo.identity}}' class='identity'>{{memberInfo.identity}}</text>
+        </view>
+      </block>
+      <view class='desc'>
+        <text wx:if='{{memberInfo}}'>房源数量：{{memberInfo.HouseCount}}</text>
+        <text wx:else>您还未绑定房源</text>
+      </view>
+    </view>
+    <view class='funtions'>
+      <view class='tag'>
+        <navigator url='/pages/regist/enter' class='nav'>{{memberInfo?'继续绑定':'绑定房源'}}
+          <x-icon type='arrow-right' />
+        </navigator>
+      </view>
+    </view>
+  </flex>
+</view>
+<view wx:if='{{memberInfo}}' class='entries'>
+  <navigator wx:for='{{entries}}' wx:key='item.label' class='entry'>
+    <flex align='center'>
+      <image class='icon' mode='aspectFit' src='{{item.icon}}' />
+      <flex class='content' justify='justify' align='center'>
+        <view class='label'>
+          {{item.label}}
+        </view>
+        <x-icon type='arrow-right' />
+      </flex>
+    </flex>
+  </navigator>
+</view>
+<no-data class='no-data' wx:else text='绑定房源，享受业主权益' />

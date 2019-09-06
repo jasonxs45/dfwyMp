@@ -1,0 +1,14 @@
+<container custom-class='banner'>
+  <img class='banner-img' round src='/pages/regist/banner.png' />
+  <view class='banner-txt'>※请先选择您的身份进行绑定，绑定完成后方可报修、查询进度及参与业主活动</view>
+</container>
+<container custom-class='navs'>
+  <row>
+    <view wx:for='{{navs}}' wx:key='{{item.name}}' class='nav'>
+      <button data-index='{{index}}' open-type='getUserInfo' bindgetuserinfo='onGetWXUserInfo'>
+        <img class='nav-img' src='{{item.img}}' />
+      </button>
+    </view>
+  </row>
+</container>
+<footer class='footer' />

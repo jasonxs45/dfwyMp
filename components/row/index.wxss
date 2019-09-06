@@ -1,0 +1,13 @@
+:host{
+  width: 100%;
+}
+.row{
+  margin-left: -15rpx;
+  margin-right: -15rpx;
+  min-height: 5rpx;
+}
+.row:after{
+  content: '';
+  display: table;
+  clear:both;
+}

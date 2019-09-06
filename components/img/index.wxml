@@ -1,0 +1,10 @@
+<image
+  class='image custom-class {{replace?"small":""}} {{round?"round":""}} {{circle?"circle":""}}'
+  src='{{src}}'
+  mode='{{mode}}'
+  lazy-load='{{lazy}}'
+  show-menu-by-longpress='{{longpress}}'
+  bindload='loadHandler'
+  binderror='errorHandler'
+  bindtap='preview'
+/>

@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "绑定房源",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "row": "/components/row/index",
+    "flex": "/components/flex/index",
+    "x-input": "/components/x-input/index",
+    "x-icon": "/components/x-icon/index",
+    "x-picker": "/components/x-picker/index",
+    "footer": "/components/footer/index",
+    "split": "/components/split/index",
+    "uploader": "/components/uploader/uploader"
+  }
+}

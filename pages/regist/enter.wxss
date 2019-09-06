@@ -1,0 +1,32 @@
+page{
+  background: #f2f2f2;
+}
+.banner{
+  background: #fff;
+  border-radius:0 0 20rpx 20rpx;
+}
+.banner-txt{
+  font-size:24rpx;
+  font-weight:500;
+  color:rgba(38,134,192,1);
+  line-height:34rpx;
+  margin:30rpx 0;
+}
+.navs{
+  margin-top: 30rpx; 
+}
+.nav{
+  box-sizing: border-box;
+  width: 50%;
+  display: inline-block;
+  padding: 15rpx;
+}
+.nav button{
+  padding:0;
+}
+.footer{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left:0;
+}

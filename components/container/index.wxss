@@ -1,0 +1,10 @@
+.container{
+  padding:0 30rpx;
+  min-height: 5rpx;
+  /* overflow-x:hidden; */
+}
+.container:after{
+  content: '';
+  display: table;
+  clear:both;
+}

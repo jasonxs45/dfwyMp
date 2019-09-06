@@ -1,0 +1,99 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.1",
+	"appid": "wx9d5e3ad4c11e1acd",
+	"projectname": "dfwyMp",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "注册入口",
+					"pathName": "pages/regist/enter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "注册业主",
+					"pathName": "pages/regist/bindowner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册二手业主",
+					"pathName": "pages/regist/bindsecond",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "家属租户申请绑定",
+					"pathName": "pages/regist/bindsubs",
+					"query": "role=家属",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/usercenter/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "业主确认",
+					"pathName": "pages/regist/ownerconfirm",
+					"query": "type=1&id=836",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,8 @@
+:host{
+  height: auto;
+}
+.cell-select-row{
+  padding:1rpx 0;
+  margin-left: -15rpx;
+  margin-right: -15rpx;
+}

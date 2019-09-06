@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "绑定房源",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "row": "/components/row/index",
+    "img": "/components/img/index",
+    "footer": "/components/footer/index"
+  }
+}

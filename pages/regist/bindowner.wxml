@@ -1,0 +1,55 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <!-- 第一步 -->
+    <view hidden='{{step!=1}}'>
+      <container>
+        <view class='title'>选择所在房源</view>
+        <view class='field'>
+          <x-picker range='{{projects}}' range-key='Name' class='input' placeholder='请选择您所在的项目' bindchange='onChange' />
+        </view>
+        <view class='field'>
+          <x-input data-attr='name' class='input' placeholder='请输入您的真实姓名' bindinput='onInput' />
+        </view>
+      </container>
+    </view>
+    <!-- 第二部 -->
+    <view hidden='{{step!=2}}'>
+      <container>
+        <view class='title'>筛选用户结果</view>
+        <view class='houses'>
+          <radio-group bindchange='houseChange'>
+            <label wx:for='{{houses}}' wx:key='{{item.ID}}' class='house-item'>
+              <radio class='radio' disabled='{{item.isBind}}' value='{{index}}' />
+              <view class='house'>
+                <flex custom-class='house-wrapper' align='center'>
+                  <view class="text">{{item.ProjectName}}<text wx:if='{{item.isBind}}' class='binded'>【已绑】</text>
+                  </view>
+                  <view class='owner'>{{item.Owner}}</view>
+                </flex>
+              </view>
+            </label>
+          </radio-group>
+        </view>
+      </container>
+      <split />
+      <container>
+        <view class='title'>输入身份证后四位进行验证</view>
+        <view class='id-area'>
+          <view class='mock-cell-wrapper'>
+            <view wx:for='{{4}}' wx:key='{{item+index}}' class='mock-cell'>{{id[index]}}</view>
+          </view>
+          <input class='id-input' maxlength='4' data-attr='id' type='idcard' bindinput='onInput' />
+        </view>
+      </container>
+    </view>
+  </view>
+  <navigator class='check'>查看业主权益
+    <x-icon type='help' />
+  </navigator>
+  <button hidden='{{step!=1}}' class='blue round btn' bindtap='next'>下一步</button>
+  <view hidden='{{step!=2}}'>
+    <button class='blue round btn' bindtap='prev'>上一步</button>
+    <button class='blue round btn' bindtap='submit'>提交</button>
+  </view>
+</view>
+<footer custom-class='footer' />

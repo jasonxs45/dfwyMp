@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "flex": "/components/flex/index",
+    "x-input": "/components/x-input/index"
+  }
+}

@@ -1,0 +1,137 @@
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 110rpx;
+}
+.main{
+  background: #fff;
+  padding: 30rpx 0;
+}
+.title{
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+  margin:30rpx 0;
+}
+.field{
+  margin: 30rpx 0;
+  background:rgba(248,248,248,1);
+  border-radius:8rpx;
+  border:2rpx solid rgba(170,170,170,1);
+}
+.field .input{
+  display: block;
+  width: 100%;
+}
+.check{
+  display: inline-block;
+  font-size:22rpx;
+  color:rgba(38,134,192,1);
+  line-height:28rpx;
+  margin: 20rpx 30rpx;
+}
+.footer{
+  position: relative;
+  margin-top: -108rpx;
+}
+.house-item{
+  display: block;
+  width: 100%;
+  position: relative;
+  margin: 30rpx 0;
+}
+.house-item .radio{
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.house-item .house{
+  min-height: 90rpx;
+  background:rgba(238,238,238,1);
+  border-radius:8rpx;
+  border:2rpx solid rgba(30,87,158,0);
+  padding:0 15rpx;
+  transition: all .2s;
+}
+.radio[checked]+.house {
+  background:rgba(30,87,158,0.2);
+  border-radius:8rpx;
+  border:2rpx solid rgba(30,87,158,1);
+}
+.radio[disabled]+.house {
+  opacity: .5;
+}
+.house-item .house-wrapper{
+  min-height: 90rpx;
+}
+.house-item .house .text{
+  flex: 1;
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  line-height:34rpx;
+}
+.house-item .house .owner{
+  flex: 0 0 150rpx;
+  width: 150rpx;
+  text-align: right;
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  line-height:34rpx;
+}
+.radio[checked]+.house .text,
+.radio[checked]+.house .owner{
+  color:rgba(30,87,158,1);
+}
+.binded{
+  color:rgba(30,87,158,1);
+}
+.id-area{
+  position: relative;
+  width: 490rpx;
+  height: 100rpx;
+  margin: 30rpx auto;
+}
+.mock-cell-wrapper{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  font-size: 0;
+  text-align: center;
+}
+.mock-cell{
+  width:100rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  background:rgba(30,87,158,0.2);
+  border-radius:10rpx;
+  border:2rpx solid rgba(30,87,158,1);
+  color: rgba(30,87,158,1);
+  font-size: 30rpx;
+}
+.id-input{
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;
+  font-size: 0;
+  opacity: 0;
+  color: transparent;
+  caret-color: transparent;
+}
+.btn{
+  width: 610rpx;
+  margin: 60rpx auto;
+  font-size:28rpx;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}

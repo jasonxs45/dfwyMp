@@ -1,0 +1,56 @@
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 110rpx;
+}
+.main{
+  background: #fff;
+  padding: 30rpx 0;
+}
+.title{
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+  margin:30rpx 0;
+}
+.field{
+  margin: 30rpx 0;
+  background:rgba(248,248,248,1);
+  border-radius:8rpx;
+  border:2rpx solid rgba(170,170,170,1);
+}
+.field .input{
+  display: block;
+  width: 100%;
+}
+.check{
+  display: inline-block;
+  font-size:22rpx;
+  color:rgba(38,134,192,1);
+  line-height:28rpx;
+  margin: 20rpx 30rpx;
+}
+.footer{
+  position: relative;
+  margin-top: -108rpx;
+}
+.btn{
+  width: 610rpx;
+  margin: 60rpx auto;
+  font-size:28rpx;
+  font-weight:600;
+  line-height:40rpx;
+}
+.tips{
+  font-size: 24rpx;
+  color: rgba(38,134,192,1);
+  margin: 0 0 30rpx;
+  line-height: 34rpx;
+}
+.exit{
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 2rpx solid #333;
+  text-align: center;
+  border-radius: 40rpx;
+}

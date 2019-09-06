@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "container": "/components/container/index",
+    "x-picker": "/components/x-picker/index",
+    "x-input": "/components/x-input/index",
+    "footer": "/components/footer/index"
+  }
+}
