@@ -1,0 +1,39 @@
+.tabs{
+  display: block;
+  background: #fff;
+}
+.tab-item.active{
+  background: #fff;
+  font-weight:bold;
+  color:rgba(0,66,148,1);
+}
+.main{
+  width: 100%;
+  height: calc(100vh - 100rpx);
+}
+.scroll-view{
+  width: 100%;
+  height: 100%;
+}
+.card{
+  margin: 30rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.card:first-child{
+  margin-top:0;
+}
+.top{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  padding: 0 30rpx;
+  height: 50rpx;
+}
+.body{
+  font-size:24rpx;
+  color:rgba(51,51,51,1);
+  line-height:34rpx;
+  background: #fff;
+  padding: 30rpx;
+}

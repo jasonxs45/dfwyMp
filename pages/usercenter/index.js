@@ -19,7 +19,7 @@ const entries = [
   {
     icon: './投诉建议.png',
     label: '投诉建议',
-    path: '/pages/myhouse/index'
+    path: '/pages/advise-user/list'
   },
   {
     icon: './新闻中心.png',
@@ -46,6 +46,11 @@ Page({
   data: {
     memberInfo: null,
     entries
+  },
+  goInfo () {
+    wx.navigateTo({
+      url: '/pages/myinfo/index'
+    })
   },
   onLoad (options) {
   },

@@ -22,19 +22,29 @@ page{
 .bold{
   font-weight: bold;
 }
+.blue{
+  background: linear-gradient(90deg, #3784c5, #1b4e94) !important;
+}
+.red{
+  background: linear-gradient(90deg, #ea4849, #d22426) !important;
+}
+.yellow{
+  background: linear-gradient(90deg, #f6cb29, #ea9e16) !important;
+}
 button.btn{
-  height:80rpx;
-  line-height: 80rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  padding: 0;
 }
 button.blue{
-  height:80rpx;
-  line-height: 80rpx;
+  height:88rpx;
+  line-height: 88rpx;
   background:rgba(30,87,158,1);
   box-shadow:0px 20px 32px 0px rgba(30,87,158,0.4);
   color: #fff;
 }
 button.round{
-  border-radius:40rpx;
+  border-radius:40px;
 }
 button[type=primary][plain]{
   color: #1fbf64;

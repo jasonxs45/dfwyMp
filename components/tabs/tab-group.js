@@ -21,7 +21,8 @@ MComponent({
     line: {
       type: Boolean,
       value: false
-    }
+    },
+    barStyle:String
   },
   data: {
     lineStyle: '',
@@ -65,14 +66,14 @@ MComponent({
           const _lineLeft = _leftWidth + _tab.width * .25
           this.set({
             scrollLeft: _scrollLeft,
-            lineStyle: `width:${_tab.width * .5}px;transform: translateX(${_lineLeft}px)`
+            lineStyle: `width:${_tab.width * .5}px;transform: translateX(${_lineLeft}px);`
           })
         })
       } else {
         this.child[index].getRect('.tab-item').then(res => {
           const { left, width } = res
           this.set({
-            lineStyle: `width:${width / 2}px;transform: translateX(${left + width * .25}px)`
+            lineStyle: `width:${width / 2}px;transform: translateX(${left + width * .25}px);`
           })
         })
       }

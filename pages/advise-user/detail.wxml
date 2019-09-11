@@ -1,0 +1,27 @@
+<flex custom-class='top {{detail.className}}' justify='justify' align='center'>
+  <view class='date'>{{detail.AddTime}}</view>
+  <view class='tag'>{{detail.Type}}</view>
+</flex>
+<view class='main'>
+  <img-group value='{{detail.imgs}}' readOnly />
+  <container>
+    <view class='desc'>{{detail.Content}}</view>
+  </container>
+</view>
+<block wx:if='{{detail.Record.DealTime}}'>
+  <split height='10rpx' />
+  <view class='main'>
+    <container>
+      <flex align='center' justify='justify'>
+        <view class='dealer'>受理人：{{detail.Record.AdminName}}</view>
+        <view class='contact'>联系方式：
+          <tel phoneNumber='{{detail.Record.AdminTel}}' />
+        </view>
+      </flex>
+      <view class='deal-time'>受理时间：{{detail.Record.DealTime}}</view>
+      <split height='1rpx' />
+      <view class='reply'>{{detail.Record.Content}}</view>
+    </container>
+    <img-group value='{{detail.Record.imgs}}' readOnly />
+  </view>
+</block>

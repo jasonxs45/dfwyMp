@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "处理",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "x-picker": "/components/x-picker/index"
+  }
+}

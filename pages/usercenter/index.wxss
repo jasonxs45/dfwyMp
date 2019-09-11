@@ -30,29 +30,27 @@
   font-size:36rpx;
   font-weight:600;
   color:rgba(255,255,255,1);
-  line-height:50rpx;
+}
+.nickname text{
+  vertical-align: middle;
 }
 .desc{
   font-size:24rpx;
   font-weight:600;
   color:rgba(255,255,255,.6);
   line-height:34rpx;
+  margin-top: 15rpx;
 }
 .identity{
   display: inline-block;
-  background: #e74346;
   font-size: 20rpx;
-  height: 30rpx;
-  line-height: 24rpx;
   border-radius: 40rpx;
-  padding: 0 10rpx;
-  vertical-align: middle;
+  padding: 6rpx 10rpx;
   margin-left: 10rpx;
 }
 .tag{
   width:180rpx;
   height: 80rpx;
-  background: #e74346;
   border-radius: 40px 0 0 40px;
   font-size: 24rpx;
   color: #fff;

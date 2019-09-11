@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "详情",
+  "backgroundColorTop": "#ffffff",
+  "backgroundColorBottom": "#f2f2f2",
+  "usingComponents": {
+    "flex": "/components/flex/index",
+    "split": "/components/split/index",
+    "container": "/components/container/index",
+    "img-group": "/components/img-group/index",
+    "uploader": "/components/uploader/uploader",
+    "tel": "/components/tel/index"
+  }
+}

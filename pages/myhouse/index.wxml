@@ -1,0 +1,36 @@
+<list-container custom-class='list' noDataText='暂无房源信息' length='{{list.length}}' loading='{{loading}}' finished='{{finished}}'>
+  <block wx:for='{{list}}' wx:key='{{item.id}}'>
+    <view class='house-item'>
+      <flex>
+        <view class='mark {{item.className}}' />
+        <view class='content'>
+          <view class='house-info'>
+            <flex justify='justify'>
+              <view class='info-detail'>
+                <view class='project-names'>
+                  <text class='project-name'>{{item.Project}}</text>
+                  <text class='tag {{item.className}}'>{{item.Type1}}</text>
+                </view>
+                <view class='project-detail'>
+                  {{item.StageName}} {{item.Build}}栋 {{item.Unit}}单元 {{item.HouseNO}}
+                </view>
+              </view>
+              <navigator url='./members?id={{item.id}}' class='tag-nav'>成员列表</navigator>
+            </flex>
+          </view>
+          <split height='1rpx' />
+          <flex align='center' justify='justify'>
+            <view class='date'>签约时间：{{item.SignTime}}</view>
+            <view class='date'>保修期止：{{item.Warranty}}</view>
+          </flex>
+        </view>
+      </flex>
+    </view>
+    <split height='10rpx' />
+  </block>
+</list-container>
+<view wx:if='{{finished && !list.length}}' class=''>
+  <navigator class='nav' url='/pages/regist/enter'>
+    <button class='btn blue round'>绑定房源</button>
+  </navigator>
+</view>

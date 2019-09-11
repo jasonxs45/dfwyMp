@@ -3,15 +3,18 @@
     <container>
       <view class='title'>请输入申请人姓名</view>
       <view class='field'>
-        <x-input data-attr='name' class='input' placeholder='请输入申请人姓名' bindinput='onInput' />
+        <x-input wx:if='{{readonly}}' disabled initValue='{{name}}' class='input' />
+        <x-input wx:else data-attr='name' class='input' placeholder='请输入申请人姓名' bindinput='onInput' />
       </view>
       <view class='title'>请输入身份证号</view>
       <view class='field'>
-        <x-input data-attr='idcard' type='idcard' class='input' placeholder='请输入身份证号' bindinput='onInput' />
+        <x-input wx:if='{{readonly}}' disabled initValue='{{idcard}}' class='input' />
+        <x-input wx:else data-attr='idcard' type='idcard' class='input' placeholder='请输入身份证号' bindinput='onInput' />
       </view>
       <view class='title'>请输入手机号</view>
       <view class='field'>
-        <x-input data-attr='tel' type='number' class='input' placeholder='请输入手机号' bindinput='onInput' />
+        <x-input wx:if='{{readonly}}' disabled initValue='{{tel}}' class='input' />
+        <x-input wx:else data-attr='tel' type='number' class='input' placeholder='请输入手机号' bindinput='onInput' />
       </view>
       <text class='tips'>{{role}}绑定房源，必须业主审核，\n请将此页面转发给业主，提醒业主审核您的家属身份。</text>
     </container>

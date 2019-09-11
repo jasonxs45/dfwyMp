@@ -1,0 +1,156 @@
+page{
+  background: #f2f2f2;
+}
+.wxinfo{
+  background: #fff;
+  padding: 30rpx;
+}
+.modify{
+  width:100%;
+  height: 100vh;
+  padding-bottom: 300rpx;
+}
+.avatar{
+  width: 200rpx !important;
+  height: 200rpx !important;
+  display: block;
+  margin: 30rpx auto 18rpx;
+  border-radius: 50%;
+}
+.nickname {
+  text-align: center;
+  font-size:26rpx;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  margin-bottom: 10rpx;
+}
+.form{
+  padding: 2rpx 30rpx;
+  background: #fff;
+}
+.item{
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+}
+.item:last-child{
+  border-bottom: none;
+}
+.fh{
+  flex: 0 0 150rpx;
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+}
+.fb{
+  flex: 1;
+  text-align: right;
+  font-size: 30rpx;
+}
+.input{
+  width: 100%;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #858585;
+}
+.icon{
+  color: #858585;
+  margin-left: 20rpx;
+}
+.birthday{
+  padding: 0 15rpx;
+  line-height: 1.5;
+}
+.birthday .placeholder{
+  color: #888;
+}
+.popup{
+  position: fixed;
+  background: #f2f2f2;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index: 10;
+  transform: translateY(100%);
+  transition: transform .3s;
+}
+.popup.show{
+  transform: none;
+}
+.popup .head{
+  background: #fff;
+  justify-content:space-between;
+  padding: 20rpx 30rpx;
+}
+.popup .head .cancel,
+.popup .head .confirm{
+  width: 120rpx;
+  margin: 0;
+  font-size: 28rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.popup .head .confirm{
+  color: #fff !important;
+}
+.popup .title{
+  font-size: 26rpx;
+  color: #333;
+  margin: 30rpx;
+}
+.modify-item{
+  background: #fff;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.gender-select{
+  margin-top: 20rpx;
+  background: #fff;
+}
+.gender-radio{
+  display: flex;
+  padding:10rpx 30rpx;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ddd;
+  align-items: center;
+}
+.gender-radio:last-child{
+  border-bottom: none;
+}
+.gender-radio .radio{
+  transform: scale(1.5);
+}
+.gender-radio .radio-text{
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.wx-radio-input{
+  background: none !important;
+  border:none !important;
+}
+.wx-radio-input-checked:before{
+  color: #4d4d4d !important;
+}
+.popup .building{
+  justify-content: space-between;
+  align-items: center;
+}
+.popup .building .text{
+  flex: 1;
+  padding: 10rpx 0;
+}
+.popup .building .placeholder{
+  color: #888;
+}
+.popup .building .icon{
+  width: 40rpx;
+}
+.popup .company-input{
+  background: #fff;
+  padding-left: 0;
+  padding-right: 0;
+}

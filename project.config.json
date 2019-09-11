@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.1",
+	"libVersion": "2.8.2",
 	"appid": "wx9d5e3ad4c11e1acd",
 	"projectname": "dfwyMp",
 	"debugOptions": {
@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -91,6 +91,76 @@
 					"name": "业主确认",
 					"pathName": "pages/regist/ownerconfirm",
 					"query": "type=1&id=836",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的房源",
+					"pathName": "pages/myhouse/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成员管理",
+					"pathName": "pages/myhouse/members",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "我的资料",
+					"pathName": "pages/myinfo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "投诉-用户列表",
+					"pathName": "pages/advise-user/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投诉-用户提交",
+					"pathName": "pages/advise-user/submit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "投诉-用户详情",
+					"pathName": "pages/advise-user/detail",
+					"query": "id=471",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "投诉-地产物业列表",
+					"pathName": "pages/advise-manager/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "投诉-地产物业详情",
+					"pathName": "pages/advise-manager/detail",
+					"query": "id=535&role=地产",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "投诉-地产物业处理",
+					"pathName": "pages/advise-manager/deal",
+					"query": "id=471",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投诉-地产客服指派",
+					"pathName": "pages/advise-manager/send",
+					"query": "id=535&role=地产",
 					"scene": null
 				}
 			]

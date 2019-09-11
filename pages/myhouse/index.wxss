@@ -1,0 +1,78 @@
+@import '../../common/wxss/topbg.wxss';
+page{
+  background: #f2f2f2;
+}
+.nav{
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 60rpx auto;
+}
+.nav .btn{
+  font-size: 24rpx;
+}
+.house-item{
+  background: #fff;
+}
+.mark{
+  width: 10rpx;
+  background: #ccc;
+}
+.mark.red, .tag.red{
+  background: #e74346;
+}
+.mark.blue, .tag.blue{
+  background: #4EBBE1;
+}
+.mark.yellow, .tag.yellow{
+  background: #F4B845;
+}
+.content{
+  padding: 15rpx;
+  flex: 1;
+}
+.tag{
+  display: inline-block;
+  background: #ccc;
+  font-size: 20rpx;
+  border-radius: 40rpx;
+  padding: 6rpx 10rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+  color:#fff;
+}
+.project-name{
+  font-size:36rpx;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+  vertical-align: middle;
+}
+.project-detail{
+  margin: 15rpx 0;
+  font-size:24rpx;
+  color:rgba(51,51,51,1);
+  line-height:34rpx;
+}
+.date{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:34rpx;
+  margin: 15rpx 0;
+}
+.tag-nav{
+  width:140rpx;
+  height:60rpx;
+  border-radius:8rpx;
+  border:2rpx solid rgba(170,170,170,1);
+  line-height: 60rpx;
+  font-size:24rpx;
+  font-weight:bold;
+  color:rgba(153,153,153,1);
+  text-align: center;
+}
+.info-detail{
+  flex: 1;
+  padding-right: 15rpx;
+}

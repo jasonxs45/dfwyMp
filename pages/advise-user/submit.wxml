@@ -1,0 +1,29 @@
+<view class='sticky-wrapper'>
+  <container>
+    <view class='title'>选择房源</view>
+    <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName' data-attr='houseIndex' bindchange='onChange' />
+  </container>
+  <split height='10rpx' />
+  <container>
+    <view class='title'>选择类别</view>
+    <cell-select-group current='{{tagIndex}}' data-attr='tagIndex' bindchange='onChange'>
+      <cell-select-item wx:for='{{tags}}' wx:key='tag-{{index}}' label='{{item}}' />
+    </cell-select-group>
+  </container>
+  <split height='10rpx' />
+  <container>
+    <view class='title'>填写详情</view>
+    <textarea class='field textarea' placeholder='请填写详情' bindinput='onInput' />
+  </container>
+  <split height='10rpx' />
+  <container>
+    <view class='title'>上传照片</view>
+    <view class='imgs'>
+      <uploader bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='请上传照片' />
+    </view>
+  </container>
+  <view>
+    <button class='blue round btn' bindtap='submit'>提交</button>
+  </view>
+</view>
+<footer custom-class='footer' />

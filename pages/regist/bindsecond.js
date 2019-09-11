@@ -93,8 +93,10 @@ Page({
   },
   uploadSuccess(e) {
     console.log('upload success', e.detail)
+    let { files } = this.data
+    files = files.concat(e.detail.urls.map(item => ({ url: item })))
     this.set({
-      files: e.detail.urls.map(item => ({ url: item }))
+      files
     })
   },
   onDelete (e) {
@@ -115,7 +117,7 @@ Page({
       tel: Tel,
       files
     } = this.data
-    const images = files.map(item => item.url)
+    const images = files.map(item => item.url).join(',')
     const UnionID = wx.getStorageSync('uid')
     console.log(UnionID, StateID, Building, Unit, HouseNo, Name, CertNumber, Tel, images)
     if (StateID === '') {

@@ -1,0 +1,117 @@
+page {
+  background: #f2f2f2;
+}
+
+.sticky-wrapper {
+  min-height: 100vh;
+  padding-bottom: 400rpx;
+}
+
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+.top {
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.user {
+  flex: 1;
+  padding-left: 30rpx;
+}
+
+.name {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+.name text{
+  vertical-align: middle;
+}
+.role {
+  font-size: 24rpx;
+  display: inline-block;
+  background: #ccc;
+  border-radius: 20px;
+  padding: 5rpx 10rpx;
+  margin-left: 10rpx;
+  color: #fff;
+}
+
+.house {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  color: #ccc;
+  margin-top: 10rpx;
+}
+
+.tag {
+  color: rgba(255, 255, 255, 1);
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.main {
+  background: #fff;
+  padding: 30rpx 0;
+}
+
+.desc {
+  font-size: 28rpx;
+  line-height: 34rpx;
+  margin: 30rpx 0;
+  background: rgba(238, 238, 238, 0.5);
+  padding: 30rpx;
+}
+
+.img-group {
+  margin-top: 30rpx;
+}
+
+.dealer, .contact {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 24rpx;
+}
+
+.deal-time {
+  margin: 30rpx 0;
+  font-size: 20rpx;
+  color: rgba(153, 153, 153, 1);
+  line-height: 20rpx;
+}
+
+.reply {
+  background: rgba(238, 238, 238, 1);
+  margin: 30rpx 0;
+  padding: 30rpx;
+  font-size: 20rpx;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 28rpx;
+}
+.btn {
+  margin: 60rpx auto;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  line-height: 40rpx;
+}
+.btns{
+  padding-top: 1px;
+  height: 400rpx;
+  position: relative;
+  margin-top: -400rpx;
+}

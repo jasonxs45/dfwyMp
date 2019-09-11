@@ -1,5 +1,5 @@
 import Page from '../../common/Page'
-import { _bindrelatives } from '../../api/bind'
+import { _checkrelatives, _bindrelatives } from '../../api/bind'
 import { NAME_REG, TEL_REG } from '../../utils/reg'
 const app = getApp()
 Page({
@@ -7,7 +7,8 @@ Page({
     name: '',
     idcard:'',
     tel: '',
-    checkId: ''
+    checkId: '',
+    readonly: false
   },
   onInput(e) {
     const { value } = e.detail
@@ -15,6 +16,28 @@ Page({
     this.set({
       [attr]: value
     })
+  },
+  getInfo () {
+    const UnionID = wx.getStorageSync('uid')
+    app.loading('加载中')
+    _checkrelatives(UnionID)
+      .then(res => {
+        wx.hideLoading()
+        const { code, msg, data } = res.data
+        if (code == 0) {
+          const { name, IDCard: idcard, Tel: tel, IsReadonly: readonly, Memberid: checkId } = data
+          this.set({ name, tel, idcard, readonly, checkId })
+        }
+      })
+      .catch(err => {
+        wx.hideLoading()
+        console.log(err)
+        wx.showModal({
+          title: '对不起',
+          content: err.toString(),
+          showCancel: false
+        })
+      })
   },
   submit() {
     const {
@@ -67,9 +90,10 @@ Page({
     this.set({
       role: options.role
     })
+    this.getInfo()
   },
   onShareAppMessage () {
-    let shareInfo = app.shareInfo
+    let shareInfo
     const { checkId, role } = this.data
     const type = role === '家属' ? 2 : 1
     if (checkId) {
@@ -77,6 +101,8 @@ Page({
         title: `${this.data.name}申请绑定房源`,
         path: `/pages/regist/ownerconfirm?id=${checkId}&type=${type}`
       }
+    } else {
+      shareInfo = app.shareInfo
     }
     return shareInfo
   }

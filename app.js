@@ -5,6 +5,9 @@ App({
   shareInfo: {
     title: '我是分享标题'
   },
+  globalData: {
+    userInfo: null
+  },
   toast,
   loading,
   checkAuth () {
@@ -22,7 +25,7 @@ App({
                   if (res.data.code === 0) {
                     const { openid, session_key, unionid } = res.data.data
                     if (unionid) {
-                      resolve({ openid, session_key, unionid })
+                      resolve(unionid)
                     } else {
                       reject('登录没有uid')
                     }
@@ -72,6 +75,7 @@ App({
       _getUserInfoByUid(uid)
         .then(res => {
           if (res.data.code === 0) {
+            this.globalData.userInfo = res.data.data
             resolve(res.data.data)
           } else {
             reject(res.data)

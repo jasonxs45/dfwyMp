@@ -42,6 +42,11 @@ export const _bindsecond = ({ UnionID, StateID, Building, Unit, HouseNo, Name, C
   Tel,
   images
 })
+// 家属租户绑定前查询
+export const _checkrelatives = UnionID => fetch({
+  action: 'GetFamilyBindInfo',
+  UnionID
+})
 // 家属、租户绑定
 export const _bindrelatives = ({ UnionID, Name, CertNo, Tel }) => fetch({
   action: 'FamilyBindHouse',
@@ -61,4 +66,20 @@ export const _pass = ({ MemberID, HouseID, Type }) => fetch({
   MemberID,
   HouseID,
   Type
+})
+// 获取单个房源的成员列表
+export const _memberlist = id => fetch({
+  action: 'GetPersonList',
+  HouseID: id
+})
+// 获取单个房源的信息
+export const _houseinfo = id => fetch({
+  action: 'GetHouseDetalInfo',
+  HouseID: id
+})
+// 成员解绑
+export const _offBind = ({ MemberId, HouseId }) => fetch({
+  action: 'HouseUnBind',
+  MemberId,
+  HouseId
 })

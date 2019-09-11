@@ -1,0 +1,21 @@
+<tab-group line barStyle='background-color:rgba(0,66,148,1)' class="tabs" bindchange="onChange" current="{{currentIndex}}">
+  <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}" label='{{item.text}}' class="tab-item" />
+</tab-group>
+<swiper current='{{currentIndex}}' bindchange='onChange' class='main' duration='500'>
+  <swiper-item wx:for='{{showLists}}' wx:key='list-{{index}}'>
+    <scroll-view enable-back-to-top scroll-y class='scroll-view' bindscrolltolower='onReachLower'>
+      <list-container length='{{totalCount[index]}}' finished='{{finishes[index]}}' loading='{{loading[index]}}'>
+        <navigator wx:for='{{showLists[index]}}' wx:key='id-{{item.ID}}' url='./detail?id={{item.ID}}' class='card'>
+          <flex custom-class='top {{item.className}}' justify='justify' align='center'>
+            <view class='date'>{{item.AddTime}}</view>
+            <view class='tag'>{{item.Type}}</view>
+          </flex>
+          <view class='body'>{{item.Content}}</view>
+        </navigator>
+      </list-container>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<navigator class='add' url='./submit'>
+  <x-icon type='plus' />
+</navigator>

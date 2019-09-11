@@ -1,0 +1,21 @@
+<view class='top'>
+  <view class='project-name'>{{houseInfo.ProjectName}}</view>
+  <view class='project-info'>{{houseInfo.StageName}}{{houseInfo.Build}}栋{{houseInfo.Unit}}单元{{houseInfo.HouseNo}}</view>
+  <img wx:if='{{houseInfo.ImgPath}}' class='img' src='{{houseInfo.ImgPath}}' />
+</view>
+<split height='10rpx' />
+<view wx:for='{{members}}' wx:key='{{item.MemberId}}' class='member'>
+  <flex>
+    <view class='mark {{item.className}}' />
+    <view class='member-info'>
+      <flex align='center'>
+        <img class='avatar' mode='aspectFill' circle src='{{item.HeadImgUrl}}' />
+        <view class='names'>
+          <text class='name'>{{item.Name}}</text>
+          <text class='tag {{item.className}}'>{{item.Type}}</text>
+        </view>
+        <button class='tag-nav' data-mid='{{item.MemberId}}' bindtap='offBind'>成员解绑</button>
+      </flex>
+    </view>
+  </flex>
+</view>

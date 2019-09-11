@@ -31,7 +31,6 @@ MComponent({
     },
     accordionChange(name, checked) {
       const { multiple, current } = this.data
-      console.log(current)
       if (multiple) {
         name = checked
           ? (current || []).concat(name)
@@ -40,7 +39,7 @@ MComponent({
       else {
         name = checked ? name : ''
       }
-      this.triggerEvent('change', name)
+      this.triggerEvent('change', { value: name })
     }
   },
   created() {

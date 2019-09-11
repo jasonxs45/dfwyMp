@@ -1,0 +1,50 @@
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 110rpx;
+}
+.container{
+  display: block;
+  background: #fff;
+  padding:30rpx !important;
+}
+.title{
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(0,66,148,1);
+  line-height:40rpx;
+}
+.field{
+  background:rgba(0,66,148,.1);
+  width: 100%;
+  margin: 30rpx 0;
+}
+.select{
+  border-radius: 40px;
+  font-size:24rpx;
+  color:rgba(0,66,148,1);
+  line-height:34rpx; 
+}
+.cell-select-item{
+  
+}
+.cell-select-item .label{
+  border: 1px solid rgba(0, 66, 148, 1) !important;
+  border-radius: 25px !important;
+  color: rgba(0, 66, 148, 1) !important;
+}
+.cell-select-item .label.cell-select-active{
+  color: #fff !important;
+  background: linear-gradient(90deg, #3784c5, #1b4e94) !important;
+}
+.textarea{
+  border-radius: 8rpx;
+  padding: 30rpx;
+}
+.btn{
+  width: 610rpx;
+  margin: 60rpx auto;
+  font-size:28rpx;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "成员管理",
+  "usingComponents": {
+    "img": "/components/img/index",
+    "flex": "/components/flex/index",
+    "split": "/components/split/index"
+  }
+}

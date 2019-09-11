@@ -1,0 +1,7 @@
+<view class="select-kf">
+  <x-picker range='{{kfArr}}' range-key='Name' placeholder="请选择客服" />
+</view>
+<view class="btns">
+  <button class='btn blue round' bindtap="submitKf">提交</button>
+  <button plain class='btn round' bindtap="back">取消</button>
+</view>

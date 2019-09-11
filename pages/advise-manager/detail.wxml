@@ -1,0 +1,56 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <flex custom-class='top' justify='justify' align='center'>
+      <image class='avatar' mode='aspectFill' src='{{detail.HeadImgUrl}}' />
+      <view class='user'>
+        <view class='name'>
+          <text>{{detail.Name}}</text>
+          <text class='role {{detail.tagClassName}}'>{{detail.RoleType}}</text>
+        </view>
+        <view class='house'>{{detail.ProjectName}}-{{detail.StageName}}</view>
+        <view class='date'>{{detail.AddTime}}</view>
+      </view>
+      <view class='tag {{detail.className}}'>{{detail.Type}}</view>
+    </flex>
+    <container>
+      <view class='desc'>{{detail.Content}}</view>
+    </container>
+    <img-group value='{{detail.imgs}}' readOnly />
+  </view>
+  <!-- <split height='10rpx' />
+  <view class="main manager">
+    <flex align='center' justify='justify'>
+      <view class="dealer">发起人：{{item.Name}}</view>
+      <view class="contact">联系方式：
+        <tel label='{{item.Tel}}' />
+      </view>
+    </flex>
+    <view v-if="item.Record.Content" class="content">{{item.Record.Content}}</view>
+    <img-group value='{{replyImgs}}' readOnly /> 
+    <view class="time">发起时间：{{item.AddTime}}</view>
+  </view> -->
+  <block wx:if='{{detail.Record.DealTime}}'>
+    <split height='10rpx' />
+    <view class='main'>
+      <container>
+        <flex align='center' justify='justify'>
+          <view class='dealer'>受理人：{{detail.Record.AdminName}}</view>
+          <view class='contact'>联系方式：
+            <tel phoneNumber='{{detail.Record.AdminTel}}' />
+          </view>
+        </flex>
+        <view class='deal-time'>受理时间：{{detail.Record.DealTime}}</view>
+        <split height='1rpx' />
+        <view class='reply'>{{detail.Record.Content}}</view>
+      </container>
+      <img-group value='{{detail.Record.imgs}}' readOnly />
+    </view>
+  </block>
+</view>
+<view wx:if='{{detail.State != 2}}' class='btns'>
+  <button wx:if='{{detail.State == 0}}' class='btn blue round' bindtap='accept'>受理</button>
+  <block wx:if='{{detail.State == 1}}'>
+    <button class='btn blue round' bindtap='goSend'>指派</button>
+    <button class='btn blue round' bindtap='goDeal'>处理</button>
+  </block>
+</view>
