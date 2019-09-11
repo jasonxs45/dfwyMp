@@ -1,5 +1,5 @@
 import MComponent from '../../common/MComponent'
-import { _userlist as _list } from '../../api/advise'
+import { _managerList as _list } from '../../api/advise'
 const app = getApp()
 MComponent({
   data: {
@@ -55,8 +55,6 @@ MComponent({
         pageIndexes: [1, 1, 1],
         lists: [[], [], []],
         totalCount: [0, 0, 0]
-      }).then(() => {
-        this.initQuery()
       })
     },
     initQuery() {
@@ -128,8 +126,39 @@ MComponent({
         this.loadMore(currentIndex)
       }
     },
-    onLoad() {
+    onLoad(opt) {
+      this.set({
+        role: opt.role
+      })
       this.init()
+    },
+    onShow () {
+      app.checkAuth()
+        .then(res => {
+          const uid = res
+          return app.getUserInfoByUid(uid)
+        })
+        .then(memberInfo => {
+          if (memberInfo.Type === '未绑定') {
+            wx.showModal({
+              title: '温馨提示',
+              content: '还未绑定房源',
+              showCancel: false,
+              success: r => {
+                if (r.confirm) {
+                  wx.redirectTo({
+                    url: '/pages/regist/enter'
+                  })
+                }
+              }
+            })
+          } else {
+            this.initQuery()
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 })

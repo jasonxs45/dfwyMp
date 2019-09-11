@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "指派",
-  "usingComponents": {}
+  "usingComponents": {
+    "container": "/components/container/index",
+    "x-picker": "/components/x-picker/index"
+  }
 }

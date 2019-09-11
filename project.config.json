@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -139,7 +139,7 @@
 					"id": 12,
 					"name": "投诉-地产物业列表",
 					"pathName": "pages/advise-manager/list",
-					"query": "",
+					"query": "role=物业",
 					"scene": null
 				},
 				{

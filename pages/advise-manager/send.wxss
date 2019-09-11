@@ -1,1 +1,27 @@
-/* pages/advise-manager/send.wxss */
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 380rpx;
+}
+.main{
+  background: #fff;
+  padding: 30rpx 0;
+}
+.field {
+  margin: 30rpx 0;
+  background: rgba(248, 248, 248, 1);
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(170, 170, 170, 1);
+}
+
+.field .input {
+  display: block;
+  width: 100%;
+}
+.btns{
+  height: 350rpx;
+  position: relative;
+  margin-top: -350rpx;  
+}
+.btn{
+  margin: 60rpx auto;
+}

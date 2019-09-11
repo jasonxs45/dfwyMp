@@ -17,18 +17,6 @@
     </container>
     <img-group value='{{detail.imgs}}' readOnly />
   </view>
-  <!-- <split height='10rpx' />
-  <view class="main manager">
-    <flex align='center' justify='justify'>
-      <view class="dealer">发起人：{{item.Name}}</view>
-      <view class="contact">联系方式：
-        <tel label='{{item.Tel}}' />
-      </view>
-    </flex>
-    <view v-if="item.Record.Content" class="content">{{item.Record.Content}}</view>
-    <img-group value='{{replyImgs}}' readOnly /> 
-    <view class="time">发起时间：{{item.AddTime}}</view>
-  </view> -->
   <block wx:if='{{detail.Record.DealTime}}'>
     <split height='10rpx' />
     <view class='main'>
@@ -48,9 +36,9 @@
   </block>
 </view>
 <view wx:if='{{detail.State != 2}}' class='btns'>
-  <button wx:if='{{detail.State == 0}}' class='btn blue round' bindtap='accept'>受理</button>
-  <block wx:if='{{detail.State == 1}}'>
-    <button class='btn blue round' bindtap='goSend'>指派</button>
+  <button wx:if='{{detail.State == 0 && role == "地产"}}' class='btn blue round' bindtap='accept'>受理</button>
+  <block wx:if='{{detail.State == 1 && detail.IsMyManage}}'>
+    <button wx:if='{{role=="地产"}}' class='btn blue round' bindtap='goSend'>指派</button>
     <button class='btn blue round' bindtap='goDeal'>处理</button>
   </block>
 </view>

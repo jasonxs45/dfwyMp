@@ -1,20 +1,37 @@
 <view class='sticky-wrapper'>
   <view class="main">
     <container>
+      <view class='title'>问题定性</view>
       <view class='field'>
-        <x-picker class='input' range="judgeArr" range-key='Name' placeholder="请选择问题定性" bindchange="getSubJudge" />
+        <x-picker class='input' range="{{superList}}" range-key='Name' placeholder="请选择问题定性" bindchange="getSubJudge" />
       </view>
+      <view wx:if="{{subList.length > 0}}" class='field'>
+        <x-picker
+          class='input'
+          range="{{subList}}"
+          range-key='Name'
+          placeholder="请选择问题定性"
+          bindchange='onChange'
+        />
+      </view>
+      <view class='title'>回复</view>
       <view class='field'>
-        <x-picker class='input' wx:if="judgeArr1.length > 0" range="judgeArr1" range-key='Name' placeholder="请选择问题定性" />
+        <textarea class='input textarea' placeholder="请填写回复内容" bindinput='onInput' />
       </view>
-      <view class='field'>
-        <textarea class='input textarea' placeholder="请填写回复内容" />
-      </view>
-      <uploader title='上传照片（最多四张）' />
+      <uploader
+        bindfail='uploadError'
+        bindsuccess='uploadSuccess'
+        binddelete='onDelete'
+        select='{{selectFile}}'
+        upload='{{uplaodFile}}'
+        files='{{files}}'
+        max-count='4'
+        title='上传照片（最多四张）'
+      />
     </container>
   </view>
 </view>
 <view class="btns">
-  <button class='btn blue round'>提交</button>
+  <button class='btn blue round' bindtap='submit'>提交</button>
   <button plain class='btn round' bindtap='back'>取消</button>
 </view>

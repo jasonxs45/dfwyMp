@@ -20,9 +20,16 @@
 .textarea{
   padding: 15rpx;
 }
+.title{
+  font-size: 30rpx;
+  font-weight: 500;
+}
 .btns{
   height: 350rpx;
   position: relative;
   margin-top: -350rpx;
   text-align: center;
+}
+.btn {
+  margin: 30rpx auto;
 }

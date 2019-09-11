@@ -1,7 +1,10 @@
 {
   "navigationBarTitleText": "处理",
+  "backgroundColorTop": "#ffffff",
+  "backgroundColorBottom": "#f2f2f2",
   "usingComponents": {
     "container": "/components/container/index",
-    "x-picker": "/components/x-picker/index"
+    "x-picker": "/components/x-picker/index",
+    "uploader": "/components/uploader/uploader"
   }
 }

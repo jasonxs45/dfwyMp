@@ -9,12 +9,12 @@ Page({
   },
   goDeal () {
     wx.navigateTo({
-      url: `./deal?id=${this.data.id}`
+      url: `./deal?id=${this.data.id}&role=${this.data.role}`
     })
   },
   goSend() {
     wx.navigateTo({
-      url: `./send?id=${this.data.id}`
+      url: `./send?id=${this.data.id}&role=${this.data.role}`
     })
   },
   getDetail() {
@@ -97,6 +97,10 @@ Page({
   onLoad(opt) {
     this.data.id = opt.id
     this.data.role = opt.role
+    this.set({
+      id: opt.id,
+      role: opt.role
+    })
   },
   onShow() {
     app.checkAuth()
