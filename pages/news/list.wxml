@@ -1,0 +1,19 @@
+<list-container length='{{list.length}}' loading='{{loading}}' finished='{{finished}}'>
+  <view class='wrapper'>
+    <navigator wx:for='{{list}}' wx:key='news-{{item.ID}}' url='./detail?id={{item.ID}}' class='news-item'>
+      <template is='{{index > 0 ? "line" : "card"}}' data='{{...item}}' />
+    </navigator>
+  </view>
+</list-container>
+<template name='line'>
+  <view class='flex line'>
+    <view class='title'>{{Title}}</view>
+    <image class='thumbnail' src='{{Thumbnail}}' />
+  </view>
+</template>
+<template name='card'>
+  <view class='card'>
+    <image class='thumbnail' mode='aspectFill' src='{{Thumbnail}}' />
+    <view class='title'>{{Title}}</view>
+  </view>
+</template>

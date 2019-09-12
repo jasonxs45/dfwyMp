@@ -56,25 +56,37 @@ MComponent({
         lists: [[], [], []],
         totalCount: [0, 0, 0]
       })
+      .then(() => {
+        this.initQuery()
+      })
     },
     initQuery() {
       const UnionID = wx.getStorageSync('uid')
-      const Type = ''
       const PageSize = 10
       const { currentIndex, tabs, pageIndexes } = this.data
-      const funcs = pageIndexes.map((item, index) => _list({ UnionID, Type, State: tabs[index].value, PageIndex: item, PageSize }))
+      const funcs = pageIndexes.map((item, index) => _list({ UnionID, State: tabs[index].value, PageIndex: item, PageSize }))
       this.set({
         [`loading[${currentIndex}]`]: true
       })
       Promise.all(funcs)
         .then(res => {
-          const totalCount = res.map(item => item.data.data.PageCount)
-          const lists = res.map(item => item.data.data.list)
           this.set({
-            [`loading[${currentIndex}]`]: false,
-            totalCount,
-            lists
+            [`loading[${currentIndex}]`]: false
           })
+          if (res[0].data.code == 0) {
+            const totalCount = res.map(item => item.data.data.PageCount)
+            const lists = res.map(item => item.data.data.list)
+            this.set({
+              totalCount,
+              lists
+            })
+          } else {
+            wx.showModal({
+              title: '对不起',
+              content: res[0].data.msg,
+              showCancel: false
+            })
+          }
         })
         .catch(err => {
           console.log(err)
@@ -92,12 +104,11 @@ MComponent({
       const { tabs, pageIndexes, lists } = this.data
       let PageIndex = pageIndexes[current] + 1
       const UnionID = wx.getStorageSync('uid')
-      const Type = ''
       const PageSize = 10
       this.set({
         [`loading[${current}]`]: true
       })
-      _list({ UnionID, Type, State: tabs[current].value, PageIndex, PageSize })
+      _list({ UnionID, State: tabs[current].value, PageIndex, PageSize })
         .then(res => {
           const data = res.data.data.list
           const list = lists[current].slice().concat(data)
@@ -130,35 +141,17 @@ MComponent({
       this.set({
         role: opt.role
       })
-      this.init()
-    },
-    onShow () {
       app.checkAuth()
         .then(res => {
-          const uid = res
-          return app.getUserInfoByUid(uid)
-        })
-        .then(memberInfo => {
-          if (memberInfo.Type === '未绑定') {
-            wx.showModal({
-              title: '温馨提示',
-              content: '还未绑定房源',
-              showCancel: false,
-              success: r => {
-                if (r.confirm) {
-                  wx.redirectTo({
-                    url: '/pages/regist/enter'
-                  })
-                }
-              }
-            })
-          } else {
-            this.initQuery()
-          }
+          this.init()
         })
         .catch(err => {
-          console.log(err)
+          const path =  encodeURIComponent(this.route)
+          wx.redirectTo({
+            url: `/pages/auth/index?redirect=${path}`
+          })
         })
-    }
+    },
+    onShow () {}
   }
 })

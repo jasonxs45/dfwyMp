@@ -21,12 +21,15 @@
     "pages/advise-manager/list",
     "pages/advise-manager/detail",
     "pages/advise-manager/deal",
-    "pages/advise-manager/send"
+    "pages/advise-manager/send",
+    "pages/myinfo/modify",
+    "pages/news/list",
+    "pages/news/detail"
   ],
   "style": "v2",
   "tabBar": {
     "color": "#888",
-    "selectedColor": "#1296db",
+    "selectedColor": "#004294",
     "list": [
       {
         "pagePath": "pages/index/index",

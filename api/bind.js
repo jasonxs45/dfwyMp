@@ -68,9 +68,10 @@ export const _pass = ({ MemberID, HouseID, Type }) => fetch({
   Type
 })
 // 获取单个房源的成员列表
-export const _memberlist = id => fetch({
+export const _memberlist = ({ HouseID, UnionID }) => fetch({
   action: 'GetPersonList',
-  HouseID: id
+  HouseID,
+  UnionID
 })
 // 获取单个房源的信息
 export const _houseinfo = id => fetch({

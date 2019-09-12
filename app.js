@@ -6,7 +6,7 @@ App({
     title: '我是分享标题'
   },
   globalData: {
-    userInfo: null
+    memberInfo: null
   },
   toast,
   loading,
@@ -70,20 +70,26 @@ App({
       })
     })
   },
-  getUserInfoByUid (uid) {
+  getUserInfoByUid (uid, force = false) {
+    const memberInfo = wx.getStorageSync('member')
     return new Promise((resolve, reject) => {
-      _getUserInfoByUid(uid)
-        .then(res => {
-          if (res.data.code === 0) {
-            this.globalData.userInfo = res.data.data
-            resolve(res.data.data)
-          } else {
-            reject(res.data)
-          }
-        })
-        .catch(err => {
-          reject(err)
-        })
+      if (force || !memberInfo) {
+        _getUserInfoByUid(uid)
+          .then(res => {
+            if (res.data.code === 0) {
+              this.globalData.memberInfo = res.data.data
+              wx.setStorageSync('member', res.data.data)
+              resolve(res.data.data)
+            } else {
+              reject(res.data)
+            }
+          })
+          .catch(err => {
+            reject(err)
+          })
+      } else {
+        resolve(memberInfo)
+      }
     })
   },
   onGetWXUserInfo (e) {

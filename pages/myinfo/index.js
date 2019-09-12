@@ -2,18 +2,32 @@ import Page from '../../common/Page'
 const app = getApp()
 Page({
   data: {
-    name: '',
-    idcard: '',
-    tel: '',
-    address: ''
+    memberInfo: null
   },
-  // 打开弹层
-  show(e) {
-    let { item: modifyItem } = e.currentTarget.dataset
-    this.set({
-      modifyShow: true,
-      modifyItem
-    })
-  },
-  onLoad() { }
+  onLoad() {
+    const memberInfo = app.globalData.memberInfo
+    if (app.globalData.memberInfo) {
+      this.set({
+        memberInfo
+      })
+    } else {
+      app.loading('加载中')
+      app.checkAuth()
+        .then(res => {
+          const uid = res
+          return app.getUserInfoByUid(uid)
+        })
+        .then(memberInfo => {
+          wx.hideLoading()
+          console.log(app.globalData.memberInfo)
+          this.set({
+            memberInfo
+          })
+        })
+        .catch(err => {
+          wx.hideLoading()
+          console.log(err)
+        })
+    }
+  }
 })

@@ -8,11 +8,12 @@ Page({
     members: []
   },
   initQuery () {
-    const { id } = this.data
+    const { id: HouseID } = this.data
+    const UnionID = wx.getStorageSync('uid')
     wx.showNavigationBarLoading()
     Promise.all([
-      _houseinfo(id),
-      _memberlist(id)
+      _houseinfo(HouseID),
+      _memberlist({ HouseID, UnionID })
     ])
       .then(res => {
         wx.hideNavigationBarLoading()

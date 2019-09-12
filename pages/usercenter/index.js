@@ -2,42 +2,52 @@ import Page from '../../common/Page'
 const app = getApp()
 const entries = [
   {
-    icon: './我的房源.png',
+    icon: './myhouse.png',
     label: '我的房源',
     path: '/pages/myhouse/index'
   },
   {
-    icon: './房屋租赁.png',
+    icon: './rent.png',
     label: '房屋租赁',
     path: '/pages/myhouse/index'
   },
   {
-    icon: './故障报修.png',
+    icon: './repair.png',
     label: '故障报修',
     path: '/pages/myhouse/index'
   },
   {
-    icon: './投诉建议.png',
-    label: '投诉建议',
+    icon: './advise.png',
+    label: '投诉建议（业主）',
     path: '/pages/advise-user/list'
   },
   {
-    icon: './新闻中心.png',
-    label: '新闻中心',
-    path: '/pages/myhouse/index'
+    icon: './advise.png',
+    label: '投诉建议（物业客服）',
+    path: '/pages/advise-user/list?role=物业'
   },
   {
-    icon: './社区通知.png',
+    icon: './advise.png',
+    label: '投诉建议（地产客服）',
+    path: '/pages/advise-user/list?role=地产'
+  },
+  {
+    icon: './news.png',
+    label: '新闻中心',
+    path: '/pages/news/list'
+  },
+  {
+    icon: './notice.png',
     label: '社区通知',
     path: '/pages/myhouse/index'
   },
   {
-    icon: './快递代收.png',
+    icon: './deliver.png',
     label: '快递代收',
     path: '/pages/myhouse/index'
   },
   {
-    icon: './物业缴费.png',
+    icon: './fee.png',
     label: '物业缴费',
     path: '/pages/myhouse/index'
   }
@@ -55,17 +65,20 @@ Page({
   onLoad (options) {
   },
   onShow () {
+    app.loading('加载中')
     app.checkAuth()
       .then(res => {
         const uid = res
         return app.getUserInfoByUid(uid)
       })
       .then(memberInfo => {
+        wx.hideLoading()
         this.set({
           memberInfo
         })
       })
       .catch(err => {
+        wx.hideLoading()
         console.log(err)
       })
   }

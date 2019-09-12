@@ -27,11 +27,14 @@ export const _userdetail = ({ UnionID, SuggestID }) => fetch({
   SuggestID
 })
 // 地产客服列表
-export const _managerList = ({ UnionID, Type, State, PageIndex, PageSize }) => fetch({
-  action: 'SuggestGetMyHistory',
+export const _managerList = ({ UnionID, State, Type = '', Building = '', Unit = '', Name = '', PageIndex, PageSize }) => fetch({
+  action: 'SuggestGetMyManage',
   UnionID,
-  Type,
   State,
+  Type,
+  Building,
+  Unit,
+  Name,
   PageIndex,
   PageSize
 })

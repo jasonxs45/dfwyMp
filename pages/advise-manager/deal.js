@@ -154,14 +154,14 @@ Page({
     })
     app.checkAuth()
       .then(res => {
-        const uid = res
-        return app.getUserInfoByUid(uid)
-      })
-      .then(memberInfo => {
         this.getJudge()
       })
       .catch(err => {
         console.log(err)
+        const path = encodeURIComponent(this.route)
+        wx.redirectTo({
+          url: `/pages/auth/index?redirect=${path}`
+        })
       })
   }
 })

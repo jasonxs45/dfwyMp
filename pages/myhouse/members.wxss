@@ -67,8 +67,8 @@ page{
   height:60rpx;
   border-radius:8rpx;
   border:2rpx solid rgba(170,170,170,1);
-  line-height: 60rpx;
-  font-size:24rpx;
+  line-height: 60rpx !important;
+  font-size:24rpx !important;
   font-weight:bold;
   color:rgba(153,153,153,1);
   text-align: center;

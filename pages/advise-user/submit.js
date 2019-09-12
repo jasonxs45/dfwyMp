@@ -140,12 +140,14 @@ Page({
       selectFile: this.selectFile.bind(this),
       uplaodFile: this.uplaodFile.bind(this)
     })
+    app.loading('加载中')
     app.checkAuth()
       .then(res => {
         const uid = res
         return app.getUserInfoByUid(uid)
       })
       .then(memberInfo => {
+        wx.hideLoading()
         if (memberInfo.Type === '未绑定') {
           wx.showModal({
             title: '温馨提示',
@@ -165,6 +167,19 @@ Page({
       })
       .catch(err => {
         console.log(err)
+        wx.hideLoading()
+        wx.showModal({
+          title: '温馨提示',
+          content: '还未绑定房源',
+          showCancel: false,
+          success: r => {
+            if (r.confirm) {
+              wx.redirectTo({
+                url: '/pages/regist/enter'
+              })
+            }
+          }
+        })
       })
   },
   onShow() { }

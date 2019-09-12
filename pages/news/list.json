@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "新闻中心",
+  "backgroundColorTop": "#fff",
+  "backgroundColorBottom": "#f2f2f2",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "list-container": "/components/list-container/index",
+    "x-icon": "/components/x-icon/index",
+    "flex": "/components/flex/index"
+  }
+}

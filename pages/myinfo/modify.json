@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "修改资料",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "x-input": "/components/x-input/index"
+  }
+}

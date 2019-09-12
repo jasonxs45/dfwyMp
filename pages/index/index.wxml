@@ -1,3 +1,32 @@
-<flex>
-  <x-input initValue='123'/>
-</flex>
+<view class='main'>
+  <swiper class='banner' autoplay previous-margin='15rpx' next-margin='15rpx'>
+    <swiper-item wx:for='{{news}}' wx:key='banner-{{index}}'>
+      <navigator url='/pages/news/detail?id={{item.ID}}' class='banner-item'>
+        <img mode='aspectFill' src='{{item.Thumbnail}}' class='banner-img' round />
+        <view class='banner-txt'>
+          <view class='title'>{{item.Title}}</view>
+        </view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+  <view class='entries'>
+    <container>
+      <row>
+        <navigator wx:for='{{entries}}' wx:key='item-{{index}}' url='{{item.PagePath}}' class='entry'>
+          <img mode='aspectFill' class='nav-img' src='{{item.IconPath}}' round />
+          <view class='nav-text'>{{item.Name}}</view>
+        </navigator>
+      </row>
+    </container>
+  </view>
+</view>
+<split height='10rpx' />
+<view class='main'>
+  <view class='flex title'>
+    <view class='text'>房屋租赁</view>
+    <navigator class='more'>查看更多
+      <x-icon type='arrow-right' />
+    </navigator>
+  </view>
+  <view class=''></view>
+</view>

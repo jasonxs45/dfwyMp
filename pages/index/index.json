@@ -1,6 +1,11 @@
 {
+  "navigationBarTitleText": "首页",
   "usingComponents": {
     "flex": "/components/flex/index",
-    "x-input": "/components/x-input/index"
+    "x-icon": "/components/x-icon/index",
+    "split": "/components/split/index",
+    "img": "/components/img/index",
+    "container": "/components/container/index",
+    "row": "/components/row/index"
   }
 }
