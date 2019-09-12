@@ -5,7 +5,7 @@ page{
   background: #fff;
 }
 .title{
-  padding: calc(20px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-right)) 20px calc(16px + env(safe-area-inset-left));
+  padding: 20px 15px;
   font-size: 22px;
   line-height: 1.4;
   background: #fff;
@@ -13,10 +13,10 @@ page{
 .date{
   font-size: 24rpx;
   color: #888;
-  padding: 0 calc(16px + env(safe-area-inset-right)) 0 calc(16px + env(safe-area-inset-left));
+  padding: 0 15px;
 }
 .read{
-  padding: 30rpx calc(16px + env(safe-area-inset-right)) 30rpx calc(16px + env(safe-area-inset-left));
+  padding: 20px 15px;
   text-align: right;
   font-size: 24rpx;
   color: #888;
