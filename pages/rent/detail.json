@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "img": "/components/img/index",
+    "split": "/components/split/index"
+  }
+}

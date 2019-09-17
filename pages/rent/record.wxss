@@ -1,0 +1,72 @@
+page{
+  background: #f2f2f2;
+}
+.card{
+  background: #fff;
+  margin: 15rpx 0;
+  padding: 30rpx;
+}
+.card:first-child{
+  margin-top: -15rpx;
+}
+.funcs,
+.search,
+.top,
+.user{
+  justify-content: space-between;
+  align-items: center;
+}
+.avatar{
+  width: 80rpx;
+  height: 80rpx;
+}
+.thumbnail{
+  display: inline-block;
+  width: 25%;
+}
+.thumbnail image{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0 auto;
+}
+.img-row{
+  font-size: 0;
+  margin: 30rpx -15rpx 0;
+}
+.name{
+  margin-left: 15rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+.date{
+  font-size: 24rpx;
+  color: #999;
+  font-weight: 300;
+}
+.price{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: rgba(30,87,158,1);
+}
+.title{
+  font-size: 36rpx;
+  font-weight: 500;
+  line-height: 40rpx;
+  margin: 30rpx 0;
+}
+.tags{
+  font-size: 0;
+  margin: 15rpx -10rpx 0;
+}
+.tag{
+  display: inline-block;
+  vertical-align: top;
+  background: rgba(30,87,158,.1);
+  color: rgba(30,87,158,1);
+  font-size: 22rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding:0 10rpx;
+  margin: 15rpx 10rpx 0;
+  border-radius: 4rpx;
+}

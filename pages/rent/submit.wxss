@@ -1,0 +1,71 @@
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 110rpx;
+}
+.container{
+  display: block;
+  background: #fff;
+  padding:30rpx !important;
+}
+.form-bar{
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+  padding: 5rpx 0;
+}
+.form-bar:first-child{
+  margin-top:0;
+}
+.form-bar:last-child{
+  border-bottom: none;
+}
+.title{
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(0,66,148,1);
+  line-height:40rpx;
+  margin: 30rpx 0;
+}
+.form-bar .title{
+  flex: 0 0 100rpx;
+  width: 100rpx;
+  margin: 0;
+}
+.field{
+  /* background:rgba(0,66,148,.1); */
+  flex: 1;
+}
+.select, .input{
+  border-radius:8rpx;
+  font-size:28rpx;
+  color:rgba(0,66,148,1);
+  line-height:34rpx;
+}
+.textarea{
+  width: 100%;
+  background:rgba(0,66,148,.1);
+  border-radius:8rpx;
+  font-size:28rpx;
+  color:rgba(0,66,148,1);
+  line-height:34rpx;
+  padding: 15rpx;
+}
+.cell-select-item{
+  
+}
+.cell-select-item .label{
+  border: 1px solid rgba(0, 66, 148, 1) !important;
+  border-radius: 25px !important;
+  color: rgba(0, 66, 148, 1) !important;
+}
+.cell-select-item .label.cell-select-active{
+  color: #fff !important;
+  background: linear-gradient(90deg, #3784c5, #1b4e94) !important;
+}
+.btn{
+  width: 610rpx;
+  margin: 60rpx auto;
+  font-size:28rpx;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}

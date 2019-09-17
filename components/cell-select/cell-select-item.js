@@ -52,6 +52,7 @@ MComponent({
       if (this.parent) {
         this.parent.accordionChange(currentName, !checked)
       } else {
+        const { multiple } = this.parent.data
         this.set({
           checked: !checked
         })
@@ -59,7 +60,6 @@ MComponent({
     }
   },
   ready() {
-    console.log(this.data.round)
     this.init()
   }
 })

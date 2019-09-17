@@ -10,10 +10,6 @@
     "pages/usercenter/index",
     "pages/myhouse/index",
     "pages/myhouse/members",
-    "pages/repairuser/enter",
-    "pages/repairuser/submit",
-    "pages/repairuser/list",
-    "pages/repairuser/detail",
     "pages/myinfo/index",
     "pages/advise-user/list",
     "pages/advise-user/submit",
@@ -24,7 +20,15 @@
     "pages/advise-manager/send",
     "pages/myinfo/modify",
     "pages/news/list",
-    "pages/news/detail"
+    "pages/news/detail",
+    "pages/repair-user/enter",
+    "pages/repair-user/submit",
+    "pages/repair-user/list",
+    "pages/repair-user/detail",
+    "pages/rent/list",
+    "pages/rent/submit",
+    "pages/rent/detail",
+    "pages/rent/record"
   ],
   "style": "v2",
   "tabBar": {

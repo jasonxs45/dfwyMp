@@ -9,7 +9,12 @@ const entries = [
   {
     icon: './rent.png',
     label: '房屋租赁',
-    path: '/pages/myhouse/index'
+    path: '/pages/rent/list'
+  },
+  {
+    icon: './rent.png',
+    label: '房屋租赁(我的记录)',
+    path: '/pages/rent/record'
   },
   {
     icon: './repair.png',

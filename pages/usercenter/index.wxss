@@ -80,6 +80,7 @@
   font-weight:500;
   color:rgba(51,51,51,1);
   line-height:40rpx;
+  flex: 1;
 }
 .no-data{
   margin-top: 150rpx;

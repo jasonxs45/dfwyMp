@@ -6,6 +6,15 @@ import { fetch, post } from './index'
 export const _getProjects = () => fetch({
   action: 'GetProjectList'
 })
+//  查询项目分期
+export const _getStates = ProjectID => fetch({
+  action: 'GetStageForProject',
+  ProjectID
+})
+// 查询户型
+export const _getHouseType = () => fetch({
+  action: 'GetBuildType'
+})
 // 查询房源
 export const _getHouses = ({ ProjectID, OwnName }) => fetch({
   action: 'GetHouseListForOwn',

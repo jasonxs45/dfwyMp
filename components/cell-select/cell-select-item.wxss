@@ -3,6 +3,7 @@
   width: 33.33%;
   padding: 15rpx;
   box-sizing: border-box;
+  vertical-align: top;
 }
 .cell-select-item{
   min-height: 80rpx;

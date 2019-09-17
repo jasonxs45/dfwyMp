@@ -9,10 +9,15 @@ MComponent({
     rangeKey: String,
     initValue: {
       type: Number,
+      optionalTypes: [Number, String],
       value: null,
       observer: 'updateLabelValue'
     },
-    placeholder: String
+    placeholder: String,
+    disabled: {
+      type: Boolean,
+      value: false
+    } 
   },
   data: {
     value: null,
@@ -20,12 +25,17 @@ MComponent({
   },
   methods: {
     updateLabelValue (val) {
-      if (val != null) {
+      if (val != null && val != '') {
         const { range, rangeKey } = this.data
         let labelValue = rangeKey ? range[val][rangeKey] : range[val]
         this.set({
           value: val,
           labelValue
+        })
+      } else {
+        this.set({
+          value: null,
+          labelValue: ''
         })
       }
     },

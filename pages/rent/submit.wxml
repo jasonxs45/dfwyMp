@@ -1,0 +1,58 @@
+<view class='sticky-wrapper'>
+  <container>
+    <view class='flex form-bar'>
+      <view class='title'>项目</view>
+      <x-picker disabled='{{!projects.length}}' class='field select' placeholder='请选择项目' range='{{projects}}' range-key='Name' initValue='{{projectIndex}}' data-attr='projectIndex' bindchange='onChange' />
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>分期</view>
+      <x-picker disabled='{{!states.length}}' class='field select' placeholder='请选择项目分期' range='{{states}}' range-key='Name' initValue='{{stateIndex}}' data-attr='stateIndex' bindchange='onChange' />
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>户型</view>
+      <x-picker disabled='{{!houseTypes.length}}' class='field select' placeholder='请选择户型' range='{{houseTypes}}' initValue='{{houseTypeIndex}}' data-attr='houseTypeIndex' bindchange='onChange' />
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>楼层</view>
+      <x-input class='field input' type='number' placeholder='请填写楼层' data-attr='floor' value='{{floor}}' bindinput='onInput' bindblur='onBlur' />
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>房号</view>
+      <x-input class='field input' type='number' placeholder='请填写房号' data-attr='room'  value='{{room}}' bindinput='onInput' bindblur='onBlur'/>
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>面积</view>
+      <x-input class='field input' type='digit' placeholder='请填写面积' data-attr='area' bindinput='onInput' bindblur='onBlur'/>
+      <view>㎡</view>
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>价格</view>
+      <x-input class='field input' type='digit' placeholder='请填写价格' data-attr='price' bindinput='onInput' bindblur='onBlur'/>
+      <view>元</view>
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>电话</view>
+      <x-input class='field input' type='number' placeholder='请填写手机号' data-attr='tel' value='{{tel}}' bindinput='onInput' bindblur='onBlur' />
+    </view>
+  </container>
+  <split height='10rpx' />
+  <container>
+    <view class='flex form-bar'>
+      <view class='title'>标题</view>
+      <x-input class='field input' maxlength='20' placeholder='8-20字以内，请勿在此填写个人联系方式' data-attr='title' bindinput='onInput' />
+    </view>
+    <view class='title'>描述</view>
+    <textarea class='field textarea' placeholder='请填写对您的房源描述' data-attr='mark' bindinput='onInput' />
+  </container>
+  <split height='10rpx' />
+  <container>
+    <view class='title'>上传照片</view>
+    <view class='imgs'>
+      <uploader bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='请上传照片' />
+    </view>
+  </container>
+  <view>
+    <button class='blue round btn' bindtap='submit'>提交</button>
+  </view>
+</view>
+<footer custom-class='footer' />

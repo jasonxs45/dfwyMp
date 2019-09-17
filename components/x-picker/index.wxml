@@ -3,8 +3,9 @@
   range='{{range}}'
   range-key="{{rangeKey}}"
   value='{{value}}'
+  disabled='{{disabled}}'
   bindchange='onChange'
-  class='x-picker custom-class'
+  class='x-picker {{disabled? "disable":""}} custom-class'
 >
   <flex align='center'>
     <view class='picker-content'>

@@ -1,0 +1,51 @@
+<view class='main'>
+  <view class='flex userinfo'>
+    <img class='avatar' mode='aspectFill' circle src='{{detail.HeadImgUrl}}' />
+    <view class='info'>
+      <view class='name'>{{detail.NickName}}</view>
+      <view class='tel'>{{detail.Contact}}</view>
+    </view>
+    <view class='date'>发布时间：{{detail.AddTime}}</view>
+  </view>
+  <view class='title'>{{detail.Title}}</view>
+  <view class='price'>{{detail.Price}}</view>
+</view>
+<split height='1rpx' />
+<view class='main'>
+  <view class='flex line-title'>
+    <split vertical height='28rpx' width='4px' color='rgba(30,87,158,1)' />
+    <view class='txt'>基本信息</view>
+  </view>
+  <view class='base-info'>
+    <view class='p'>分期：
+      <text>{{detail.StageName}}</text>
+    </view>
+    <view class='p'>楼层：
+      <text>{{detail.Floor}}</text>
+    </view>
+    <view class='p'>房型：
+      <text>{{detail.HouseType}}</text>
+    </view>
+    <view class='p'>面积：
+      <text>{{detail.Acreage}}</text>
+    </view>
+  </view>
+</view>
+<split height='1rpx' />
+<view class='main'>
+  <view class='flex line-title'>
+    <split vertical height='28rpx' width='4px' color='rgba(30,87,158,1)' />
+    <view class='txt'>房源描述</view>
+  </view>
+  <view class='desc'>{{detail.Desc}}</view>
+</view>
+<split height='1rpx' />
+<view wx:if='{{detail.imgs.length}}' class='main'>
+  <view class='flex line-title'>
+    <split vertical height='28rpx' width='4px' color='rgba(30,87,158,1)' />
+    <view class='txt'>详情图片</view>
+  </view>
+  <view>
+    <img wx:for='{{detail.imgs}}' wx:key='item' src='{{item}}' preview class='img' />
+  </view>
+</view>

@@ -40,13 +40,9 @@ button.blue{
   height:88rpx;
   line-height: 88rpx;
   background:rgba(30,87,158,1);
-  box-shadow:0px 20px 32px 0px rgba(30,87,158,0.4);
+  box-shadow:0px 20rpx 32rpx 0px rgba(30,87,158,0.4);
   color: #fff;
 }
 button.round{
   border-radius:40px;
-}
-button[type=primary][plain]{
-  color: #1fbf64;
-  border-color: #1fbf64;
 }

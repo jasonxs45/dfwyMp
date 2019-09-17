@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "房屋租赁",
+  "backgroundColorTop": "#fff",
+  "backgroundColorBottom": "#f2f2f2",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "list-container": "/components/list-container/index",
+    "x-input": "/components/x-input/index",
+    "transition": "/components/transition/index",
+    "x-icon": "/components/x-icon/index",
+    "img": "/components/img/index",
+    "cell-select-group": "/components/cell-select/cell-select-group",
+    "cell-select-item": "/components/cell-select/cell-select-item"
+  }
+}

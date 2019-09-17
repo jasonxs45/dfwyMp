@@ -37,7 +37,7 @@ MComponent({
           : (current || []).filter((activeName) => activeName !== name)
       }
       else {
-        name = checked ? name : ''
+        // name = checked ? name : ''
       }
       this.triggerEvent('change', { value: name })
     }

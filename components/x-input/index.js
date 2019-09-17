@@ -102,7 +102,7 @@ MComponent({
       // this.triggerEvent('input', e.detail.value)
     },
     blurHandler(e) {
-      this.triggerEvent('blur')
+      this.triggerEvent('blur', { value: e.detail.value })
     },
     focusHandler(e) {
       this.setData({

@@ -1,0 +1,22 @@
+<list-container length='{{list.length}}' finished='{{finished}}' loading='{{loading}}'>
+  <navigator wx:for='{{showList}}' wx:key='id-{{item.id}}' url='./detail?id={{item.id}}' class='card'>
+    <view class='flex top'>
+      <view class='flex user'>
+        <img class='avatar' circle mode='aspectFill' src='{{item.HeadImgUrl}}' />
+        <view class='name'>{{item.NickName}}</view>
+      </view>
+      <view class='date'>{{item.AddTime}}</view>
+    </view>
+    <view class='body'>
+      <view class='title'>{{item.Title}}</view>
+      <view class='price'>{{item.Price}}</view>
+      <view class='img-row'>
+        <img wx:for='{{item.imgs}}' wx:for-item='img' wx:key='{{img}}' src='{{img}}' class='thumbnail' mode='aspectFill' />
+      </view>
+      <view class='tags'>
+        <view class='tag'>{{item.Name}}</view>
+        <view class='tag'>{{item.HouseType}}</view>
+      </view>
+    </view>
+  </navigator>
+</list-container>

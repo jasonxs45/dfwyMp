@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -182,6 +182,55 @@
 					"name": "新闻详情",
 					"pathName": "pages/news/detail",
 					"query": "id=22",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-用户列表",
+					"pathName": "pages/repair-user/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-用户提交",
+					"pathName": "pages/repair-user/submit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-用户详情",
+					"pathName": "pages/repair-user/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "房屋租赁-提交",
+					"pathName": "pages/rent/submit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "房屋租赁-列表",
+					"pathName": "pages/rent/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "房屋租赁-详情",
+					"pathName": "pages/rent/detail",
+					"query": "id=52",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "房屋租赁-我的记录",
+					"pathName": "pages/rent/record",
+					"query": "",
 					"scene": null
 				}
 			]

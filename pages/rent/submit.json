@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "我要发布",
+  "backgroundColorTop": "#ffffff",
+  "backgroundColorBottom": "#f2f2f2",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "flex": "/components/flex/index",
+    "cell-select-group": "/components/cell-select/cell-select-group",
+    "cell-select-item": "/components/cell-select/cell-select-item",
+    "split": "/components/split/index",
+    "x-picker": "/components/x-picker/index",
+    "x-input": "/components/x-input/index",
+    "uploader": "/components/uploader/uploader",
+    "footer": "/components/footer/index"
+  }
+}

@@ -1,0 +1,69 @@
+<view class='head'>
+  <view class='funcs flex'>
+    <view class='search flex'>
+      <x-input class='input' placeholder='输入以查询' bindinput='onInput' />
+      <button class='search-btn' size='mini' bindtap='doSearch'>
+        <icon class='search-icon' type='search' size='40rpx' />
+      </button>
+    </view>
+    <view class='filter-btn {{stateIndex || houseTypeIndex ? "active":""}}' bindtap='showFilter'>
+      筛选
+      <x-icon type='filter' />
+    </view>
+  </view>
+</view>
+<scroll-view class='scroll-view' scroll-y='{{scroll}}' enable-back-to-top overflow-anchor bindscrolltolower='onReachLower'>
+  <list-container length='{{list.length}}' finished='{{finished}}' loading='{{loading}}'>
+    <navigator wx:for='{{showList}}' wx:key='id-{{item.id}}' url='./detail?id={{item.id}}' class='card'>
+      <view class='flex top'>
+        <view class='flex user'>
+          <img class='avatar' circle mode='aspectFill' src='{{item.HeadImgUrl}}' />
+          <view class='name'>{{item.NickName}}</view>
+        </view>
+        <view class='date'>{{item.AddTime}}</view>
+      </view>
+      <view class='body'>
+        <view class='title'>{{item.Title}}</view>
+        <view class='price'>{{item.Price}}</view>
+        <view class='img-row'>
+          <img wx:for='{{item.imgs}}' wx:for-item='img' wx:key='{{img}}' src='{{img}}' class='thumbnail' mode='aspectFill' />
+        </view>
+        <view class='tags'>
+          <view class='tag'>{{item.Name}}</view>
+          <view class='tag'>{{item.HouseType}}</view>
+        </view>
+      </view>
+    </navigator>
+  </list-container>
+</scroll-view>
+<view class='navs'>
+  <navigator class='nav yellow' url='/pages/rent/record'>
+    发布记录
+  </navigator>
+  <navigator class='nav blue' url='/pages/rent/submit'>
+    我要发布
+  </navigator>
+</view>
+<transition show='{{filterShow}}' custom-class='bg' bindtap='hideFilter' />
+<transition show='{{filterShow}}' custom-class='filter-wrapper' name='slide-right'>
+  <scroll-view scroll-y class='filter-scroll-view'>
+    <view class='flex choose-tit'>
+      <view class='tit'>项目分期</view>
+      <view class='res'>{{choosedState}}</view>
+    </view>
+    <cell-select-group data-attr='stateIndex' current='{{stateIndex}}' bindchange='onChange'>
+      <cell-select-item custom-class='state-cell-select-item' cell-select-active-class='cell-active' class='state-item' wx:for='{{states}}' wx:key='{{item.Name}}' label='{{item.Name}}' />
+    </cell-select-group>
+    <view class='flex choose-tit'>
+      <view class='tit'>户型</view>
+      <view class='res'>{{choosedHouseType}}</view>
+    </view>
+    <cell-select-group data-attr='houseTypeIndex' current='{{houseTypeIndex}}' bindchange='onChange'>
+      <cell-select-item custom-class='state-cell-select-item' cell-select-active-class='cell-active' wx:for='{{houseTypes}}' wx:key='{{item.Name}}' label='{{item}}' />
+    </cell-select-group>
+  </scroll-view>
+  <view class='flex filter-bottom'>
+    <button class='btn round' bindtap='reset'>重置</button>
+    <button class='btn blue round' type='primary' bindtap='doFilter'>确定</button>
+  </view>
+</transition>

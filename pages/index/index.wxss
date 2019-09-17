@@ -23,8 +23,9 @@ page{
   bottom: 0;
   width: 100%;
   min-height: 30rpx;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0.6));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0.5));
   left: 0;
+  border-radius: 0 0 8rpx 8rpx;
 }
 
 .banner-txt .title {
@@ -75,4 +76,33 @@ page{
 .title .more{
   font-size:24rpx;
   color:rgba(164,167,165,1);
+}
+.cell{
+  padding: 15rpx 30rpx;
+}
+.thumbnail{
+  width: 320rpx;
+  height: 180rpx;
+}
+.p{
+  font-size: 24rpx;
+  color:rgba(153,153,153,1);
+  margin-top: 5rpx;
+}
+.cell .title{
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  line-height:40rpx;
+  margin: 0;
+  padding:0;
+  height: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.info{
+  flex:1;
+  padding-left: 15rpx;
+  flex-direction: column;
+  justify-content: space-between;
 }
