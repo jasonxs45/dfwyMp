@@ -100,6 +100,15 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.cell .title .mark{
+  color: rgba(255, 255, 255, 1);
+  background: rgba(30,87,158,1);
+  font-size: 80%;
+  display: inline-block;
+  padding:5rpx 10rpx;
+  margin-right: 5rpx;
+  border-radius: 4rpx;
+}
 .info{
   flex:1;
   padding-left: 15rpx;

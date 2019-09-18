@@ -3,6 +3,7 @@ import { _getProjects, _getStates, _getHouseType } from '../../api/bind'
 import { _uploadFile } from '../../api/uploadfile'
 import { _submit } from '../../api/rent'
 import { TEL_REG } from '../../utils/reg'
+import { formatNumber } from '../../utils/util'
 const app = getApp()
 Page({
   data: {
@@ -19,7 +20,19 @@ Page({
     title: '',
     mark: '',
     tel: '',
-    files: []
+    files: [],
+    types: [
+      {
+        label: '租赁',
+        value: '出租'
+      },
+      {
+        label: '售卖',
+        value: '出售'
+      }
+    ],
+    type: '',
+    unit: '元/月'
   },
   getProjects() {
     wx.showNavigationBarLoading()
@@ -48,7 +61,7 @@ Page({
         })
       })
   },
-  getHouseTypes () {
+  getHouseTypes() {
     wx.showNavigationBarLoading()
     _getHouseType()
       .then(res => {
@@ -122,6 +135,11 @@ Page({
               this.getHouseTypes()
             })
         }
+        if (attr === 'type') {
+          this.set({
+            unit: this.data.type == 1 ? '元' : '元/月'
+          })
+        }
       })
   },
   onInput(e) {
@@ -129,7 +147,7 @@ Page({
     const { value } = e.detail
     this.data[attr] = value
   },
-  onBlur (e) {
+  onBlur(e) {
     const { attr } = e.currentTarget.dataset
     let { value } = e.detail
     if (value === '') {
@@ -137,7 +155,7 @@ Page({
     }
     if (isNaN(Number(value))) {
       let str = ''
-      switch(attr) {
+      switch (attr) {
         case 'floor':
           str = '楼层'
           break
@@ -156,10 +174,13 @@ Page({
     } else {
       switch (attr) {
         case 'floor':
-          value = ''+Math.trunc(value)
+          value = '' + Math.trunc(value)
           break
         case 'room':
-          value = ''+Math.trunc(value)
+          value = '' + Math.trunc(value)
+          break
+        case 'price':
+          value = formatNumber(value, 2)
           break
       }
     }
@@ -203,13 +224,15 @@ Page({
     this.data.files = files
   },
   submit() {
-    const {
+    let {
       projects,
       projectIndex,
       states,
       stateIndex,
       houseTypes,
       houseTypeIndex,
+      types,
+      type,
       floor: Floor,
       room: HouseID,
       area: Acreage,
@@ -217,7 +240,8 @@ Page({
       tel: Phone,
       title: Title,
       mark: Desc,
-      files
+      files,
+      unit
     } = this.data
     if (projectIndex == '') {
       app.toast('请选择项目')
@@ -243,8 +267,12 @@ Page({
       app.toast('请填写面积')
       return
     }
+    if (type == '') {
+      app.toast('请选择租售类型')
+      return
+    }
     if (!Price.trim()) {
-      app.toast('请填写价格')
+      app.toast(`请填写${type == 0 ? '价格':'总价'}`)
       return
     }
     if (!TEL_REG.test(Phone)) {
@@ -261,11 +289,13 @@ Page({
     }
     const UnionID = wx.getStorageSync('uid')
     const StageID = states[stateIndex].ID,
-          HouseType = houseTypes[houseTypeIndex],
-          ImgList = files.map(item => item.url).join(',')
-    console.log(UnionID, StageID, Title, Desc, ImgList, Phone, HouseID, Acreage, Price, Floor, HouseType)
+      HouseType = houseTypes[houseTypeIndex],
+      Mode = types[type].value,
+      ImgList = files.map(item => item.url).join(',')
+    Price = Price + unit
+    console.log(UnionID, StageID, Title, Desc, ImgList, Phone, HouseID, Acreage, Mode, Price, Floor, HouseType)
     app.loading('提交中')
-    _submit({ UnionID, StageID, Title, Desc, ImgList, Phone, HouseID, Acreage, Price, Floor, HouseType })
+    _submit({ UnionID, StageID, Title, Desc, ImgList, Phone, HouseID, Acreage, Mode, Price, Floor, HouseType })
       .then(res => {
         wx.hideLoading()
         const { code, msg } = res.data

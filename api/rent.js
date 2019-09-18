@@ -3,10 +3,11 @@ import { fetch, post } from './index'
  *           房屋租赁
  ================================*/
 //  获取租房信息列表
-export const _list = ({ HouseType = '', StageID = '', KeyWord = '', PageIndex, PageSize }) => fetch({
+export const _list = ({ HouseType = '', StageID = '', Mode = '', KeyWord = '', PageIndex, PageSize }) => fetch({
   action: 'GetSocialList',
   HouseType,
   StageID,
+  Mode,
   KeyWord,
   PageIndex,
   PageSize
@@ -17,7 +18,7 @@ export const _detail = id => fetch({
   ID: id
 })
 // 提交租房记录
-export const _submit = ({ UnionID, StageID, Title, Desc, ImgList, Phone, Acreage, Price, Floor, HouseType, HouseID }) => post({
+export const _submit = ({ UnionID, StageID, Title, Desc, ImgList, Phone, Acreage, Mode, Price, Floor, HouseType, HouseID }) => post({
   action: 'AddSocial',
   UnionID,
   StageID,
@@ -26,6 +27,7 @@ export const _submit = ({ UnionID, StageID, Title, Desc, ImgList, Phone, Acreage
   ImgList,
   Phone,
   Acreage,
+  Mode,
   Price,
   Floor,
   HouseType,

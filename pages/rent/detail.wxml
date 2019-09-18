@@ -7,7 +7,7 @@
     </view>
     <view class='date'>发布时间：{{detail.AddTime}}</view>
   </view>
-  <view class='title'>{{detail.Title}}</view>
+  <view class='title'><text class='mark'>{{detail.Mode}}</text>{{detail.Title}}</view>
   <view class='price'>{{detail.Price}}</view>
 </view>
 <split height='1rpx' />
@@ -27,7 +27,7 @@
       <text>{{detail.HouseType}}</text>
     </view>
     <view class='p'>面积：
-      <text>{{detail.Acreage}}</text>
+      <text>{{detail.Acreage}}㎡</text>
     </view>
   </view>
 </view>
@@ -49,3 +49,6 @@
     <img wx:for='{{detail.imgs}}' wx:key='item' src='{{item}}' preview class='img' />
   </view>
 </view>
+<tel custom class='tel-btn' phoneNumber='{{detail.StageTel}}'>
+  <button class='blue btn round'>联系物业租赁服务</button>
+</tel>

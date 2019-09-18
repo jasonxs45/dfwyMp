@@ -31,7 +31,7 @@
   <navigator wx:for='{{rents}}' wx:key='rent-{{index}}' url='/pages/rent/detail?id={{item.id}}' class='flex cell'>
     <img mode='aspectFill' src='{{item.imgs[0]}}' class='thumbnail' />
     <view class='info flex'>
-      <view class='title'>{{item.Title}}</view>
+      <view class='title'><text class='mark'>{{item.Mode}}</text>{{item.Title}}</view>
       <view>
         <view class='p'>户型：{{item.HouseType}}</view>
         <view class='p'>价格：{{item.Price}}</view>

@@ -69,3 +69,25 @@
   color:rgba(255,255,255,1);
   line-height:40rpx;
 }
+.radio-group{
+  display: block;
+  flex: 1;
+}
+.radio{
+  display: inline-block;
+  height: 88rpx;
+  line-height: 88rpx;
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.radio .wx-radio-input{
+  
+}
+.radio[checked]{
+  color: rgba(0, 66, 148, 1);
+}
+.radio .wx-radio-input.wx-radio-input-checked{
+  background: rgba(0, 66, 148, 1);
+  border-color: rgba(0, 66, 148, 1);
+}

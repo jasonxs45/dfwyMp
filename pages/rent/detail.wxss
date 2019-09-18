@@ -1,68 +1,106 @@
-.main{
+page{
+  padding-bottom: 60rpx;
+}
+.main {
   background: #fff;
   padding: 30rpx;
 }
-.userinfo{
+
+.userinfo {
   align-items: center;
   justify-content: space-between;
 }
-.userinfo .info{
+
+.userinfo .info {
   flex: 1;
   margin-left: 15rpx;
 }
-.avatar{
+
+.avatar {
   width: 100rpx;
   height: 100rpx;
 }
-.name{
+
+.name {
   color: #333;
   font-size: 32rpx;
 }
-.tel{
+
+.tel {
   font-size: 24rpx;
   font-weight: 200;
   margin-top: 10rpx;
 }
-.date{
+
+.date {
   font-size: 24rpx;
   color: #999;
   font-weight: 300;
 }
-.title{
+
+.title {
   font-size: 36rpx;
   font-weight: 500;
   line-height: 40rpx;
   margin: 30rpx 0;
 }
-.price{
+.title .mark{
+  color: rgba(255, 255, 255, 1);
+  background: rgba(30,87,158,1);
+  font-size: 80%;
+  display: inline-block;
+  padding:5rpx 10rpx;
+  margin-right: 5rpx;
+  border-radius: 4rpx;
+  vertical-align: top;
+}
+.price {
   font-size: 32rpx;
   font-weight: bold;
-  color: rgba(30,87,158,1);
+  color: rgba(30, 87, 158, 1);
 }
-.line-title{
-  color: rgba(30,87,158,1);
+
+.line-title {
+  color: rgba(30, 87, 158, 1);
 }
-.line-title .txt{
+
+.line-title .txt {
   font-size: 28rpx;
   margin-left: 15rpx;
 }
-.p{
+
+.p {
   color: #999;
   line-height: 1.6;
   font-size: 28rpx;
 }
-.p text{
+
+.p text {
   color: #333;
 }
-.desc{
+
+.desc {
   font-size: 28rpx;
   line-height: 1.6;
   margin-top: 30rpx;
 }
-.base-info{
+
+.base-info {
   margin-top: 30rpx;
 }
-.img{
+
+.img {
   margin: 30rpx 0;
   width: 100% !important;
+}
+
+.tel-btn {
+  display: block;
+  padding: 30rpx 0 60rpx;
+  text-align: center;
+  margin: 30rpx auto 60rpx;
+}
+
+.tel-btn .btn {
+  font-size: 28rpx;
 }

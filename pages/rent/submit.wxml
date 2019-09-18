@@ -26,9 +26,15 @@
       <view>㎡</view>
     </view>
     <view class='flex form-bar'>
-      <view class='title'>价格</view>
-      <x-input class='field input' type='digit' placeholder='请填写价格' data-attr='price' bindinput='onInput' bindblur='onBlur'/>
-      <view>元</view>
+      <view class='title'>租售</view>
+      <radio-group class='radio-group' data-attr='type' bindchange='onChange'>
+        <radio wx:for='{{types}}' wx:key='{{item}}' value='{{index}}' class='radio'>{{item.label}}</radio>
+      </radio-group>
+    </view>
+    <view class='flex form-bar'>
+      <view class='title'>{{type == 0 ? '价格' : '总价'}}</view>
+      <x-input class='field input' type='digit' placeholder='请填写{{type == 0 ? "价格" : "总价"}}' data-attr='price' value='{{price}}' bindinput='onInput' bindblur='onBlur'/>
+      <view>{{unit}}</view>
     </view>
     <view class='flex form-bar'>
       <view class='title'>电话</view>
