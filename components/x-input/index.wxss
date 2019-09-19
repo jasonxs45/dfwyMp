@@ -31,7 +31,7 @@
   height: 100%;
   font-size: inherit;
   flex: 1;
-  margin: 0 15rpx;
+  margin: 0 30rpx;
 }
 .icon .clear.input-index-clear{
   display: block !important;

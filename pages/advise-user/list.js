@@ -70,12 +70,14 @@ MComponent({
       })
       Promise.all(funcs)
         .then(res => {
-          console.log(res)
           const totalCount = res.map(item => {
             let count = item.data.data ? item.data.data.PageCount : 0
             return count
           })
-          const lists = res.map(item => item.data.data.list)
+          const lists = res.map(item => {
+            let list = item.data.data ? item.data.data.list : []
+            return list
+          })
           this.set({
             [`loading[${currentIndex}]`]: false,
             totalCount,

@@ -7,7 +7,10 @@
     </view>
     <view class='date'>发布时间：{{detail.AddTime}}</view>
   </view>
-  <view class='title'><text class='mark'>{{detail.Mode}}</text>{{detail.Title}}</view>
+  <view class='title'>
+    <text class='mark'>{{detail.Mode}}</text>
+    <text>{{detail.Title}}</text>
+  </view>
   <view class='price'>{{detail.Price}}</view>
 </view>
 <split height='1rpx' />

@@ -1,0 +1,43 @@
+page{
+  padding-bottom: 90rpx;
+}
+.main{
+  padding: 30rpx;
+  background: #fff;
+}
+.title{
+  font-size:26rpx;
+  font-weight:bold;
+  color:rgba(30,87,158,1);
+  line-height:36rpx;
+}
+.rate-cell{
+  margin: 30rpx 0;
+  font-size: 24rpx;
+  align-items: center;
+  justify-content: space-between;
+  color: #333;
+}
+.rate-cell .h,
+.rate-cell .b,
+.rate-cell .f{
+  flex: 1;
+}
+.rate-cell .b {
+  color: rgba(30,87,158,1);
+}
+.rate-cell .f{
+  text-align: right;
+}
+.textarea{
+  width: 100%;
+  padding: 15rpx;
+  background: rgba(30,87,158,.1);
+  border-radius: 4rpx;
+  color: rgba(30,87,158,1);
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+.btn{
+  margin-top: 160rpx;
+}

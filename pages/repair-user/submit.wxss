@@ -2,16 +2,19 @@
   min-height: 100vh;
   padding-bottom: 110rpx;
 }
-.container{
+.main{
   display: block;
   background: #fff;
-  padding:30rpx !important;
+  padding:30rpx 0 !important;
 }
 .title{
   font-size:28rpx;
   font-weight:bold;
   color:rgba(0,66,148,1);
   line-height:40rpx;
+}
+.select-group{
+  margin-top: 30rpx;
 }
 .field{
   background:rgba(0,66,148,.1);
@@ -20,35 +23,13 @@
 }
 .select{
   border-radius: 40px;
-  font-size:24rpx;
+  font-size:28rpx;
   color:rgba(0,66,148,1);
   line-height:34rpx; 
 }
-.top-cell-select-group{
-  text-align: center;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.top-cell-select-group cell-select-item {
-  padding:0;
-  width: 140rpx;
-}
-.top-cell-select-group .row{
-  margin: 0;
-}
-.top-cell-select-group cell-select-item .top-cell-select-item{
-  min-height: 60rpx;
-  line-height: 60rpx;
-  font-size: 28rpx;
-}
-.top-cell-select-group cell-select-item:first-child .top-cell-select-item{
-  border-radius: 8rpx 0 0 8rpx;
-}
-.top-cell-select-group cell-select-item:last-child .top-cell-select-item{
-  border-radius: 0 8rpx 8rpx 0;
-}
-.cell-select-item{
-  
+.small-fs{
+  font-size: 24rpx !important;
+  line-height: 70rpx !important;
 }
 .cell-select-item .label{
   border: 1px solid rgba(0, 66, 148, 1) !important;
@@ -57,6 +38,10 @@
 .cell-select-item .label.cell-select-active{
   color: #fff !important;
   background: linear-gradient(90deg, #3784c5, #1b4e94) !important;
+}
+.selected-tag{
+  font-size: 24rpx;
+  color: rgba(0, 66, 148, 1);
 }
 .textarea{
   border-radius: 8rpx;

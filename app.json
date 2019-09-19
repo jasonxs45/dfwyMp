@@ -28,7 +28,8 @@
     "pages/rent/list",
     "pages/rent/submit",
     "pages/rent/detail",
-    "pages/rent/record"
+    "pages/rent/record",
+    "pages/repair-user/evaluate"
   ],
   "style": "v2",
   "tabBar": {

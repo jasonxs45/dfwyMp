@@ -37,22 +37,25 @@ page{
   color: #999;
   font-weight: 300;
 }
-
 .title {
   font-size: 36rpx;
   font-weight: 500;
-  line-height: 40rpx;
   margin: 30rpx 0;
+}
+.title text{
+  vertical-align: top;
+  line-height: 40rpx;
 }
 .title .mark{
   color: rgba(255, 255, 255, 1);
   background: rgba(30,87,158,1);
   font-size: 80%;
   display: inline-block;
-  padding:5rpx 10rpx;
+  padding:0 10rpx;
   margin-right: 5rpx;
   border-radius: 4rpx;
-  vertical-align: top;
+  height: 40rpx;
+  line-height: 40rpx;
 }
 .price {
   font-size: 32rpx;

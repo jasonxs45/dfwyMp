@@ -23,7 +23,10 @@
         <view class='date'>{{item.AddTime}}</view>
       </view>
       <view class='body'>
-        <view class='title'><text class='mark'>{{item.Mode}}</text>{{item.Title}}</view>
+        <view class='title'>
+          <text class='mark'>{{item.Mode}}</text>
+          <text>{{item.Title}}</text>
+        </view>
         <view class='price'>{{item.Price}}</view>
         <view class='img-row'>
           <img wx:for='{{item.imgs}}' wx:for-item='img' wx:key='{{img}}' src='{{img}}' class='thumbnail' mode='aspectFill' />
@@ -51,16 +54,20 @@
       <view class='tit'>项目分期</view>
       <view class='res'>{{choosedState}}</view>
     </view>
-    <cell-select-group data-attr='stateIndex' current='{{stateIndex}}' bindchange='onChange'>
-      <cell-select-item custom-class='state-cell-select-item' cell-select-active-class='cell-active' class='state-item' wx:for='{{states}}' wx:key='{{item.Name}}' label='{{item.Name}}' />
-    </cell-select-group>
+    <container>
+      <cell-select-group data-attr='stateIndex' current='{{stateIndex}}' bindchange='onChange'>
+        <cell-select-item custom-class='state-cell-select-item' cell-select-active-class='cell-active' class='state-item' wx:for='{{states}}' wx:key='{{item.Name}}' label='{{item.Name}}' />
+      </cell-select-group>
+    </container>
     <view class='flex choose-tit'>
       <view class='tit'>户型</view>
       <view class='res'>{{choosedHouseType}}</view>
     </view>
-    <cell-select-group data-attr='houseTypeIndex' current='{{houseTypeIndex}}' bindchange='onChange'>
-      <cell-select-item custom-class='state-cell-select-item' cell-select-active-class='cell-active' wx:for='{{houseTypes}}' wx:key='{{item.Name}}' label='{{item}}' />
-    </cell-select-group>
+    <container>
+      <cell-select-group data-attr='houseTypeIndex' current='{{houseTypeIndex}}' bindchange='onChange'>
+        <cell-select-item custom-class='state-cell-select-item' cell-select-active-class='cell-active' wx:for='{{houseTypes}}' wx:key='{{item.Name}}' label='{{item}}' />
+      </cell-select-group>
+    </container>
   </scroll-view>
   <view class='flex filter-bottom'>
     <button class='btn round' bindtap='reset'>重置</button>

@@ -1,29 +1,58 @@
 <view class='sticky-wrapper'>
-  <cell-select-group custom-class='top-cell-select-group' current='{{typeIndex}}' data-attr='typeIndex' bindchange='onChange'>
-    <cell-select-item round='{{false}}' custom-class='top-cell-select-item' wx:for='{{types}}' wx:key='type-{{index}}' label='{{item}}' />
-  </cell-select-group>
-  <container>
-    <view class='title'>选择房源</view>
-    <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName' data-attr='houseIndex' bindchange='onChange' />
-  </container>
-  <split height='10rpx' />
-  <container>
-    <view class='title'>选择类别</view>
-    <cell-select-group current='{{tagIndex}}' data-attr='tagIndex' bindchange='onChange'>
-      <cell-select-item wx:for='{{tags}}' wx:key='tag-{{index}}' label='{{item}}' />
+  <container class='main'>
+    <view class='title'>选择报修区域</view>
+    <cell-select-group class='select-group' current='{{typeIndex}}' data-attr='typeIndex' bindchange='onChange'>
+      <cell-select-item wx:for='{{types}}' wx:key='type-{{index}}' label='{{item.label}}' />
     </cell-select-group>
   </container>
+  <view hidden='{{typeid != 2 }}'>
+    <split height='10rpx' />
+    <container class='main'>
+      <view class='title'>选择房源</view>
+      <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName' data-attr='houseIndex' bindchange='onChange' />
+    </container>
+  </view>
+  <view hidden='{{parts.length <=0 }}'>
+    <split height='10rpx' />
+    <container class='main'>
+      <flex align='center' justify='justify'>
+        <view class='title'>选择区域</view>
+        <view class='selected-tag'>{{selectedPart}}</view>
+      </flex>
+      <cell-select-group class='select-group' current='{{partIndex}}' data-attr='partIndex' bindchange='onChange'>
+        <cell-select-item custom-class='small-fs' wx:for='{{parts}}' wx:key='part-{{index}}' label='{{item.Name}}' />
+      </cell-select-group>
+    </container>
+  </view>
+  <view hidden='{{problems.length <=0 }}'>
+    <split height='10rpx' />
+    <container class='main'>
+      <flex align='center' justify='justify'>
+        <view class='title'>选择部位</view>
+        <view class='selected-tag'>{{selectedProblem}}</view>
+      </flex>
+      <cell-select-group class='select-group' current='{{problemIndex}}' data-attr='problemIndex' bindchange='onChange'>
+        <cell-select-item custom-class='small-fs' wx:for='{{problems}}' wx:key='problem-{{index}}' label='{{item.Name}}' />
+      </cell-select-group>
+    </container>
+  </view>
   <split height='10rpx' />
-  <container>
+  <container class='main'>
     <view class='title'>填写详情</view>
-    <textarea class='field textarea' placeholder='请填写详情' bindinput='onInput' />
+    <textarea class='field textarea' data-attr='desc' placeholder='请填写详情' bindinput='onInput' />
   </container>
   <split height='10rpx' />
-  <container>
+  <container class='main'>
     <view class='title'>上传照片</view>
     <view class='imgs'>
       <uploader bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='请上传照片' />
     </view>
+  </container>
+  <split height='10rpx' />
+  <container class='main'>
+    <view class='title'>填写联系方式</view>
+    <x-input class='field select' data-attr='name' placeholder='请填写姓名' bindinput='onInput' />
+    <x-input class='field select' data-attr='tel' placeholder='请填写手机号码' bindinput='onInput' />
   </container>
   <view>
     <button class='blue round btn' bindtap='submit'>提交</button>

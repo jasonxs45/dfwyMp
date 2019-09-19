@@ -1,0 +1,24 @@
+<view class='main'>
+  <view class='title'>请对报修作出评价吧</view>
+  <view class=''>
+    <view wx:for='{{questions}}' wx:key='item-{{index}}' class='rate-cell flex'>
+      <view class='h'>{{item}}</view>
+      <view class='b'>
+        <rate data-index='{{index}}' bindchange='onChange' />
+      </view>
+      <view class='f'>{{decoration[scores[index]]}}</view>
+    </view>
+  </view>
+  <textarea class='textarea' placeholder='说点什么吧' bindinput='onInput'/>
+  <uploader
+    bindfail='uploadError'
+    bindsuccess='uploadSuccess'
+    binddelete='onDelete'
+    select='{{selectFile}}'
+    upload='{{uplaodFile}}'
+    files='{{files}}'
+    max-count='9'
+    title='上传照片'
+  />
+</view>
+<button class='btn blue round' bindtap='submit'>提交</button>

@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -199,10 +199,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 21,
 					"name": "报修-用户详情",
 					"pathName": "pages/repair-user/detail",
-					"query": "",
+					"query": "id=73",
 					"scene": null
 				},
 				{
@@ -231,6 +231,13 @@
 					"name": "房屋租赁-我的记录",
 					"pathName": "pages/rent/record",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-用户评价",
+					"pathName": "pages/repair-user/evaluate",
+					"query": "id=73",
 					"scene": null
 				}
 			]

@@ -3,7 +3,7 @@
   display: block;
 }
 .split{
-  background: #ddd;
+  background: #f2f2f2;
 }
 .vertical-split{
   width: 1rpx;

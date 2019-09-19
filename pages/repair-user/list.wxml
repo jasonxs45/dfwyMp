@@ -1,2 +1,24 @@
-<!--pages/repairuser/list.wxml-->
-<text>pages/repairuser/list.wxml</text>
+<tab-group line barStyle='background-color:rgba(0,66,148,1)' class="tabs" bindchange="onChange" current="{{currentIndex}}">
+  <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}" label='{{item.text}}' class="tab-item" />
+</tab-group>
+<swiper current='{{currentIndex}}' bindchange='onChange' class='main' duration='500'>
+  <swiper-item wx:for='{{showLists}}' wx:key='list-{{index}}'>
+    <scroll-view enable-back-to-top scroll-y class='scroll-view' bindscrolltolower='onReachLower'>
+      <list-container length='{{item.length}}' finished='{{finishes[index]}}' loading='{{loading[index]}}'>
+        <navigator wx:for='{{showLists[index]}}' wx:key='id-{{item.ID}}' url='./detail?id={{item.ID}}' class='card'>
+          <view class='flex top'>
+            <view class='tag'>{{item.StageName}}{{item.Build}}栋{{item.Unit}}单元{{item.HouseNo}}</view>
+            <view class='date'>{{item.AddTime}}</view>
+          </view>
+          <view class='body'>
+            <view class='part'>{{item.Part}}</view>
+            <view class='desc'>{{item.Content}}</view>
+          </view>
+        </navigator>
+      </list-container>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<navigator class='add' url='./submit'>
+  <x-icon type='plus' />
+</navigator>

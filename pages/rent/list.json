@@ -6,6 +6,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "list-container": "/components/list-container/index",
+    "container": "/components/container/index",
     "x-input": "/components/x-input/index",
     "transition": "/components/transition/index",
     "x-icon": "/components/x-icon/index",
