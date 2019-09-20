@@ -1,28 +1,14 @@
 import Page from '../../common/Page'
-import { _evaluate } from '../../api/repair'
+import { _enginnerrefuse } from '../../api/repair'
 import { _uploadFile } from '../../api/uploadfile'
-const questions = ['响应速度', '服务态度', '解决问题', '维修保护']
-const decoration = ['非常不满意', '不满意', '一般', '满意', '非常满意']
 const app = getApp()
 Page({
   data: {
-    questions,
-    scores: ['', '', '', ''],
-    decoration,
+    id: '',
     mark: '',
     files: []
   },
-  onChange (e) {
-    const { index } = e.currentTarget.dataset
-    let { value } = e.detail
-    value = parseInt(value) - 1
-    const { scores } = this.data
-    scores[index] = value
-    this.set({
-      scores
-    })
-  },
-  onInput (e) {
+  onInput(e) {
     this.data.mark = e.detail.value
   },
   selectFile(files) {
@@ -58,29 +44,19 @@ Page({
     const { index } = e.detail
     const files = this.data.files.slice()
     files.splice(index, 1)
-    console.log(files)
     this.data.files = files
   },
   submit () {
-    let { id: ID, scores, mark: EvaluateContent, files } = this.data
-    console.log(ID)
     const UnionID = wx.getStorageSync('uid')
-    const EvaluateImages = files.map(item => item.url).join(',')
-    scores = scores.map(item => {
-      item = item !== '' ? item + 1 : ''
-      return item
-    })
-    const [EvaluateScore1, EvaluateScore2, EvaluateScore3, EvaluateScore4] = scores
-    for (let i = 0, len = scores.length; i < len; i++) {
-      if (scores[i] === '') {
-        app.toast(`请对${questions[i]}打分`)
-        return
-      }
+    const { mark: RefuseReason, files, id: RepairID } = this.data
+    const Images = files.map(item => item.url).join(',')
+    if (!RefuseReason.trim()) {
+      app.toast('请填写拒单原因')
+      return
     }
-    const opt = { UnionID, ID, EvaluateScore1, EvaluateScore2, EvaluateScore3, EvaluateScore4, EvaluateContent, EvaluateImages }
-    console.log(opt)
+    console.log(UnionID, RefuseReason, Images, RepairID)
     app.loading('加载中')
-    _evaluate(opt)
+    _enginnerrefuse({ UnionID, RefuseReason, Images, RepairID })
       .then(res => {
         wx.hideLoading()
         const { code, msg } = res.data
@@ -89,8 +65,11 @@ Page({
           content: msg,
           showCancel: false,
           success: r => {
+            console.log(r.confirm, code)
             if (r.confirm && code == 0) {
-              wx.navigateBack()
+              wx.redirectTo({
+                url: './list'
+              })
             }
           }
         })
@@ -111,8 +90,6 @@ Page({
       selectFile: this.selectFile.bind(this),
       uplaodFile: this.uplaodFile.bind(this)
     })
-  },
-  onShow() {
     app.loading('加载中')
     app.checkAuth()
       .then(res => {
@@ -134,6 +111,7 @@ Page({
               }
             }
           })
+        } else {
         }
       })
       .catch(err => {
@@ -152,5 +130,6 @@ Page({
           }
         })
       })
-  }
+  },
+  onShow() { }
 })

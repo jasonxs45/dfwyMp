@@ -11,14 +11,37 @@
     <img-group value='{{detail.imgs}}' readOnly />
     <container>
       <flex class='date' justify='justify' align='center'>
+        <view class='dealer'>联系人：{{detail.Name}}</view>
+        <view class='contact'>联系方式：
+          <tel phoneNumber='{{detail.Tel}}' />
+        </view>
+      </flex>
+      <flex class='date' justify='justify' align='center'>
         <view>提交时间：</view>
         <view>{{detail.AddTime}}</view>
       </flex>
     </container>
   </view>
-  <block wx:if='{{detail.AdminName}}'>
+  <!-- 完成前整改的结果提交 -->
+  <block wx:if='{{detail.State === 1 && detail.AdminState === 0 }}'>
     <split height='10rpx' />
-    <view wx:for='{{detailList}}' wx:key='detail-{{index}}' class='main'>
+    <view class='main'>
+      <view class='sub-tit'>请提交整改内容</view>
+      <container>
+        <textarea class='textarea' placeholder='请添加维修整改情况说明' bindinput='onInput' />
+        <uploader bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='请上传整改后的照片' titleClass='sub-tit uptit' />
+      </container>
+    </view>
+  </block>
+  <!-- 整改后的结果展示 -->
+  <block wx:if='{{detail.State > 1 && detailList.length}}'>
+    <split height='10rpx' />
+    <view wx:for='{{detailList}}' wx:key='detail-{{index}}' class='main sub-order-item'>
+      <view wx:if="{{detail.State > 1}}" class='flex sub-order-tit'>
+        <view wx:if="{{detail.State === 2}}" class="status yellow">已处理</view>
+        <view wx:if="{{detail.State === 3}}" class="status blue">已完成</view>
+        <view wx:if="{{item.Status}}" class="status red">{{item.Status}}</view>
+      </view>
       <view wx:if='{{item.imgs.length > 0}}'>
         <view class='sub-tit'>整改后</view>
         <img-group value='{{item.imgs}}' readOnly />
@@ -40,7 +63,7 @@
       </container>
     </view>
   </block>
-  <view wx:if='{{logList.length < 0}}' class='main'>
+  <view wx:if='{{logList.length > 0}}' class='main'>
     <split height='10rpx' />
     <view class='steps'>
       <view wx:for='{{logList}}' wx:key='step-{{index}}' class='step-line flex'>
@@ -70,6 +93,7 @@
     </view>
   </block>
 </view>
-<view wx:if='{{ detail.State == 3 }}' class='btns'>
-  <button class='btn round blue' bindtap='goRate'>我要评价</button>
+<view wx:if='{{ detail.State === 1 }}' class='btns'>
+  <button class='btn round blue' bindtap='done'>完成维修</button>
+  <button wx:if='{{detail.AdminState === 0 }}' class='btn round' plain bindtap='refuse'>拒绝</button>
 </view>

@@ -29,7 +29,14 @@
     "pages/rent/submit",
     "pages/rent/detail",
     "pages/rent/record",
-    "pages/repair-user/evaluate"
+    "pages/repair-user/evaluate",
+    "pages/repair-engineer/list",
+    "pages/repair-engineer/detail",
+    "pages/repair-manager/list",
+    "pages/repair-manager/detail",
+    "pages/repair-engin-manager/list",
+    "pages/repair-engin-manager/detail",
+    "pages/repair-engineer/refuse"
   ],
   "style": "v2",
   "tabBar": {

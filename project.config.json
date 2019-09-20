@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -132,7 +132,7 @@
 					"id": 11,
 					"name": "投诉-用户详情",
 					"pathName": "pages/advise-user/detail",
-					"query": "id=471",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -186,27 +186,6 @@
 				},
 				{
 					"id": -1,
-					"name": "报修-用户列表",
-					"pathName": "pages/repair-user/list",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "报修-用户提交",
-					"pathName": "pages/repair-user/submit",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 21,
-					"name": "报修-用户详情",
-					"pathName": "pages/repair-user/detail",
-					"query": "id=73",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "房屋租赁-提交",
 					"pathName": "pages/rent/submit",
 					"query": "",
@@ -235,8 +214,78 @@
 				},
 				{
 					"id": -1,
+					"name": "报修-用户列表",
+					"pathName": "pages/repair-user/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-用户提交",
+					"pathName": "pages/repair-user/submit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "报修-用户详情",
+					"pathName": "pages/repair-user/detail",
+					"query": "id=741",
+					"scene": null
+				},
+				{
+					"id": -1,
 					"name": "报修-用户评价",
 					"pathName": "pages/repair-user/evaluate",
+					"query": "id=73",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-工程师列表",
+					"pathName": "pages/repair-engineer/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "报修-工程师详细",
+					"pathName": "pages/repair-engineer/detail",
+					"query": "id=741",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-工程师拒单",
+					"pathName": "pages/repair-engineer/refuse",
+					"query": "id=740",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-工程师管理员列表",
+					"pathName": "pages/repair-engin-manager/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-工程师管理员详细",
+					"pathName": "pages/repair-engin-manager/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报修-客服列表",
+					"pathName": "pages/repair-manager/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 32,
+					"name": "报修-客服详细",
+					"pathName": "pages/repair-manager/detail",
 					"query": "id=73",
 					"scene": null
 				}

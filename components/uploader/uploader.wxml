@@ -1,7 +1,7 @@
 <view class="weui-uploader {{extClass}}">
     <view class="weui-uploader__hd">
       <div class="weui-uploader__overview">
-          <view class="weui-uploader__title">{{title}}</view>
+          <view class="weui-uploader__title {{titleClass}}">{{title}}</view>
           <view class="weui-uploader__info" wx:if="{{maxCount > 1}}">{{currentFiles.length}}/{{maxCount}}</view>
 
       </div>

@@ -33,16 +33,38 @@ export const _userdetail = ID => fetch({
   ID
 })
 // 用户提交评价
-export const _evaluate = ({ UnionID,
-  ID, EvaluateScore1, EvaluateScore2, EvaluateScore3,
-  EvaluateScore4, EvaluateContent, EvaluateImages }) => post({
-    action: 'RepairEvaluate',
-    UnionID,
-    ID,
-    EvaluateScore1,
-    EvaluateScore2,
-    EvaluateScore3,
-    EvaluateScore4,
-    EvaluateContent,
-    EvaluateImages
-  })
+export const _evaluate = ({ UnionID, ID, EvaluateScore1, EvaluateScore2, EvaluateScore3, EvaluateScore4, EvaluateContent, EvaluateImages }) => post({
+  action: 'RepairEvaluate',
+  UnionID,
+  ID,
+  EvaluateScore1,
+  EvaluateScore2,
+  EvaluateScore3,
+  EvaluateScore4,
+  EvaluateContent,
+  EvaluateImages
+})
+// 工程师列表
+export const _engineerlist = ({ UnionID, State, PageIndex, PageSize }) => fetch({
+  action: 'GetBuilderRepairListForPage',
+  UnionID,
+  State,
+  PageIndex,
+  PageSize
+})
+// 工程师完成报修单
+export const _enginnerdone = ({ UnionID, Desc, Images, RepairID }) => fetch({
+  action: 'RepairDeal',
+  UnionID,
+  Desc,
+  Images,
+  RepairID
+})
+// 工程师拒单
+export const _enginnerrefuse = ({UnionID,RefuseReason,Images,RepairID}) => fetch({
+  action: 'RepairBuilderRefuse',
+  UnionID,
+  RefuseReason,
+  Images,
+  RepairID
+})

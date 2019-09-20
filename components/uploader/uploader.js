@@ -7,6 +7,7 @@ Component({
       type: String,
       value: '图片上传'
     },
+    titleClass: String,
     sizeType: {
       type: Array,
       value: ['original', 'compressed']

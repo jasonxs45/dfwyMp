@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "flex": "/components/flex/index",
+    "split": "/components/split/index",
+    "container": "/components/container/index",
+    "img-group": "/components/img-group/index",
+    "tel": "/components/tel/index",
+    "x-icon": "/components/x-icon/index",
+    "rate": "/components/rate/index",
+    "uploader": "/components/uploader/uploader"
+  }
+}
