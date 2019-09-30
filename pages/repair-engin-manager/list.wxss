@@ -1,1 +1,45 @@
-/* pages/repair-engin-manager/list.wxss */
+.card{
+  margin: 30rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #fff;
+}
+.card:first-child{
+  margin-top:0;
+}
+.top{
+  font-size:24rpx;
+  font-weight:400;
+  padding: 30rpx 30rpx 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.top .tag{
+  font-size:26rpx;
+  font-weight:bold;
+  color:rgba(30,87,158,1);
+  line-height:36rpx;
+}
+.top .date{
+  font-size:24rpx;
+  color:rgba(153,153,153,1);
+  line-height:34rpx;
+}
+.body{
+  padding: 30rpx;
+}
+.body .part{
+  font-size:24rpx;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  line-height:34rpx;
+  border-radius: 4rpx;
+  padding: 15rpx 30rpx;
+  background: linear-gradient(135deg,rgba(64,144,205,1) 0%,rgba(30,87,158,1) 100%);
+}
+.body .desc{
+  font-size:24rpx;
+  color:rgba(51,51,51,1);
+  line-height:34rpx;
+  margin: 20rpx 0;
+}

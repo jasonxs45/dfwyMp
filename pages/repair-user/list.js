@@ -108,7 +108,7 @@ MComponent({
       })
       _list({ UnionID, State: tabs[current].value, PageIndex, PageSize })
         .then(res => {
-          const data = res.data.data.list
+          const data = res.data.data.repairList
           const list = lists[current].slice().concat(data)
           this.set({
             [`loading[${current}]`]: false,

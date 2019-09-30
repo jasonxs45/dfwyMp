@@ -141,11 +141,14 @@ MComponent({
       this.set({
         role: opt.role
       })
+      app.loading('加载中')
       app.checkAuth()
         .then(res => {
+          wx.hideLoading()
           this.init()
         })
         .catch(err => {
+          wx.hideLoading()
           const path =  encodeURIComponent(this.route)
           wx.redirectTo({
             url: `/pages/auth/index?redirect=${path}`

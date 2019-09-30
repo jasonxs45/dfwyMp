@@ -1,0 +1,131 @@
+<fixed-footer-container>
+  <view slot='content'>
+    <view class='wrapper'>
+      <view class='main'>
+        <container>
+          <view class='cell'>
+            <view class='title'>寄件人信息</view>
+            <view class='person-info flex'>
+              <navigator class='text' url='./edit'>{{fromInfo||'填写寄件人信息'}}</navigator>
+              <navigator class='contract-icon' url='./contractor?role=sender'>
+                <x-icon size='40rpx' type='idcard' />
+              </navigator>
+            </view>
+          </view>
+          <split height='1rpx' />
+          <view class='cell'>
+            <view class='title'>收件人信息</view>
+            <view class='person-info flex'>
+              <navigator class='text' url='./edit'>{{toInfo||'填写收件人信息'}}</navigator>
+              <navigator class='contract-icon' url='./contractor?role=receiver'>
+                <x-icon size='40rpx' type='idcard' />
+              </navigator>
+            </view>
+          </view>
+        </container>
+      </view>
+      <split height='10rpx' />
+      <view class='main'>
+        <container>
+          <view class='cell'>
+            <view class='flex tit-res'>
+              <view class='title'>寄件方式</view>
+              <view class='res'>{{selectedWay.Title}}</view>
+            </view>
+            <view class='cell'>
+              <cell-select-group current='{{wayIndex}}' data-attr='way' bindchange='onChange'>
+                <cell-select-item wx:for='{{ways}}' wx:key='way-{{index}}' label='{{item.Name}}' />
+              </cell-select-group>
+            </view>
+          </view>
+          <split height='1rpx' />
+          <view class='cell'>
+            <view class='flex tit-res'>
+              <view class='title'>发件站点</view>
+              <view hidden='{{!selectedPosition}}' class='res'>
+                <address custom coordinate='{{selectedPosition.coordinate}}' name='{{selectedPosition.Name}}' address='{{selectedPosition.Title}}' >
+                  {{selectedPosition.Name}} {{selectedPosition.Title}}<x-icon type='position-fill' />
+                </address>
+              </view>
+            </view>
+            <view class='cell'>
+              <cell-select-group current='{{positionIndex}}' data-attr='position' bindchange='onChange'>
+                <cell-select-item wx:for='{{positions}}' wx:key='position-{{index}}' label='{{item.Name}}' />
+              </cell-select-group>
+            </view>
+          </view>
+          <split height='1rpx' />
+          <view class='cell'>
+            <view class='flex tit-res'>
+              <view class='title'>快递公司</view>
+              <view class='res'>{{selectedCompany.Title}}</view>
+            </view>
+            <view class='cell'>
+              <cell-select-group current='{{companyIndex}}' data-attr='company' bindchange='onChange'>
+                <cell-select-item wx:for='{{companys}}' wx:key='company-{{index}}' label='{{item.Name}}' />
+              </cell-select-group>
+            </view>
+          </view>
+        </container>
+      </view>
+      <split height='10rpx' />
+      <view class='main'>
+        <container>
+          <view class='title'>托寄物信息</view>
+          <view class='cell'>
+            <view class='form-line'>
+              <view class='flex tit-res'>
+                <view class='fh'>类型</view>
+                <view class='res'>{{selectedKind.Title}}</view>
+              </view>
+              <view class='fb'>
+                <cell-select-group current='{{kindIndex}}' data-attr='kind' bindchange='onChange'>
+                  <cell-select-item wx:for='{{kinds}}' wx:key='kind-{{index}}' label='{{item.Name}}' />
+                </cell-select-group>
+              </view>
+            </view>
+          </view>
+          <view class='cell'>
+            <view class='form-line'>
+              <view class='flex tit-res'>
+                <view class='fh'>重量(单位：KG，最大限重：{{maxWeight}}KG)</view>
+                <view hidden='{{!weight}}' class='res'>{{weight}}</view>
+              </view>
+              <view class='fb'>
+                <stepper max='{{maxWeight}}' data-attr='weight' editable bindchange='onChange' />
+              </view>
+            </view>
+          </view>
+          <view class='cell'>
+            <view class='form-line'>
+              <view class='flex tit-res'>
+                <view class='fh'>包装</view>
+                <view class='res'>{{selectedBox.Name}} {{selectedBox.Title}}</view>
+              </view>
+              <view class='fb'>
+                <cell-select-group current='{{boxIndex}}' data-attr='box' bindchange='onChange'>
+                  <cell-select-item wx:for='{{boxs}}' wx:key='box-{{index}}' label='{{item.Name}}' />
+                </cell-select-group>
+              </view>
+            </view>
+          </view>
+        </container>
+      </view>
+    </view>
+  </view>
+  <view slot='bottom'>
+    <view class='price-bar flex'>
+      <view class='result'>
+        <view class='price-area'>
+          <text>预估总价</text>
+          <text wx:if='{{shownPrice}}' class='price-num'>{{shownPrice}}</text>
+          <text wx:else class='lack-info'>请填写</text>
+        </view>
+        <view class='caution'>请阅读
+          <navigator class='nav'>《责任声明》</navigator>
+        </view>
+      </view>
+      <button disabled='{{disabled}}' class='btn pay'>下单</button>
+    </view>
+  </view>
+</fixed-footer-container>

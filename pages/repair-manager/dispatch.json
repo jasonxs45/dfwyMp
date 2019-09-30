@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分配处理人",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "x-picker": "/components/x-picker/index"
+  }
+}

@@ -1,0 +1,12 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <container>
+      <view class='title'>请填写{{title}}原因</view>
+      <textarea class='textarea' placeholder='请填写{{title}}原因' bindinput='onInput'/>
+    </container>
+  </view>
+</view>
+<view class='btns'>
+  <button class='btn blue round' bindtap='submit'>提交</button>
+  <button class='btn round' plain bindtap='back'>取消</button>
+</view>

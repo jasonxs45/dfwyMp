@@ -43,7 +43,7 @@ Page({
         // data.Record.imgs = data.Record.ImageList ? data.Record.ImageList.split(',') : []
         if (code == 0) {
           let { detailList, logList, repair: detail } = data
-          detail.imgs = detail.Images ? detail.Images.split(',') : [],
+          detail.imgs = detail.Images ? detail.Images.split(',') : []
           detail.status = this.formatStatus(detail.State)
           detail.statusColor = detail.State == 5
                                ? 'red'

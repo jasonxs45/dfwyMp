@@ -152,11 +152,14 @@ Page({
       selectFile: this.selectFile.bind(this),
       uplaodFile: this.uplaodFile.bind(this)
     })
+    app.loading('加载中')
     app.checkAuth()
       .then(res => {
+        wx.hideLoading()
         this.getJudge()
       })
       .catch(err => {
+        wx.hideLoading()
         console.log(err)
         const path = encodeURIComponent(this.route)
         wx.redirectTo({

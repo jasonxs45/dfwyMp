@@ -17,7 +17,6 @@ Page({
   },
   getList() {
     const UnionID = wx.getStorageSync('uid')
-    app.loading('加载中')
     _list(UnionID)
       .then(res => {
         wx.hideLoading()
@@ -81,11 +80,13 @@ Page({
   },
   onLoad(opt) {
     this.data.id = opt.id
+    app.loading('加载中')
     app.checkAuth()
       .then(res => {
         this.getList()
       })
       .catch(err => {
+        wx.hideLoading()
         console.log(err)
         const path = encodeURIComponent(this.route)
         wx.redirectTo({

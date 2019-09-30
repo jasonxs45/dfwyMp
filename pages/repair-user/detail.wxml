@@ -40,21 +40,23 @@
       </container>
     </view>
   </block>
-  <view wx:if='{{logList.length < 0}}' class='main'>
+  <block wx:if='{{logList.length}}'>
     <split height='10rpx' />
-    <view class='steps'>
-      <view wx:for='{{logList}}' wx:key='step-{{index}}' class='step-line flex'>
-        <view class='line'>
-          <view class='dot'></view>
-        </view>
-        <view class='context'>
-          <view class="time">{{item.AddTime}}</view>
-          <view class="status">{{item.Title}}</view>
-          <view class="info {{item.Remark?'':'opa'}}">{{item.Remark}}</view>
+    <view class='main'>
+      <view class='steps'>
+        <view wx:for='{{logList}}' wx:key='step-{{index}}' class='step-line flex'>
+          <view class='line'>
+            <view class='dot'></view>
+          </view>
+          <view class='context'>
+            <view class="time">{{item.AddTime}}</view>
+            <view class="status">{{item.Title}}</view>
+            <view class="info {{item.Remark?'':'opa'}}">{{item.Remark}}</view>
+          </view>
         </view>
       </view>
     </view>
-  </view>
+  </block>
   <block wx:if="{{detail.EvaluateTime}}">
     <split height='10rpx' />
     <view class="main">

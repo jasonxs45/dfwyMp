@@ -1,0 +1,71 @@
+.slideview-wrapper {
+  margin: 0 30rpx;
+}
+
+.slideview {
+  display: block;
+  width: auto;
+  border-radius: 4rpx;
+  background: #fff;
+  box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin: 30rpx 0;
+  padding-left: 30rpx;
+}
+
+.slideview:first-child {
+  margin-top: 0;
+}
+
+.item {
+  border-radius: 4rpx;
+}
+
+.item-wrapper {
+  align-items: stretch;
+}
+
+.body {
+  flex: 1;
+  padding:30rpx 30rpx 30rpx 0;
+}
+
+.slide-btn {
+  position: relative;
+  width: 69px !important;
+  font-size: 24rpx;
+  background: #fff;
+  color: rgba(30, 87, 158, 1);
+  border-left: 1rpx solid #ddd;
+  border-radius: 0;
+  text-align: center;
+}
+
+.slide-btn .weui-slideview__btn {
+  background: #fff !important;
+  color: #666 !important;
+  font-size: 24rpx !important;
+  height: 100% !important;
+  position: relative;
+}
+
+.slide-btn .weui-slideview__btn text,
+.slide-btn .btn-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.name, .tel {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.name text, .tel text {
+  font-weight: 500;
+  color: #333;
+}
+.tel{
+  margin-top: 15rpx;
+}

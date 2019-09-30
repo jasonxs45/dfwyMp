@@ -1,0 +1,14 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <container>
+      <view class='title'>选择处理人</view>
+      <x-picker placeholder='请选择处理人' disabled='{{list.length < 1}}' range='{{list}}' range-key='Name' class='picker' bindchange='onChange' />
+      <view class='title'>填写原因</view>
+      <textarea class='textarea' placeholder='请填写原因' bindinput='onInput'/>
+    </container>
+  </view>
+</view>
+<view class='btns'>
+  <button class='btn blue round' bindtap='submit'>提交</button>
+  <button class='btn round' plain bindtap='back'>取消</button>
+</view>

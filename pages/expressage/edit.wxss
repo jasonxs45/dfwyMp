@@ -1,0 +1,51 @@
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 230rpx;
+}
+.btns{
+  height: 230rpx;
+  position: relative;
+  margin-top: -230rpx;
+}
+.main{
+  background: #fff;
+}
+.cell{
+  border-bottom: 1rpx solid #ddd;
+  margin: 30rpx 0;
+}
+.cell:last-child{
+  border-bottom: none;
+}
+.base-info{
+}
+.tit{
+  font-size:26rpx;
+  font-weight:bold;
+  color:rgba(30,87,158,1);
+  line-height:36rpx;
+}
+.name{
+}
+.tel{
+}
+.textarea-wrapper{
+  width: 100%;
+  margin: 30rpx 0;
+  padding: 15rpx 0;
+}
+.input{
+  width: 100%;
+}
+.inner-input, .x-picker{
+  margin: 0 !important;
+}
+.x-picker{
+  padding:0 !important;
+}
+.textarea{
+  width: 100%;
+}
+.btn{
+  margin: 30rpx auto 60rpx;
+}

@@ -74,6 +74,9 @@
   flex: 1;
   padding-right: 30rpx;
 }
+.entry:last-child .content{
+  border-bottom: none;
+}
 .label{
   padding: 40rpx 30rpx 40rpx 0;
   font-size:28rpx;

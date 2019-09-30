@@ -1,66 +1,105 @@
-// pages/repair-engin-manager/detail.js
+import Page from '../../common/Page'
+import { _userdetail as _detail } from '../../api/repair'
+const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    id: '',
+    detail: null,
+    logList: null,
+    detail: null
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  formatStatus(val) {
+    let str = ''
+    switch (val) {
+      case 0:
+        str = '待处理'
+        break
+      case 1:
+        str = '处理中'
+        break
+      case 2:
+        str = '处理中'
+        break
+      case 3:
+        str = '已完成'
+        break
+      case 4:
+        str = '已完成'
+        break
+      case 5:
+        str = '已取消'
+        break
+      default:
+        break
+    }
+    return str
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  goOperate (e) {
+    const { tar } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `./operate?id=${this.data.id}&tar=${tar}`,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  getDetail() {
+    const { id } = this.data
+    wx.showNavigationBarLoading()
+    _detail(id)
+      .then(res => {
+        wx.hideNavigationBarLoading()
+        const { code, msg, data } = res.data
+        // data.Record.imgs = data.Record.ImageList ? data.Record.ImageList.split(',') : []
+        if (code == 0) {
+          let { detailList, logList, repair: detail } = data
+          detail.imgs = detail.Images ? detail.Images.split(',') : [],
+            detail.status = this.formatStatus(detail.State)
+          detail.statusColor = detail.State == 5
+            ? 'red'
+            : detail.State < 4
+              ? 'yellow'
+              : 'blue'
+          detailList = detailList.map(item => {
+            item.imgs = item.Images ? item.Images.split(',') : []
+            return item
+          })
+          this.set({
+            detailList,
+            logList,
+            detail
+          })
+        } else {
+          wx.showModal({
+            title: '对不起',
+            content: msg.toString(),
+            showCancel: false
+          })
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        wx.hideNavigationBarLoading()
+        wx.showModal({
+          title: '对不起',
+          content: err.toString(),
+          showCancel: false
+        })
+      })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onLoad(opt) {
+    this.data.id = opt.id
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onShow() {
+    app.loading('加载中')
+    app.checkAuth()
+      .then(res => {
+        wx.hideLoading()
+        this.getDetail()
+      })
+      .catch(err => {
+        wx.hideLoading()
+        const path = encodeURIComponent(this.route)
+        wx.redirectTo({
+          url: `/pages/auth/index?redirect=${path}`
+        })
+      })
   }
 })

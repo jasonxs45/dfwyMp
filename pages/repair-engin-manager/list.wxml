@@ -1,2 +1,12 @@
-<!--pages/repair-engin-manager/list.wxml-->
-<text>pages/repair-engin-manager/list.wxml</text>
+<list-container length='{{showList.length}}' finished='{{finished}}' loading='{{loading}}'>
+  <navigator wx:for='{{showList}}' wx:key='id-{{item.ID}}' url='./detail?id={{item.ID}}' class='card'>
+    <view class='flex top'>
+      <view class='tag'>{{item.StageName}}{{item.Build}}栋{{item.Unit}}单元{{item.HouseNo}}</view>
+      <view class='date'>{{item.AddTime}}</view>
+    </view>
+    <view class='body'>
+      <view wx:if='{{item.Part}}' class='part'>{{item.Part}}</view>
+      <view class='desc'>{{item.Content}}</view>
+    </view>
+  </navigator>
+</list-container>

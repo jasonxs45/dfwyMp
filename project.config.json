@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 39,
 			"list": [
 				{
 					"id": -1,
@@ -269,24 +269,66 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 31,
 					"name": "报修-工程师管理员详细",
 					"pathName": "pages/repair-engin-manager/detail",
-					"query": "",
+					"query": "id=477",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "报修-客服列表",
+					"name": "报修-工程师管理员操作",
+					"pathName": "pages/repair-engin-manager/operate",
+					"query": "id=477&tar=refuse",
+					"scene": null
+				},
+				{
+					"id": 32,
+					"name": "报修-物业客服列表",
 					"pathName": "pages/repair-manager/list",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 32,
-					"name": "报修-客服详细",
+					"id": 34,
+					"name": "报修-物业客服详细",
 					"pathName": "pages/repair-manager/detail",
-					"query": "id=73",
+					"query": "id=736",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "社区通知",
+					"pathName": "pages/message/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "快递-入口",
+					"pathName": "pages/expressage/enter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "快递-提交",
+					"pathName": "pages/expressage/submit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "快递-编辑联系人",
+					"pathName": "pages/expressage/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "快递-地址簿",
+					"pathName": "pages/expressage/contractor",
+					"query": "",
 					"scene": null
 				}
 			]

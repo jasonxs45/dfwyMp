@@ -1,0 +1,15 @@
+<list-container length='{{list.length}}' loading='{{loading}}' finished>
+  <view class='slideview-wrapper'>
+    <mp-slideview wx:for='{{list}}' wx:key='item-{{index}}' class='slideview' ext-class='item' buttons='{{slideButtons}}' bindbuttontap='slideButtonTap'>
+      <view class='flex item-wrapper'>
+        <view class='body'>
+          <view class='name'>姓名：<text>{{item.name}}</text></view>
+          <view class='tel'>电话：<text>{{item.Tel}}</text></view>
+        </view>
+        <navigator class='slide-btn btn' url='./edit?id='>
+          <text class='btn-txt'>编辑</text>
+        </navigator>
+      </view>
+    </mp-slideview>
+  </view>
+</list-container>

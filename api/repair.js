@@ -68,3 +68,78 @@ export const _enginnerrefuse = ({UnionID,RefuseReason,Images,RepairID}) => fetch
   Images,
   RepairID
 })
+// 工程师主管列表
+export const _enginemanagerlist = ({ UnionID, State, PageIndex, PageSize }) => fetch({
+  action: 'GetEngineerManagerRepairListForPage',
+  UnionID,
+  State,
+  PageIndex,
+  PageSize
+})
+const _enginemanageroperate = ({ action, UnionID, RepairID, ReturnMsg }) => post({
+  action,
+  UnionID,
+  RepairID,
+  ReturnMsg
+})
+// 工程师主管拒绝通过
+export const _engineermanagerrefuse = opt =>  _enginemanageroperate({
+  action: 'RepairManagerReturn',
+  ...opt
+})
+// 工程师主管拒绝申请重新分配
+export const _engineermanagerdispatch = opt => _enginemanageroperate({
+  action: 'RepairManagerReturnToEdit',
+  ...opt
+})
+// 工程师主管关单
+export const _engineermanagershut = opt => _enginemanageroperate({
+  action: 'RepairManagerCancel',
+  ...opt
+})
+
+// 物业客服列表
+export const _managerlist = ({ UnionID, State, PageIndex, PageSize }) => fetch({
+  action: 'GetManageRepairListForPage',
+  UnionID,
+  State,
+  PageIndex,
+  PageSize
+})
+// 物业客服拒绝
+const _manageroperate = ({ action, UnionID, RepairID, ReturnMsg }) => post({
+  action,
+  UnionID,
+  RepairID,
+  ReturnMsg
+})
+// 物业客服不受理
+export const _managernotaccept = opt => _enginemanageroperate({
+  action: 'RepairRefuse',
+  ...opt
+})
+// 物业客服拒绝通过
+export const _managernotpass = opt => _enginemanageroperate({
+  action: 'RepairDealRefuse',
+  ...opt
+})
+// 物业客服通过报修单
+export const _managerpass = ({ UnionID, RepairID }) => fetch({
+  action: 'RepairDealPass',
+  UnionID,
+  RepairID
+})
+// 物业客服获取技术员列表
+export const _engineers = ({ UnionID, ID }) => fetch({
+  action: 'RepairGetBuilder',
+  UnionID,
+  ID
+})
+// 物业客服分配
+export const _dispatch = ({ UnionID, RepairID, BuilderID, ReturnMsg }) => fetch({
+  action: 'RepairAllot',
+  UnionID,
+  RepairID,
+  BuilderID,
+  ReturnMsg
+})

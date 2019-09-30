@@ -36,7 +36,17 @@
     "pages/repair-manager/detail",
     "pages/repair-engin-manager/list",
     "pages/repair-engin-manager/detail",
-    "pages/repair-engineer/refuse"
+    "pages/repair-engineer/refuse",
+    "pages/repair-engin-manager/operate",
+    "pages/repair-manager/refuse",
+    "pages/repair-manager/dispatch",
+    "pages/message/list",
+    "pages/message/detail",
+    "pages/expressage/record",
+    "pages/expressage/enter",
+    "pages/expressage/submit",
+    "pages/expressage/contractor",
+    "pages/expressage/edit"
   ],
   "style": "v2",
   "tabBar": {

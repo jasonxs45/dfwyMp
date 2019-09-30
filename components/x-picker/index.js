@@ -20,27 +20,36 @@ MComponent({
     } 
   },
   data: {
-    value: null,
+    value: '',
     labelValue: ''
   },
   methods: {
     updateLabelValue (val) {
+      const { mode } = this.data
       if (val != null && val != '') {
         const { range, rangeKey } = this.data
-        let labelValue = rangeKey ? range[val][rangeKey] : range[val]
+        let value, labelValue
+        if (mode === 'region') {
+          labelValue = val.value.join('')
+          value = val
+        } else {
+          labelValue = rangeKey ? range[val][rangeKey] : range[val]
+          value = val
+        }
         this.set({
-          value: val,
+          value,
           labelValue
         })
       } else {
         this.set({
-          value: null,
+          value: '',
           labelValue: ''
         })
       }
     },
     onChange (e) {
-      let value = e.detail.value
+      const { mode } = this.data
+      let value = mode !== 'region' ? e.detail.value : e.detail
       let currentTarget = e.currentTarget
       this.updateLabelValue(value)
       this.triggerEvent('change', { value })

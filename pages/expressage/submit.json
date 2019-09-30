@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "提交",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "fixed-footer-container": "/components/fixed-footer-container/index",
+    "x-icon": "/components/x-icon/index",
+    "cell-select-group": "/components/cell-select/cell-select-group",
+    "cell-select-item": "/components/cell-select/cell-select-item",
+    "stepper": "/components/stepper/index",
+    "split": "/components/split/index",
+    "address": "/components/address/index"
+  }
+}

@@ -1,2 +1,77 @@
-<!--pages/repair-engin-manager/detail.wxml-->
-<text>pages/repair-engin-manager/detail.wxml</text>
+<view class='sticky-wrapper'>
+  <view class='top flex'>
+    <view class='tag'>{{detail.StageName}}{{detail.Build}}栋{{detail.Unit}}单元{{detail.HouseNo}}</view>
+    <view class='status {{detail.statusColor}}'>{{detail.status}}</view>
+  </view>
+  <view class='main'>
+    <container>
+      <view wx:if='{{detail.Part}}' class='part'>{{detail.Part}}</view>
+      <view class='desc'>{{detail.Content}}</view>
+    </container>
+    <img-group value='{{detail.imgs}}' readOnly />
+    <container>
+      <flex class='date' justify='justify' align='center'>
+        <view class='dealer'>联系人：{{detail.Name}}</view>
+        <view class='contact'>联系方式：
+          <tel phoneNumber='{{detail.Tel}}' />
+        </view>
+      </flex>
+      <flex class='date' justify='justify' align='center'>
+        <view>提交时间：</view>
+        <view>{{detail.AddTime}}</view>
+      </flex>
+    </container>
+  </view>
+  <!-- 整改后的结果展示 -->
+  <block wx:if='{{detail.State > 1 && detailList.length}}'>
+    <split height='10rpx' />
+    <view wx:for='{{detailList}}' wx:key='detail-{{index}}' class='main sub-order-item'>
+      <view wx:if="{{detail.State > 1}}" class='flex sub-order-tit'>
+        <view wx:if="{{detail.State === 2}}" class="status yellow">已处理</view>
+        <view wx:if="{{detail.State === 3}}" class="status blue">已完成</view>
+        <view wx:if="{{item.Status}}" class="status red">{{item.Status}}</view>
+      </view>
+      <view wx:if='{{item.imgs.length > 0}}'>
+        <view class='sub-tit'>整改后</view>
+        <img-group value='{{item.imgs}}' readOnly />
+      </view>
+      <container>
+        <view wx:if='{{item.Desc}}' class='reply'>{{item.Desc}}</view>
+        <flex align='center' justify='justify'>
+          <view class='dealer'>处理人：{{item.BuilderName}}</view>
+          <view class='contact'>联系方式：
+            <tel phoneNumber='{{item.BuilderTel}}' />
+          </view>
+        </flex>
+        <view wx:if="{{detail.State > 1}}">
+          <flex class="date" justify='justify' align='center'>
+            <view>处理时间：</view>
+            <view>{{item.AddTime}}</view>
+          </flex>
+        </view>
+      </container>
+    </view>
+  </block>
+  <block wx:if='{{logList.length}}'>
+    <split height='10rpx' />
+    <view class='main'>
+      <view class='steps'>
+        <view wx:for='{{logList}}' wx:key='step-{{index}}' class='step-line flex'>
+          <view class='line'>
+            <view class='dot'></view>
+          </view>
+          <view class='context'>
+            <view class="time">{{item.AddTime}}</view>
+            <view class="status">{{item.Title}}</view>
+            <view class="info {{item.Remark?'':'opa'}}">{{item.Remark}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='btns'>
+  <button data-tar='refuse' class='btn round blue' bindtap='goOperate'>驳回工程师</button>
+  <button data-tar='dispatch' class='btn round yellow' bindtap='goOperate'>驳回物业客服</button>
+  <button data-tar='shut' class='btn round' plain bindtap='goOperate'>关闭报修单</button>
+</view>

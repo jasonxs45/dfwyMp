@@ -1,0 +1,32 @@
+.sticky-wrapper{
+  min-height: 100vh;
+  padding-bottom: 300rpx;
+}
+.main{
+  background: #fff;
+  padding: 30rpx 0;
+}
+.title{
+  font-size:26rpx;
+  font-weight:bold;
+  color:rgba(30,87,158,1);
+  line-height:36rpx;
+}
+.textarea{
+  width: 100%;
+  padding: 15rpx;
+  background: rgba(30,87,158,.1);
+  border-radius: 8rpx;
+  color: rgba(30,87,158,1);
+  font-size: 24rpx;
+  margin: 30rpx 0;
+}
+.btns {
+  height: 300rpx;
+  position: relative;
+  margin-top: -300rpx;
+}
+.btn {
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+}

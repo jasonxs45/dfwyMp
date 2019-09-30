@@ -33,6 +33,7 @@ page{
 }
 .line .title{
   font-size: 34rpx;
+  font-weight: 500;
   color: #333;
   flex: 1;
   padding-right: 30rpx;

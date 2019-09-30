@@ -17,7 +17,12 @@ Page({
           wx.showModal({
             title: '对不起',
             content: msg,
-            showCancel: false
+            showCancel: false,
+            success: r => {
+              if (r.confirm) {
+                wx.navigateBack()
+              }
+            }
           })
         } else {
           this.set({

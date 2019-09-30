@@ -11,7 +11,7 @@
             <view class='date'>{{item.AddTime}}</view>
           </view>
           <view class='body'>
-            <view class='part'>{{item.Part}}</view>
+            <view wx:if='{{item.Part}}' class='part'>{{item.Part}}</view>
             <view class='desc'>{{item.Content}}</view>
           </view>
         </navigator>

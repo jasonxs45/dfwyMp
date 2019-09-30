@@ -1,0 +1,27 @@
+<view class='sticky-wrapper'>
+  <view class='main'>
+    <container>
+      <view class='cell name'>
+        <view class='tit'>姓名</view>
+        <x-input class='input' data-attr='name' bindinput='onInput' placeholder='请填写姓名' />
+      </view>
+      <view class='cell tel'>
+        <view class='tit'>手机号</view>
+        <x-input class='input' data-attr='tel' bindinput='onInput' placeholder='请填写手机号' />
+      </view>
+      <view class='cell address'>
+        <view class='tit'>城市/区域</view>
+        <x-picker class='input' data-attr='area' bindinput='onInput' placeholder='请选择城市' mode='region' bindchange='onChange' />
+      </view>
+      <view class='cell'>
+        <view class='tit'>详细地址</view>
+        <view class='textarea-wrapper'>
+          <textarea class='textarea' data-attr='area-detail' bindinput='onInput' auto-height placeholder='请填写详细地址' />
+        </view>
+      </view>
+    </container>
+  </view>
+</view>
+<view class='btns'>
+  <button class='btn blue round'>保存</button>
+</view>

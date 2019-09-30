@@ -25,17 +25,17 @@
     </view>
   </flex>
 </view>
-<view wx:if='{{memberInfo.HouseCount}}' class='entries'>
-  <navigator wx:for='{{entries}}' wx:key='item.label' url='{{item.path}}' class='entry'>
+<view class='entries'>
+  <navigator wx:for='{{entries}}' wx:key='item.label' wx:if='{{!item.needMember}}' url='{{item.path}}' class='entry'>
     <flex align='center'>
       <image class='icon' mode='aspectFit' src='{{item.icon}}' />
       <flex class='content' justify='justify' align='center'>
         <view class='label'>
           {{item.label}}
         </view>
-        <x-icon type='arrow-right' />
+        <x-icon color='#999' type='arrow-right' />
       </flex>
     </flex>
   </navigator>
 </view>
-<no-data class='no-data' wx:else text='绑定房源，享受业主权益' />
+<!-- <no-data class='no-data' wx:else text='绑定房源，享受业主权益' /> -->

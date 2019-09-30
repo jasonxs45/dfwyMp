@@ -5,7 +5,7 @@
       <cell-select-item wx:for='{{types}}' wx:key='type-{{index}}' label='{{item.label}}' />
     </cell-select-group>
   </container>
-  <view hidden='{{typeid != 2 }}'>
+  <view>
     <split height='10rpx' />
     <container class='main'>
       <view class='title'>选择房源</view>

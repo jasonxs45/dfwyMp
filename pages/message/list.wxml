@@ -1,0 +1,29 @@
+<list-container length='{{list.length}}' loading='{{loading}}' finished='{{finished}}'>
+  <view class='wrapper'>
+    <block wx:for='{{showList}}' wx:key='news-{{item.ID}}'>
+      <navigator wx:if='{{item.Url}}' url='{{item.Url}}' class='news-item'>
+        <view class='line'>
+          <view class='flex tit'>
+            <view class='title'>{{item.Title}}</view>
+            <view class='date'>{{item.addTime}}</view>
+          </view>
+          <view class='content'>
+            <view class='desc'>{{item.Msg}}</view>
+          </view>
+          <view class='guide'>查看详情<x-icon type='arrow-right' /></view>
+        </view>
+      </navigator>
+      <view wx:else class='news-item'>
+        <view class='line'>
+          <view class='flex tit'>
+            <view class='title'>{{item.Title}}</view>
+            <view class='date'>{{item.addTime}}</view>
+          </view>
+          <view class='content'>
+            <view class='desc'>{{item.Msg}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</list-container>

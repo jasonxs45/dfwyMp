@@ -89,7 +89,7 @@ Page({
               wx.hideLoading()
               wx.showModal({
                 title: '对不起',
-                content: err.ToString(),
+                content: err.toString(),
                 showCancel: false
               })
             })

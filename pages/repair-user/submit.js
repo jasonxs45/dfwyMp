@@ -33,7 +33,7 @@ MComponent({
     houseid() {
       return this.data.houses[this.data.houseIndex] ? this.data.houses[this.data.houseIndex].id : ''
     },
-    typeid () {
+    typeid() {
       return this.data.types[this.data.typeIndex].id
     },
     selectedPart() {
@@ -50,15 +50,15 @@ MComponent({
     }
   },
   methods: {
-    init () {
+    init() {
       const { typeid } = this.data
       const UnionID = wx.getStorageSync('uid')
-      if (typeid == 2) {
-        Promise.all([
-          _getMyHouse(UnionID),
-          _getPart(typeid)
-        ]).then(res => {
-            const [res1, res2] = res
+      Promise.all([
+        _getMyHouse(UnionID),
+        _getPart(typeid)
+      ])
+        .then(res => {
+          const [res1, res2] = res
           if (res1.data.code == 0) {
             this.set({
               houses: res1.data.data,
@@ -71,56 +71,29 @@ MComponent({
               showCancel: false
             })
           }
-            if (res2.data.code == 0) {
-              this.set({
-                parts: res2.data.data,
-                partIndex: '',
-                problems: [],
-                problemIndex: ''
-              })
-            } else {
-              wx.showModal({
-                title: '温馨提示',
-                content: res2.data.msg,
-                showCancel: false
-              })
-            }
-          })
-          .catch(err => {
-            console.log(err)
-            wx.showModal({
-              title: '对不起',
-              content: err.toString(),
-              showCancel: false
-            })
-          })
-      } else {
-        _getPart(typeid)
-          .then(res => {
-            const { code, data, msg } = res.data
+          if (res2.data.code == 0) {
             this.set({
-              parts: data,
+              parts: res2.data.data,
               partIndex: '',
               problems: [],
               problemIndex: ''
             })
-            if (code != 0) {
-              wx.showModal({
-                title: '温馨提示',
-                content: msg,
-                showCancel: false
-              })
-            }
-          })
-          .catch(err => {
-            console.log(err)
+          } else {
             wx.showModal({
-              title: '对不起',
-              content: err.toString(),
+              title: '温馨提示',
+              content: res2.data.msg,
               showCancel: false
             })
+          }
+        })
+        .catch(err => {
+          console.log(err)
+          wx.showModal({
+            title: '对不起',
+            content: err.toString(),
+            showCancel: false
           })
-      }
+        })
     },
     onChange(e) {
       const { attr } = e.currentTarget.dataset
@@ -131,7 +104,7 @@ MComponent({
         .then(() => {
           const { typeid } = this.data
           // 查询部位
-          if (attr === 'typeIndex') {  
+          if (attr === 'typeIndex') {
             this.init()
           }
           // 查询问题
@@ -142,7 +115,7 @@ MComponent({
         })
     },
     // 查询问题
-    getProblems (id) {
+    getProblems(id) {
       _getPart(id)
         .then(res => {
           const { code, data, msg } = res.data
@@ -225,17 +198,15 @@ MComponent({
       const UnionID = wx.getStorageSync('uid')
       const ToubleID = typeid == 1 ? selectedPartId : selectedProblemId
       const Part = typeid == 1
-                   ? selectedPart
-                   : selectedProblem
-                   ? `${selectedPart}-${selectedProblem}`
-                   : ''
+        ? selectedPart
+        : selectedProblem
+          ? `${selectedPart}-${selectedProblem}`
+          : ''
       const Image = files.map(item => item.url).join(',')
       console.log(UnionID, HouseID, ToubleID, Part, Content, Image, Name, Tel)
-      if (typeid == 2) {
-        if (HouseID == '') {
-          app.toast('请选择房源')
-          return
-        }
+      if (HouseID == '') {
+        app.toast('请选择房源')
+        return
       }
       if (typeid == 1) {
         if (ToubleID == '') {

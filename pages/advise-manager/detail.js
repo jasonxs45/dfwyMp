@@ -103,12 +103,14 @@ Page({
     })
   },
   onShow() {
+    app.loading('加载中')
     app.checkAuth()
       .then(res => {
+        wx.hideLoading()
         this.getDetail()
       })
       .catch(err => {
-        console.log(err)
+        wx.hideLoading()
         const path = encodeURIComponent(this.route)
         wx.redirectTo({
           url: `/pages/auth/index?redirect=${path}`
