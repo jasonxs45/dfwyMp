@@ -81,6 +81,9 @@ MComponent({
     if (min < 0) {
       throw new Error('min不能小于0')
     }
-    this.updateValue(value) 
+    if (max <= 0) {
+      this.data.max = Infinity
+    }
+    this.updateValue(value)
   }
 })

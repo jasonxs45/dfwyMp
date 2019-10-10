@@ -1,10 +1,13 @@
 import MComponent from '../../common/MComponent'
-import { _options } from '../../api/expressage'
+import { _options, _calculate } from '../../api/expressage'
+import { formatNumber } from '../../utils/util'
 const app = getApp()
 MComponent({
   data: {
+    sender: null,
+    receiver: null,
     ways: [],
-    wayIndex: '',
+    wayIndex: 0,
     positions: [],
     positionIndex: '',
     companys: [],
@@ -13,18 +16,14 @@ MComponent({
     boxIndex: '',
     kinds: [],
     kindIndex: '',
-    weight: 0,
-    maxWeight: 0,
+    weight: 1.5,
+    maxWeight: Infinity,
     disabled: false,
-    calcTimeout: null
+    calcTimeout: null,
+    calculating: false,
+    originPrice: 0
   },
   computed: {
-    fromInfo () {
-      return ''
-    },
-    toInfo () {
-      return ''
-    },
     selectedWay() {
       let res = ''
       if (this.data.wayIndex === '') {
@@ -75,7 +74,35 @@ MComponent({
       return res
     },
     shownPrice () {
-      return 1
+      let msg
+      if (!this.data.sender) {
+        msg = '请填写寄件人信息'
+      } else if (!this.data.receiver) {
+        msg = '请填写收件人信息'
+      } else if (this.data.companyIndex === ''){
+        msg = '请选择快递公司'
+      } else if (this.data.boxIndex === '') {
+        msg = '请选择包装规格'
+      } else if (this.data.calculating) {
+        msg = '计算中'
+      } else {
+        msg = '￥ ' + formatNumber(this.data.originPrice, 2)
+      }
+      return msg
+    }
+  },
+  observers: {
+    weight (val) {
+      this.calculate()
+    },
+    boxIndex (val) {
+      this.calculate()
+    },
+    companyIndex (val) {
+      this.calculate()
+    },
+    'receiver.CityCode' (val) {
+      this.calculate()
     }
   },
   methods: {
@@ -125,17 +152,108 @@ MComponent({
           [`${attr}Index`]: value
         })
       }
-      if(attr==='way') {
+    },
+    _doCalculate(opt) {
+      this.set({
+        calculating: true
+      })
+      _calculate(opt)
+        .then(res => {
+          const { code, msg, data: originPrice } = res.data
+          this.set({
+            calculating: false
+          })
+          if (code === 0) {
+            this.set({
+              originPrice
+            })
+          }
+        })
+        .catch(err => {
+          console.log(err)
+          this.set({
+            calculating: false
+          })
+        })
+    },
+    calculate () {
+      const {
+        companys,
+        companyIndex,
+        weight: Weight,
+        boxs,
+        boxIndex,
+        receiver
+      } = this.data
+      const ExpressType = companyIndex !== '' && companys[companyIndex] ? companys[companyIndex].Value : ''
+      const BoxType = boxIndex !== '' && boxs[boxIndex] ? boxs[boxIndex].Value : ''
+      const CityCode = receiver && receiver.CityCode
+      // ExpressType, Weight, CityCode, BoxType
+      console.log(ExpressType,BoxType,Weight, CityCode)
+      if (ExpressType && BoxType && Weight && CityCode) {
+        // 延迟操作，若有点击行为则取消掉延时请求
+        console.log('参数齐全，开始计算')
+        if (this.data.calcTimeout) {
+          clearTimeout(this.data.calcTimeout)
+        }
+        this.data.calcTimeout = setTimeout(() => {
+          clearTimeout(this.data.calcTimeout)
+          this._doCalculate({ ExpressType, BoxType, Weight, CityCode })
+        }, 500)
+      } else {
+        console.log('参数不齐，不计算')
+      }
+    },
+    submit () {
+      const {
+        sender,
+        receiver,
+        wayIndex,
+        positionIndex,
+        companyIndex,
+        kindIndex,
+        weight,
+        boxIndex
+      } = this.data
+      if (!sender) {
+        app.toast('请填写寄件人信息')
         return
       }
-      // 延迟操作，若有点击行为则取消掉延时请求
-      let timeout = this.data.calcTimeout
-      if (timeout) {
-        clearTimeout(timeout)
+      if (!receiver) {
+        app.toast('请填写寄件人信息')
+        return
       }
-      this.data.calcTimeout = setTimeout(() => {
-        console.log(123123)
-      }, 1000)
+      if (wayIndex === '') {
+        app.toast('请选择寄件方式')
+        return
+      }
+      if (companyIndex === '') {
+        app.toast('请选择快递公司')
+        return
+      }
+      if (positionIndex === '') {
+        app.toast('请选择发件站点')
+        return
+      }
+      if (kindIndex === '') {
+        app.toast('请选择托寄物类型')
+        return
+      }
+      if (!weight) {
+        app.toast('请填写重量')
+        return
+      }
+      if (boxIndex === '') {
+        app.toast('请选择包装规格')
+        return
+      }
+      wx.showModal({
+        title: '温馨提示',
+        content: '确定下单吗？',
+        success: r => {
+          
+        }
+      })
     },
     onLoad(options) {
       app.loading('加载中')
@@ -180,6 +298,13 @@ MComponent({
           })
         })
     },
-    onShow() {}
+    onShow() {
+      const sender = wx.getStorageSync('sender')
+      const receiver = wx.getStorageSync('receiver')
+      this.set({
+        sender,
+        receiver
+      })
+    }
   }
 })

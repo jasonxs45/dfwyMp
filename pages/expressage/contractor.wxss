@@ -10,7 +10,6 @@
   box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
   margin: 30rpx 0;
-  padding-left: 30rpx;
 }
 
 .slideview:first-child {
@@ -27,9 +26,8 @@
 
 .body {
   flex: 1;
-  padding:30rpx 30rpx 30rpx 0;
+  padding:15rpx;
 }
-
 .slide-btn {
   position: relative;
   width: 69px !important;
@@ -57,15 +55,26 @@
   transform: translate(-50%, -50%);
 }
 
-.name, .tel {
-  font-size: 28rpx;
+.name, .tel, .address {
+  font-size: 24rpx;
   color: #888;
 }
-
-.name text, .tel text {
-  font-weight: 500;
-  color: #333;
+.name .fh, .tel .fh, .address .fh{
+  width: 90rpx;
+  flex: 0 0 90rpx;
+  font-weight: 300;
+  line-height: 1.5;
 }
-.tel{
-  margin-top: 15rpx;
+.name text, .tel text, .address text  {
+  color: #666;
+  line-height: 1.5;
+}
+.nav-btn{
+  width: 300rpx;
+  margin: 100rpx auto;
+}
+.nav-btn .btn{
+  width: 100%;
+  margin: 0;
+  font-size: 28rpx;
 }

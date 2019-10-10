@@ -9,7 +9,7 @@ MComponent({
     rangeKey: String,
     initValue: {
       type: Number,
-      optionalTypes: [Number, String],
+      optionalTypes: [Number, String, Array],
       value: null,
       observer: 'updateLabelValue'
     },
@@ -30,7 +30,7 @@ MComponent({
         const { range, rangeKey } = this.data
         let value, labelValue
         if (mode === 'region') {
-          labelValue = val.value.join('')
+          labelValue = val.join('')
           value = val
         } else {
           labelValue = rangeKey ? range[val][rangeKey] : range[val]
@@ -51,7 +51,7 @@ MComponent({
       const { mode } = this.data
       let value = mode !== 'region' ? e.detail.value : e.detail
       let currentTarget = e.currentTarget
-      this.updateLabelValue(value)
+      this.updateLabelValue(value.value)
       this.triggerEvent('change', { value })
     }
   },

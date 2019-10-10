@@ -6,7 +6,16 @@
           <view class='cell'>
             <view class='title'>寄件人信息</view>
             <view class='person-info flex'>
-              <navigator class='text' url='./edit'>{{fromInfo||'填写寄件人信息'}}</navigator>
+              <navigator class='text' url='./edit?role=sender'>
+                <block wx:if='{{sender}}'>
+                  <view class='name-tel'>
+                    <text class='name'>{{sender.name}}</text>
+                    <text class='tel'>{{sender.Tel}}</text>
+                  </view>
+                  <view class='addr'>{{sender.ProvinceName + sender.CityName + sender.Area + sender.Address}}</view>
+                </block>
+                <view wx:else>填写寄件人信息</view>
+              </navigator>
               <navigator class='contract-icon' url='./contractor?role=sender'>
                 <x-icon size='40rpx' type='idcard' />
               </navigator>
@@ -16,7 +25,14 @@
           <view class='cell'>
             <view class='title'>收件人信息</view>
             <view class='person-info flex'>
-              <navigator class='text' url='./edit'>{{toInfo||'填写收件人信息'}}</navigator>
+              <navigator wx:if='{{receiver}}' class='text' url='./edit?role=receiver'>
+                <view class='name-tel'>
+                  <text class='name'>{{receiver.name}}</text>
+                  <text class='tel'>{{receiver.Tel}}</text>
+                </view>
+                <view class='addr'>{{receiver.ProvinceName + receiver.CityName + receiver.Area + receiver.Address}}</view>
+              </navigator>
+              <navigator wx:else class='text' url='./edit?role=receiver'>填写收件人信息</navigator>
               <navigator class='contract-icon' url='./contractor?role=receiver'>
                 <x-icon size='40rpx' type='idcard' />
               </navigator>
@@ -41,28 +57,29 @@
           <split height='1rpx' />
           <view class='cell'>
             <view class='flex tit-res'>
-              <view class='title'>发件站点</view>
-              <view hidden='{{!selectedPosition}}' class='res'>
-                <address custom coordinate='{{selectedPosition.coordinate}}' name='{{selectedPosition.Name}}' address='{{selectedPosition.Title}}' >
-                  {{selectedPosition.Name}} {{selectedPosition.Title}}<x-icon type='position-fill' />
-                </address>
-              </view>
-            </view>
-            <view class='cell'>
-              <cell-select-group current='{{positionIndex}}' data-attr='position' bindchange='onChange'>
-                <cell-select-item wx:for='{{positions}}' wx:key='position-{{index}}' label='{{item.Name}}' />
-              </cell-select-group>
-            </view>
-          </view>
-          <split height='1rpx' />
-          <view class='cell'>
-            <view class='flex tit-res'>
               <view class='title'>快递公司</view>
               <view class='res'>{{selectedCompany.Title}}</view>
             </view>
             <view class='cell'>
               <cell-select-group current='{{companyIndex}}' data-attr='company' bindchange='onChange'>
                 <cell-select-item wx:for='{{companys}}' wx:key='company-{{index}}' label='{{item.Name}}' />
+              </cell-select-group>
+            </view>
+          </view>
+          <split height='1rpx' />
+          <view class='cell'>
+            <view class='flex tit-res'>
+              <view class='title'>发件站点</view>
+              <view hidden='{{!selectedPosition}}' class='res'>
+                <address custom coordinate='{{selectedPosition.coordinate}}' name='{{selectedPosition.Name}}' address='{{selectedPosition.Title}}'>
+                  {{selectedPosition.Name}} {{selectedPosition.Title}}
+                  <x-icon type='position-fill' />
+                </address>
+              </view>
+            </view>
+            <view class='cell'>
+              <cell-select-group current='{{positionIndex}}' data-attr='position' bindchange='onChange'>
+                <cell-select-item wx:for='{{positions}}' wx:key='position-{{index}}' label='{{item.Name}}' />
               </cell-select-group>
             </view>
           </view>
@@ -92,7 +109,7 @@
                 <view hidden='{{!weight}}' class='res'>{{weight}}</view>
               </view>
               <view class='fb'>
-                <stepper max='{{maxWeight}}' data-attr='weight' editable bindchange='onChange' />
+                <stepper value='{{weight}}' min='1' max='{{maxWeight}}' data-attr='weight' editable bindchange='onChange' />
               </view>
             </view>
           </view>
@@ -116,16 +133,17 @@
   <view slot='bottom'>
     <view class='price-bar flex'>
       <view class='result'>
-        <view class='price-area'>
-          <text>预估总价</text>
+        <view class='price-area flex'>
+          <text>预估总价:</text>
+          <view hidden='{{!calculating}}' class='loading'><x-icon type='loading' color='#666' /></view>
           <text wx:if='{{shownPrice}}' class='price-num'>{{shownPrice}}</text>
-          <text wx:else class='lack-info'>请填写</text>
+          <!-- <text wx:else class='lack-info'>请填写</text> -->
         </view>
         <view class='caution'>请阅读
           <navigator class='nav'>《责任声明》</navigator>
         </view>
       </view>
-      <button disabled='{{disabled}}' class='btn pay'>下单</button>
+      <button disabled='{{disabled}}' class='btn pay' bindtap='submit'>下单</button>
     </view>
   </view>
 </fixed-footer-container>
