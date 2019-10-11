@@ -118,6 +118,7 @@ Page({
       return
     }
     app.loading('提交中')
+    console.log(UnionId, HouseId, OwenName, CardId)
     _bindOwner({ UnionId, HouseId, OwenName, CardId })
       .then(res => {
         wx.hideLoading()

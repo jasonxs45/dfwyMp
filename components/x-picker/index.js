@@ -51,7 +51,7 @@ MComponent({
       const { mode } = this.data
       let value = mode !== 'region' ? e.detail.value : e.detail
       let currentTarget = e.currentTarget
-      this.updateLabelValue(value.value)
+      this.updateLabelValue(mode == 'region' ? value.value : value)
       this.triggerEvent('change', { value })
     }
   },
