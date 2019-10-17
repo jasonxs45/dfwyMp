@@ -46,7 +46,8 @@
     "pages/expressage/enter",
     "pages/expressage/submit",
     "pages/expressage/contractor",
-    "pages/expressage/edit"
+    "pages/expressage/edit",
+    "pages/expressage/detail"
   ],
   "style": "v2",
   "tabBar": {

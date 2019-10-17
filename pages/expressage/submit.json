@@ -8,6 +8,7 @@
     "cell-select-item": "/components/cell-select/cell-select-item",
     "stepper": "/components/stepper/index",
     "split": "/components/split/index",
-    "address": "/components/address/index"
+    "address": "/components/address/index",
+    "x-input": "/components/x-input/index"
   }
 }

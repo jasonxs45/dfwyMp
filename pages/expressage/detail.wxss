@@ -1,0 +1,152 @@
+.main{
+  background: #fff;
+  padding:15rpx 30rpx;
+}
+.expressage-id{
+  word-break: break-all;
+  font-size: 28rpx;
+  color: #666;
+  font-weight: 200;
+  margin-bottom: 15rpx;
+  width: 500rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.state{
+  flex: 1;
+  text-align: right;
+}
+.state text{
+  display: inline-block;
+  background: rgba(30, 87, 158, 1);
+  color: #fff;
+  font-size: 24rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 4rpx;
+}
+.expressage-id text{
+  font-weight: 400;
+}
+.tit{
+  font-size: 24rpx;
+  font-weight: 200;
+  margin: 20rpx 0;
+  color: #666;
+}
+.sender .info, .receiver .info{
+  justify-content: space-between;
+  align-items: center;
+}
+.sender .name, .sender .tel,
+.receiver .name, .receiver .tel{
+  line-height: 1.5;
+  font-size: 28rpx;
+  color: #333;
+}
+.address{
+  line-height: 1.5;
+  font-size: 28rpx;
+  color: #666;
+  margin: 15rpx 0;
+}
+.station-name {
+  line-height: 1.5;
+  font-size: 28rpx;
+  color: #333;
+}
+.trow{
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 28rpx;
+  margin: 10rpx 0;
+}
+.th{
+  color: #666;
+  line-height: 1.5;
+  font-weight: 200;
+}
+.tb{
+  color: #333;
+  line-height: 1.5;
+}
+.progress{
+  margin: 30rpx auto;
+  padding: 40rpx 0;
+}
+.mid{
+  width: 100rpx;
+  position: relative;
+}
+.dot{
+  width: 18rpx;
+  height: 18rpx;
+  background: #ccc;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1;
+}
+.progress-item {
+  margin: 0 30rpx;
+  position: relative;
+  align-items: stretch;
+}
+.progress-item .mid:after{
+  content: '';
+  position: absolute;
+  width: 2rpx;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ccc;
+  bottom: 0;
+}
+.progress-item:last-child .mid:after{
+  display: none;
+}
+.progress-item .tag{
+  font-size: 24rpx;
+  color: #666;
+  width: 150rpx;
+  text-align: right;
+}
+.progress-item:first-child .tag{
+  font-size: 30rpx;
+  font-weight: bold;
+  color:rgba(30, 87, 158, 1);
+}
+.progress-item:first-child .dot{
+  transform: translateX(-50%) scale(2);
+  background: rgba(30, 87, 158, 1);
+}
+.progress-item .time{
+  font-size: 24rpx;
+  color: #333;
+  margin-top: -20rpx;
+}
+.progress-item .desc{
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: #666;
+  margin-top: 20rpx;
+}
+.progress-item .detail{
+  flex: 1;
+  padding-bottom: 100rpx;
+}
+.no-path{
+  text-align: center;
+  padding: 30rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+.btns{
+  padding: 90rpx 30rpx;
+}
+.fee{
+  font-size: 150%;
+  color: red;
+  font-weight: 500;
+}

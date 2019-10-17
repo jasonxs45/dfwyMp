@@ -1,2 +1,8 @@
-<navigator>发快递</navigator>
-<navigator>我的记录</navigator>
+<navigator class='nav' url='./submit'>
+  <image src='./1.png' mode='aspectFilt' />
+  <text>寄快递</text>
+</navigator>
+<navigator class='nav' url='./record'>
+  <image src='./2.png' mode='aspectFilt' />
+  <text>我的记录</text>
+</navigator>

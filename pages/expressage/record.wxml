@@ -1,2 +1,36 @@
-<!--pages/expressage/record.wxml-->
-<text>pages/expressage/record.wxml</text>
+<tab-group line barStyle='background-color:rgba(0,66,148,1)' class="tabs" bindchange="onChange" current="{{currentIndex}}">
+  <tab-item wx:for="{{tabs}}" wx:key="tab-item-{{index}}" label='{{item.text}}' class="tab-item" />
+</tab-group>
+<swiper current='{{currentIndex}}' bindchange='onChange' class='main' duration='300'>
+  <swiper-item wx:for='{{showLists}}' wx:key='list-{{index}}'>
+    <scroll-view enable-back-to-top scroll-y class='scroll-view' bindscrolltolower='onReachLower'>
+      <list-container length='{{item.length}}' finished='{{finishes[index]}}' loading='{{loading[index]}}'>
+        <navigator wx:for='{{showLists[index]}}' wx:key='id-{{item.ID}}' url='./detail?id={{item.OrderID}}' class='card'>
+          <view class='flex top'>
+            <view class='tag'>运单号：<text class='text'>{{item.WaybillID}}</text></view>
+            <view class='date'>{{item.time}}</view>
+          </view>
+          <view class='body'>
+            <view class='flex sender-receiver'>
+              <view class='sender'>
+                <view class='name'>{{item.SendManName}}</view>
+                <view class='city'>{{item.SendCity}}</view>
+              </view>
+              <view class='transfer-line'>
+                <view class='dash' />
+                <view class='dash' />
+                <view class='dash' />
+                <view class='dash' />
+                <view class='dash' />
+              </view>
+              <view class='receiver'>
+                <view class='name'>{{item.ReceiveManName}}</view>
+                <view class='city'>{{item.ReceiveCity}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </list-container>
+    </scroll-view>
+  </swiper-item>
+</swiper>

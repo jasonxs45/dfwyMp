@@ -93,16 +93,25 @@
             <view class='form-line'>
               <view class='flex tit-res'>
                 <view class='fh'>类型</view>
-                <view class='res'>{{selectedKind.Title}}</view>
+                <view class='res'>{{selectedKind}}</view>
               </view>
               <view class='fb'>
-                <cell-select-group current='{{kindIndex}}' data-attr='kind' bindchange='onChange'>
+                <cell-select-group multiple current='{{kindIndex}}' data-attr='kind' bindchange='onChange'>
                   <cell-select-item wx:for='{{kinds}}' wx:key='kind-{{index}}' label='{{item.Name}}' />
                 </cell-select-group>
               </view>
             </view>
           </view>
           <view class='cell'>
+          <view class='form-line'>
+              <view class='flex tit-res'>
+                <view class='fh'>件数</view>
+                <view class='res'>{{count}}</view>
+              </view>
+              <view class='fb'>
+                <x-input class='input' value='{{count}}' type='digit' bindinput='onInput' bindblur='onBlur' placeholder='请填写件数' />
+              </view>
+            </view>
             <view class='form-line'>
               <view class='flex tit-res'>
                 <view class='fh'>重量(单位：KG，最大限重：{{maxWeight}}KG)</view>

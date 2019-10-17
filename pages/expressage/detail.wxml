@@ -1,0 +1,82 @@
+<view class='main'>
+  <view class='flex'>
+    <view class='expressage-id'>运单号：
+      <text>{{expressBill.WaybillID}}</text>
+    </view>
+    <view class='state'>
+     <text>{{expressBill.StateName}}</text>
+    </view>
+  </view>
+</view>
+<split height='10rpx' />
+<view class='main'>
+  <view class='sender'>
+    <view class='tit'>寄件方</view>
+    <view class='info flex'>
+      <view class='name'>{{expressBill.SendName}}</view>
+      <view class='tel'>{{expressBill.SendTel}}</view>
+    </view>
+    <view wx:if='{{expressBill.SendAddress}}' class='address'>{{expressBill.SendAddress}}</view>
+    <view class='tit'>寄件驿站</view>
+    <view class='station-name'>{{expressBill.StationName}}</view>
+    <view class='address'>{{expressBill.StationProvince + expressBill.StationCity + expressBill.StationAddress}}</view>
+  </view>
+  <split height='1rpx' />
+  <view class='receiver'>
+    <view class='tit'>收件方</view>
+    <view class='info flex'>
+      <view class='name'>{{expressBill.ReceiveName}}</view>
+      <view class='tel'>{{expressBill.ReceiveTel}}</view>
+    </view>
+    <view wx:if='{{expressBill.SendAddress}}' class='address'>{{expressBill.ReceiveAddress}}</view>
+  </view>
+</view>
+<split height='10rpx' />
+<view class='main'>
+  <view class='tit'>托寄物信息</view>
+  <view class='table'>
+    <view class='flex trow'>
+      <view class='th'>类型：</view>
+      <view class='tb'>{{expressBill.GoodsTypeList}}</view>
+    </view>
+    <view class='flex trow'>
+      <view class='th'>件数：</view>
+      <view class='tb'>{{expressBill.Goods_count}}</view>
+    </view>
+    <view class='flex trow'>
+      <view class='th'>重量：</view>
+      <view class='tb'>{{expressBill.Weight}}KG</view>
+    </view>
+    <view class='flex trow'>
+      <view class='th'>包装：</view>
+      <view class='tb'>{{expressBill.PackTypeName}}</view>
+    </view>
+  </view>
+  <split height='2rpx' />
+  <view class='flex trow'>
+    <view class='th'>费用总计：</view>
+    <view class='tb fee'>￥{{expressBill.Price}}</view>
+  </view>
+</view>
+<block>
+  <split height='10rpx' />
+  <view class='main'>
+    <view class='tit'>物流信息</view>
+    <view wx:if='{{path_item_list && path_item_list.length}}' class='progress'>
+      <view wx:for='{{path_item_list}}' wx:key='progress-{{index}}' class='progress-item flex'>
+        <view class='tag'>{{item.desc}}</view>
+        <view class='mid'>
+          <view class='dot'></view>
+        </view>
+        <view class='detail'>
+          <view class='time'>{{item.Time1}}</view>
+          <view class='desc'>{{item.action_msg}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class='no-path'>暂无物流信息</view>
+  </view>
+</block>
+<view wx:if='{{expressBill.State === 2}}' class='btns'>
+  <button class='btn blue round' bindtap='pay'>支付</button>
+</view>

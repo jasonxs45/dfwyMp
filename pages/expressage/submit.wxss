@@ -71,6 +71,12 @@
 .tit-res .res{
   font-size: 26rpx;
   color: #333;
+  flex: 1;
+  white-space: nowrap;
+  margin-left: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 .stepper-container .btn{
   background: rgba(30,87,158,1) !important;
@@ -132,4 +138,8 @@
 .address{
   text-decoration: underline;
   padding:5rpx 0;
+}
+.input{
+  width: 100%;
+  border-bottom: 1rpx solid #ddd;
 }

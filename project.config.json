@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 41,
 			"list": [
 				{
 					"id": -1,
@@ -329,6 +329,20 @@
 					"name": "快递-地址簿",
 					"pathName": "pages/expressage/contractor",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "快递-我的记录",
+					"pathName": "pages/expressage/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "快递-订单详情",
+					"pathName": "pages/expressage/detail",
+					"query": "id=o221D1egVCkV20191016190713100864",
 					"scene": null
 				}
 			]

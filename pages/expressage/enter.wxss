@@ -1,1 +1,21 @@
-/* pages/expressage/enter.wxss */
+.nav{
+  margin: 30rpx;
+  background: #fff;
+  padding: 30rpx;
+  box-shadow: 0 0 30rpx 0 rgba(0, 0, 0, .1);
+  border-radius: 4px;
+}
+.nav image,
+.nav text{
+  display: inline-block;
+  vertical-align: top;
+}
+.nav image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.nav text{
+  line-height: 120rpx;
+  color: rgba(30, 87, 158, 1);
+  margin-left: 15px;
+}

@@ -53,3 +53,49 @@ export const _calculate = ({ ExpressType, Weight, CityCode, BoxType }) => fetch(
   CityCode,
   BoxType
 })
+// 下单
+export const _submit = ({
+  UnionID,
+  StationID,
+  SendManID,
+  ReceiveManID,
+  SenderType,
+  GoodsTypeList,
+  ExpressCompany,
+  Weight,
+  Price,
+  Goods_name,
+  Goods_count
+}) => post({
+  action: 'CreateExpressBill',
+  UnionID,
+  StationID,
+  SendManID,
+  ReceiveManID,
+  SenderType,
+  GoodsTypeList,
+  ExpressCompany,
+  Weight,
+  Price,
+  Goods_name,
+  Goods_count
+})
+// 支付
+export const _pay = ({ UnionID, OrderID }) => fetch({
+  action: 'ExpressBillPay',
+  UnionID,
+  OrderID
+})
+// 订单列表
+export const _list = ({ UnionID, State, PageIndex, PageSize }) => fetch({
+  action: 'GetExpressBillListForPage',
+  UnionID,
+  State,
+  PageIndex,
+  PageSize
+})
+// 订单详情
+export const _detail = OrderID => fetch({
+  action: 'GetExpressBillDetail',
+  OrderID
+})
