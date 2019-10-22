@@ -1,0 +1,47 @@
+.main{
+  background: #fff;
+}
+.f{
+  margin: 30rpx 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.fh{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  font-weight: 200;
+  flex: 0 0 150rpx;
+  width: 150rpx;
+}
+.fb{
+  font-size: 30rpx;
+  color: rgba(30, 87, 158, 1);
+  line-height: 1.5;
+  flex: 1;
+  text-align: right;
+}
+.item{
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #ddd;
+  padding: 30rpx 0;
+}
+.item:first-child{
+  border-top: none;
+}
+.money{
+  flex:1;
+  text-align: right;
+  font-size: 32rpx;
+  color: rgba(30, 87, 158, 1);
+}
+.month{
+  font-size: 28rpx;
+  color: #888;
+}
+.remark{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 15rpx;
+}

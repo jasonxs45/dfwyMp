@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.2",
+	"libVersion": "2.9.0",
 	"appid": "wx9d5e3ad4c11e1acd",
 	"projectname": "dfwyMp",
 	"debugOptions": {
@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 41,
+			"current": 44,
 			"list": [
 				{
 					"id": -1,
@@ -343,6 +343,27 @@
 					"name": "快递-订单详情",
 					"pathName": "pages/expressage/detail",
 					"query": "id=o221D1egVCkV20191016190713100864",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "物业缴费-历史",
+					"pathName": "pages/property-fee/history",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "物业缴费-查缴",
+					"pathName": "pages/property-fee/query",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 44,
+					"name": "物业缴费-对账详情",
+					"pathName": "pages/property-fee/detail",
+					"query": "id=13",
 					"scene": null
 				}
 			]

@@ -1,0 +1,47 @@
+<view class='main'>
+  <container>
+    <view class='tit'>选择房源</view>
+    <view class='picker'>
+      <x-picker disabled='{{!houses.length}}' range='{{houses}}' range-key='ProjectName' class='my-picker' placeholder='请选择房源' data-attr='current' bindchange='onChange' />
+    </view>
+  </container>
+</view>
+<split height='10rpx' />
+<view class='main'>
+  <container>
+    <view class='tit'>查询结果</view>
+    <view class='flex f'>
+      <view class='fh'>未缴月份</view>
+      <view class='fb {{current === null ? "" : "res"}}'>{{monthList}}</view>
+    </view>
+    <view class='flex f'>
+      <view class='fh'>当前欠费</view>
+      <view class='fb {{current === null ? "" : "res"}}'>{{showLackFee}}</view>
+    </view>
+    <view class='flex f'>
+      <view class='fh'>欠费月数</view>
+      <view class='fb {{current === null ? "" : "res"}}'>{{lackMonthes}}</view>
+    </view>
+  </container>
+</view>
+<split height='10rpx' />
+<view class='main'>
+  <container>
+    <view class='tit'>缴费</view>
+    <view wx:if='{{current!== null && lackMonthes}}' class='tip'>* 当前欠费{{lackMonthes}}个月，最低缴费{{lackMonthes}}个月</view>
+    <view class='flex f'>
+      <view class='fh'>缴费月数</view>
+      <view class='fb'>
+        <stepper disabled='{{current === null}}' min='{{limitMonthes}}' data-attr='count' bindchange='onChange' />
+      </view>
+    </view>
+    <view class='flex f'>
+      <view class='fh'>总计：</view>
+      <view class='fb {{current === null ? "" : "fee"}}'>{{showFee}}</view>
+    </view>
+  </container>
+</view>
+<view class='btns'>
+  <button disabled='{{current === null || !count}}' class='btn blue round' bindtap='submit'>支付</button>
+  <navigator url='./history' class='to-history'>缴费记录</navigator>
+</view>

@@ -358,7 +358,7 @@ Page({
         wx.hideLoading()
         wx.showModal({
           title: '温馨提示',
-          content: err.toString(),
+          content: '还未绑定房源',
           showCancel: false,
           success: r => {
             if (r.confirm) {

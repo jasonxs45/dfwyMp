@@ -1,0 +1,52 @@
+.card{
+  margin:30rpx 15rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #fff;
+}
+.card:first-child{
+  margin-top:0;
+}
+.body{
+  padding: 15rpx;
+}
+.name{
+  line-height: 1.5;
+  font-size: 26rpx;
+  color: #333;
+}
+.time{
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.house{
+  flex: 1;
+  padding-right: 15rpx;
+}
+.brief{
+  align-items: center;
+}
+.cost{
+  width: 180rpx;
+  flex: 0 0 180rpx;
+  text-align: right;
+  font-size: 30rpx;
+  color: rgba(30, 87, 158, 1);
+  font-weight: 600;
+}
+.foot{
+  border-top: 1rpx solid #ddd;
+  padding: 30rpx 15rpx;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+.state{
+  color: #888;
+}
+.state text{
+  color: #333;
+}
+.nav{
+  color: rgba(30, 87, 158, 1);
+}

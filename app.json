@@ -47,7 +47,10 @@
     "pages/expressage/submit",
     "pages/expressage/contractor",
     "pages/expressage/edit",
-    "pages/expressage/detail"
+    "pages/expressage/detail",
+    "pages/property-fee/history",
+    "pages/property-fee/query",
+    "pages/property-fee/detail"
   ],
   "style": "v2",
   "tabBar": {

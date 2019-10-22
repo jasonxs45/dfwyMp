@@ -1,6 +1,7 @@
 import MComponent from '../../common/MComponent'
 MComponent({
   properties: {
+    disabled: Boolean,
     editable: {
       type: Boolean,
       value: false
@@ -16,18 +17,21 @@ MComponent({
     },
     min: {
       type: Number,
-      value: 0
+      value: 0,
+      observer (val) {
+        this.updateValue(val)
+      }
     }
   },
   data: {},
   computed: {
     minusDisable () {
-      const { value, min } = this.data
-      return value <= min
+      const { value, min, disabled } = this.data
+      return disabled || value <= min
     },
     plusDisable() {
-      const { value, max } = this.data
-      return value >= max
+      const { value, max, disabled } = this.data
+      return disabled || value >= max
     }
   },
   methods: {

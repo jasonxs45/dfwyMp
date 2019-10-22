@@ -1,0 +1,34 @@
+<view class='main'>
+  <container>
+    <view class='flex f'>
+      <view class='fh'>
+        <text space='emsp'>房  源：</text>
+      </view>
+      <view class='fb'>{{content.ProjectName}}</view>
+    </view>
+    <view class='flex f'>
+      <view class='fh'>缴费日期：</view>
+      <view class='fb'>{{content.AddTime}}</view>
+    </view>
+    <view class='flex f'>
+      <view class='fh'>缴纳月数：</view>
+      <view class='fb'>{{content.MonthlyQuantity}}个月</view>
+    </view>
+    <view class='flex f'>
+      <view class='fh'>缴纳费用：</view>
+      <view class='fb'>{{price}}</view>
+    </view>
+  </container>
+</view>
+<split height='10rpx' />
+<view wx:if='{{list.length}}' class='main'>
+  <container>
+    <view wx:for='{{list}}' wx:key='{{item.Monthly}}' class='flex item'>
+      <view class='desc'>
+        <view class='month'>{{item.Monthly}}</view>
+        <view class='remark'>{{item.Remark}}</view>
+      </view>
+      <view class='money'>{{item.price}}</view>
+    </view>
+  </container>
+</view>

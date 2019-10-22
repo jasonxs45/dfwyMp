@@ -113,15 +113,42 @@ MComponent({
       app.loading('加载中')
       app.checkAuth()
         .then(res => {
+          const uid = res
+          return app.getUserInfoByUid(uid)
+        })
+        .then(memberInfo => {
           wx.hideLoading()
-          this.getList()
+          if (memberInfo.Type === '未绑定') {
+            wx.showModal({
+              title: '温馨提示',
+              content: '还未绑定房源',
+              showCancel: false,
+              success: r => {
+                if (r.confirm) {
+                  wx.redirectTo({
+                    url: '/pages/regist/enter'
+                  })
+                }
+              }
+            })
+          } else {
+            this.getList()
+          }
         })
         .catch(err => {
           wx.hideLoading()
           console.log(err)
-          const path = encodeURIComponent(this.route)
-          wx.redirectTo({
-            url: `/pages/auth/index?redirect=${path}`
+          wx.showModal({
+            title: '温馨提示',
+            content: '还未绑定房源',
+            showCancel: false,
+            success: r => {
+              if (r.confirm) {
+                wx.redirectTo({
+                  url: '/pages/regist/enter'
+                })
+              }
+            }
           })
         })
     },

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "物业费查缴",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "x-picker": "/components/x-picker/index",
+    "stepper": "/components/stepper/index",
+    "split": "/components/split/index"
+  }
+}

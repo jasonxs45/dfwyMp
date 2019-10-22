@@ -84,7 +84,9 @@ Page({
                       content: '支付成功',
                       showCancel: false,
                       success: rr => {
-                        this.getDetail()
+                        wx.redirectTo({
+                          url: './record'
+                        })
                       }
                     })
                   },

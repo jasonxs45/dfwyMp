@@ -41,10 +41,10 @@
 </scroll-view>
 <view class='navs'>
   <navigator class='nav yellow' url='/pages/rent/record'>
-    发布记录
+    <text>发布\n记录</text>
   </navigator>
   <navigator class='nav blue' url='/pages/rent/submit'>
-    我要发布
+    <text>我要\n发布</text>
   </navigator>
 </view>
 <transition show='{{filterShow}}' custom-class='bg' bindtap='hideFilter' />

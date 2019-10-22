@@ -1,10 +1,11 @@
+:host{
+  width: 100%;
+}
 .container{
   padding:0 30rpx;
-  min-height: 5rpx;
-  overflow-x:hidden;
 }
 .container:after{
   content: '';
-  display: table;
+  display: block;
   clear:both;
 }

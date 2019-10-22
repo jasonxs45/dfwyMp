@@ -8,6 +8,8 @@
 .avatar{
   width:120rpx;
   height:120rpx;
+  border-radius: 50%;
+  overflow: hidden;
   margin-left: 30rpx;
 }
 .avatar .image{
@@ -60,6 +62,7 @@
   height: 100%;
   line-height: 80rpx;
   padding-left: 40rpx;
+  font-weight: bold;
 }
 .entry{
   background: #fff;
@@ -87,4 +90,12 @@
 }
 .no-data{
   margin-top: 150rpx;
+}
+.login{
+  display: inline-block;
+  width: auto !important;
+  background: transparent;
+  color: #fff;
+  padding:8px 12px;
+  font-size: 28rpx
 }

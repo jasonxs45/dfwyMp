@@ -195,12 +195,18 @@ page{
 .navs .nav{
   font-size: 22rpx;
   color: #fff;
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
   text-align: center;
-  padding: 10rpx 15rpx;
-  line-height: 30rpx;
   margin: 15rpx 0;
   box-shadow: 1px 1px 10rpx 0 rgba(0,0,0, .2);
+  position: relative;
+}
+.navs .nav text{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.5;
 }

@@ -1,10 +1,10 @@
 <view class='topbg'>
   <flex class='top' align='center'>
-    <img class='avatar' mode='aspectFill' circle src='{{memberInfo.HeadImgUrl}}' bindtap='goInfo' />
+    <img class='avatar' mode='aspectFill' circle src='{{memberInfo.HeadImgUrl || wxInfo.avatarUrl}}' bindtap='goInfo' />
     <view class='details'>
       <block wx:if='{{memberInfo}}'>
         <view class='nickname' bindtap='goInfo'>
-          <text>{{memberInfo.RealName||memberInfo.NickName}}</text>
+          <text>{{memberInfo.RealName||memberInfo.NickName||wxInfo.nickName}}</text>
           <text
             wx:if='{{memberInfo.Type}}'
             class='identity {{(memberInfo.Type === "业主"|| memberInfo.Type === "二手业主")? "red":"blue"}}'
@@ -12,8 +12,11 @@
         </view>
       </block>
       <view class='desc'>
-        <text wx:if='{{memberInfo.HouseCount}}'>房源数量：{{memberInfo.HouseCount}}</text>
-        <text wx:else>您还未绑定房源</text>
+        <view wx:if='{{uid}}'>
+          <text wx:if='{{memberInfo.HouseCount}}'>房源数量：{{memberInfo.HouseCount}}</text>
+          <text wx:else>您还未绑定房源\n绑定房源获的更多权益</text>
+        </view>
+        <button wx:else class='login' open-type='getUserInfo' bindgetuserinfo='onGetWXUserInfo'>登录</button>
       </view>
     </view>
     <view class='funtions'>
@@ -26,7 +29,7 @@
   </flex>
 </view>
 <view class='entries'>
-  <navigator wx:for='{{entries}}' wx:key='item.label' wx:if='{{!item.needMember}}' url='{{item.path}}' class='entry'>
+  <navigator wx:for='{{showList}}' wx:key='item.label' wx:if='{{item.show}}' url='{{item.path}}' class='entry'>
     <flex align='center'>
       <image class='icon' mode='aspectFit' src='{{item.icon}}' />
       <flex class='content' justify='justify' align='center'>

@@ -36,6 +36,9 @@ button.btn{
   line-height: 88rpx;
   padding: 0;
 }
+button.btn[disabled] {
+  opacity: .6;
+}
 button.blue{
   height:88rpx;
   line-height: 88rpx;

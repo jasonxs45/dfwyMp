@@ -1,0 +1,19 @@
+<list-container length='{{list.length}}' finished='{{finished}}' loading='{{loading}}'>
+  <view wx:for='{{showList}}' wx:key='id-{{item.ID}}' class='card'>
+    <view class='body'>
+      <view class='flex brief'>
+        <view class='house'>
+          <view class='name'>{{item.ProjectName}}</view>
+          <view class='time'>{{item.time}}</view>
+        </view>
+        <view class='cost'>
+          <view class='num'>{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='flex foot'>
+      <view class='state'>状态：{{item.State}}</view>
+      <navigator wx:if='{{item.State === "已出账"}}' class='nav' url='./detail?id={{item.id}}'>查看详情<x-icon type='arrow-right' /></navigator>
+    </view>
+  </view>
+</list-container>
