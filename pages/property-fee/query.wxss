@@ -46,7 +46,7 @@
   font-size: 36rpx;
 }
 stepper .btn{
-  background: rgba(30, 87, 158, 1);
+  background: #2F71C2;
 }
 .btns{
   text-align: center;

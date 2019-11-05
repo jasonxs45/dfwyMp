@@ -140,7 +140,7 @@ Page({
       })
       .then(memberInfo => {
         wx.hideLoading()
-        if (memberInfo.Type === '未绑定') {
+        if (memberInfo.Type === '未绑定' || !memberInfo.Type) {
           wx.showModal({
             title: '温馨提示',
             content: '还未绑定房源',

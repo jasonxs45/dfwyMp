@@ -29,12 +29,12 @@ Page({
         if (code == 0) {
           let { expressBill, ExPrePath } = data
           expressBill.Price = formatNumber(expressBill.Price, 2)
-          let path_item_list = ExPrePath.path_item_list.map(item => {
+          let path_item_list = ExPrePath.path_item_list ? ExPrePath.path_item_list.map(item => {
             let arr = item.Action_Desc.split('-')
             item.tag = arr[0]
             item.desc = arr[1]
             return item
-          })
+          }) : []
           this.set({
             expressBill,
             path_item_list

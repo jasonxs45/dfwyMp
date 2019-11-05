@@ -55,7 +55,7 @@
   "style": "v2",
   "tabBar": {
     "color": "#888",
-    "selectedColor": "#004294",
+    "selectedColor": "#2F71C2",
     "list": [
       {
         "pagePath": "pages/index/index",

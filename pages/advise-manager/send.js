@@ -60,7 +60,9 @@ Page({
                 showCancel: false,
                 success: rr => {
                   if (rr.confirm && code == 0) {
-                    wx.navigateBack()
+                    wx.redirectTo({
+                      url: './list'
+                    })
                   }
                 }
               })

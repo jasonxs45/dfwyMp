@@ -29,8 +29,6 @@
     <split height='10rpx' />
   </block>
 </list-container>
-<view wx:if='{{finished && !list.length}}' class=''>
-  <navigator class='nav' url='/pages/regist/enter'>
-    <button class='btn blue round'>绑定房源</button>
-  </navigator>
-</view>
+<navigator class='nav' url='/pages/regist/enter'>
+  <button class='btn blue round'>{{list.length?'添加更多房源':'绑定房源'}}</button>
+</navigator>

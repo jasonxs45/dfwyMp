@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 44,
+			"current": 41,
 			"list": [
 				{
 					"id": -1,
@@ -146,7 +146,7 @@
 					"id": 13,
 					"name": "投诉-地产物业详情",
 					"pathName": "pages/advise-manager/detail",
-					"query": "id=535&role=地产",
+					"query": "id=565&role=地产",
 					"scene": null
 				},
 				{
@@ -342,7 +342,7 @@
 					"id": 41,
 					"name": "快递-订单详情",
 					"pathName": "pages/expressage/detail",
-					"query": "id=o221D1egVCkV20191016190713100864",
+					"query": "id=o221D1egVCkVcQb5vmY_EvwJbUlM20191012155401661032",
 					"scene": null
 				},
 				{

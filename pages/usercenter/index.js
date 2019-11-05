@@ -1,6 +1,29 @@
 import MComponent from '../../common/MComponent'
-import { _managelist } from '../../api/usercenter'
+import { _wholelist } from '../../api/usercenter'
 const app = getApp()
+const baseMenu = [
+  {
+    icon: './rent.png',
+    label: '房屋租赁',
+    path: '/pages/rent/list',
+    needMember: false,
+    show: true
+  },
+  {
+    icon: './news.png',
+    label: '新闻中心',
+    path: '/pages/news/list',
+    needMember: false,
+    show: true
+  },
+  {
+    icon: './notice.png',
+    label: '社区通知',
+    path: '/pages/message/list',
+    needMember: false,
+    show: true
+  }
+]
 const entries = [
   {
     icon: './myhouse.png',
@@ -20,16 +43,16 @@ const entries = [
     path: '/pages/advise-user/list',
     needMember: true
   },
-  {
-    icon: './deliver.png',
-    label: '快递代收',
-    path: '/pages/myhouse/index',
-    needMember: true
-  },
+  // {
+  //   icon: './deliver.png',
+  //   label: '快递代发',
+  //   path: '/pages/expressage/enter',
+  //   needMember: true
+  // },
   {
     icon: './fee.png',
     label: '物业缴费',
-    path: '/pages/myhouse/index',
+    path: '/pages/property-fee/index',
     needMember: true
   }
 ]
@@ -65,29 +88,7 @@ MComponent({
     uid: '',
     wxInfo: null,
     memberInfo: null,
-    list: [
-      {
-        icon: './rent.png',
-        label: '房屋租赁',
-        path: '/pages/rent/list',
-        needMember: false,
-        show: true
-      },
-      {
-        icon: './news.png',
-        label: '新闻中心',
-        path: '/pages/news/list',
-        needMember: false,
-        show: true
-      },
-      {
-        icon: './notice.png',
-        label: '社区通知',
-        path: '/pages/message/list',
-        needMember: false,
-        show: true
-      },
-    ]
+    list: baseMenu
   },
   computed: {
     showList() {
@@ -119,12 +120,12 @@ MComponent({
     },
     getManage() {
       const UnionID = wx.getStorageSync('uid')
-      _managelist(UnionID)
+      _wholelist(UnionID)
         .then(res => {
           const { code, data } = res.data
           if (code === 0) {
-            let { list } = this.data
-            list = [...list, ...entries, ...data]
+            let list = data
+            // list = [...list, ...entries, ...data]
             this.set({
               list
             })
@@ -175,6 +176,7 @@ MComponent({
           wx.hideLoading()
           console.log(err)
         })
-    }
+    },
+    onHide() { }
   }
 })

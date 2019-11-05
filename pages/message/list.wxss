@@ -41,6 +41,7 @@ page{
   font-size: 28rpx;
   color: #333;
   margin-top: 30rpx;
+  line-height: 1.5;
 }
 .date{
   font-size: 24rpx;

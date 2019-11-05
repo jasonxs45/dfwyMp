@@ -23,7 +23,7 @@
 <split height='10rpx' />
 <view class='main'>
   <view class='flex title'>
-    <view class='text'>房屋租赁</view>
+    <view class='text'>房屋租售信息发布</view>
     <navigator class='more' url='/pages/rent/list'>查看更多
       <x-icon type='arrow-right' />
     </navigator>
