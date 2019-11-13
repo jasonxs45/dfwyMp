@@ -71,7 +71,19 @@
   </block>
 </view>
 <view class='btns'>
-  <button data-tar='refuse' class='btn round blue' bindtap='goOperate'>驳回工程师</button>
-  <button data-tar='dispatch' class='btn round yellow' bindtap='goOperate'>驳回物业客服</button>
-  <button data-tar='shut' class='btn round' plain bindtap='goOperate'>关闭报修单</button>
+  <view wx:if="{{detail.State === 0}}">
+    <button class='btn blue round' bindtap='goDispatch'>分配</button>
+    <button class='btn round' data-tar='accept' plain bindtap='goRefuse'>不受理</button>
+  </view>
+  <view wx:if='{{detail.State === 1 && detail.AdminState === 1}}'>
+    <button class='btn blue round' bindtap='goDispatch'>重新分配</button>
+    <button data-tar='refuse' class='btn round yellow' bindtap='goOperate'>驳回工程师</button>
+    <button class='btn round' data-tar='accept' plain bindtap='goRefuse'>不受理</button>
+  </view>
+  <view wx:if="{{detail.State === 2}}">
+    <button class='btn blue round' bindtap='pass'>维修通过</button>
+    <button class='btn round' plain data-tar='pass' bindtap='goRefuse'>拒绝通过</button>
+  </view>
+  <!-- <button data-tar='shut' class='btn round' plain bindtap='goOperate'>关闭报修单</button> -->
+  <!-- <button data-tar='dispatch' class='btn round yellow' bindtap='goOperate'>驳回物业客服</button> -->
 </view>

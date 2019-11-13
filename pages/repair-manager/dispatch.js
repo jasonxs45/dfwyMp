@@ -74,7 +74,7 @@ Page({
                 success: r => {
                   if (r.confirm && code == 0) {
                     wx.redirectTo({
-                      url: './list'
+                      url: '/pages/repair-engin-manager/list'
                     })
                   }
                 }

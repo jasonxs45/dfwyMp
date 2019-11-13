@@ -72,14 +72,16 @@
     </view>
   </block>
 </view>
-<view wx:if='{{detail.State === 2 || detail.State === 0 }}' class='btns {{detail.btnNum}}'>
+<!-- <view wx:if='{{detail.State === 2 || detail.State === 0 }}' class='btns {{detail.btnNum}}'>
   <view wx:if="{{detail.State === 0}}">
     <button class='btn blue round' bindtap='goDispatch'>分配任务</button>
-    <!-- <button class='btn yellow round' bindtap='toggleReWrite'>更新问题</button> -->
     <button class='btn round' data-tar='accept' plain bindtap='goRefuse'>不受理</button>
   </view>
   <view wx:if="{{detail.State === 2}}">
     <button class='btn blue round' bindtap='pass'>维修通过</button>
     <button class='btn round' plain data-tar='pass' bindtap='goRefuse'>拒绝通过</button>
   </view>
+</view> -->
+<view wx:if='{{detail.State === 1 || detail.State === 0 }}' class='btns {{detail.btnNum}}'>
+    <button class='btn round blue' data-tar='accept' bindtap='remind'>催单</button>
 </view>

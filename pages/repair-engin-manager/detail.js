@@ -1,5 +1,5 @@
 import Page from '../../common/Page'
-import { _userdetail as _detail } from '../../api/repair'
+import { _userdetail as _detail, _managerpass as _pass } from '../../api/repair'
 const app = getApp()
 Page({
   data: {
@@ -83,6 +83,56 @@ Page({
           showCancel: false
         })
       })
+  },
+  goDispatch() {
+    wx.navigateTo({
+      url: `/pages/repair-manager/dispatch?id=${this.data.id}`
+    })
+  },
+  goRefuse(e) {
+    const { tar } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/repair-manager/refuse?id=${this.data.id}&tar=${tar}`
+    })
+  },
+  pass() {
+    const UnionID = wx.getStorageSync('uid')
+    const { id: RepairID } = this.data
+    wx.showModal({
+      title: '提示',
+      content: '确定进行此操作吗？',
+      success: r => {
+        if (r.confirm) {
+          app.loading('加载中')
+          _pass({ UnionID, RepairID })
+            .then(res => {
+              wx.hideLoading()
+              const { code, msg, data } = res.data
+              wx.showModal({
+                title: code == 0 ? '温馨提示' : '对不起',
+                content: msg,
+                showCancel: false,
+                success: r => {
+                  if (r.confirm && code == 0) {
+                    wx.redirectTo({
+                      url: '/pages/repair-manager/list'
+                    })
+                  }
+                }
+              })
+            })
+            .catch(err => {
+              console.log(err)
+              wx.hideLoading()
+              wx.showModal({
+                title: '对不起',
+                content: err.toString(),
+                showCancel: false
+              })
+            })
+        }
+      }
+    })
   },
   onLoad(opt) {
     this.data.id = opt.id

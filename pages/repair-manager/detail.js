@@ -1,5 +1,5 @@
 import Page from '../../common/Page'
-import { _userdetail as _detail, _managerpass as _pass } from '../../api/repair'
+import { _userdetail as _detail, _managerpass as _pass, _remind } from '../../api/repair'
 const app = getApp()
 Page({
   data: {
@@ -32,6 +32,37 @@ Page({
         break
     }
     return str
+  },
+  // 催单
+  remind () {
+    wx.showModal({
+      title: '温馨提示',
+      content: '确定进行此操作吗？',
+      success: r => {
+        if (r.confirm) {
+          app.loading('加载中')
+          const { id: RepairID } = this.data
+          _remind({ RepairID })
+            .then(res => {
+              wx.hideLoading()
+              const { code, msg } = res.data
+              wx.showModal({
+                title: code === 0 ? '温馨提示' : '对不起',
+                content: msg,
+                showCancel: false
+              })
+            })
+            .catch(err => {
+              wx.hideLoading()
+              wx.showModal({
+                title: '对不起',
+                content: err.toString(),
+                showCancel: false
+              })
+            })
+        }
+      }
+    })
   },
   getDetail() {
     const { id } = this.data
@@ -135,43 +166,56 @@ Page({
     app.loading('加载中')
     app.checkAuth()
       .then(res => {
-        const uid = res
-        return app.getUserInfoByUid(uid)
-      })
-      .then(memberInfo => {
         wx.hideLoading()
-        if (memberInfo.Type === '未绑定' || !memberInfo.Type) {
-          wx.showModal({
-            title: '温馨提示',
-            content: '还未绑定房源',
-            showCancel: false,
-            success: r => {
-              if (r.confirm) {
-                wx.redirectTo({
-                  url: '/pages/regist/enter'
-                })
-              }
-            }
-          })
-        } else {
-          this.getDetail()
-        }
+        this.getDetail()
       })
       .catch(err => {
-        console.log(err)
         wx.hideLoading()
-        wx.showModal({
-          title: '温馨提示',
-          content: '还未绑定房源',
-          showCancel: false,
-          success: r => {
-            if (r.confirm) {
-              wx.redirectTo({
-                url: '/pages/regist/enter'
-              })
-            }
-          }
+        const path = encodeURIComponent(this.route)
+        wx.redirectTo({
+          url: `/pages/auth/index?redirect=${path}`
         })
       })
+    // app.loading('加载中')
+    // app.checkAuth()
+    //   .then(res => {
+    //     const uid = res
+    //     return app.getUserInfoByUid(uid)
+    //   })
+    //   .then(memberInfo => {
+    //     wx.hideLoading()
+    //     if (memberInfo.Type === '未绑定' || !memberInfo.Type) {
+    //       // wx.showModal({
+    //       //   title: '温馨提示',
+    //       //   content: '还未绑定房源',
+    //       //   showCancel: false,
+    //       //   success: r => {
+    //       //     if (r.confirm) {
+    //       //       wx.redirectTo({
+    //       //         url: '/pages/regist/enter'
+    //       //       })
+    //       //     }
+    //       //   }
+    //       // })
+    //     } else {
+    //       this.getDetail()
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     wx.hideLoading()
+    //     wx.showModal({
+    //       title: '温馨提示',
+    //       content: '还未绑定房源',
+    //       showCancel: false,
+    //       success: r => {
+    //         if (r.confirm) {
+    //           wx.redirectTo({
+    //             url: '/pages/regist/enter'
+    //           })
+    //         }
+    //       }
+    //     })
+    //   })
   }
 })

@@ -5,22 +5,22 @@ Page({
     navs: [
       {
         name: '业主',
-        img: '/pages/regist/owner.png',
+        img: 'http://dongfangwuye.1juke.cn/Content/Upload/PagePath/owner.png',
         path: './bindowner'
       },
       {
         name: '家属',
-        img: '/pages/regist/family.png',
+        img: 'http://dongfangwuye.1juke.cn/Content/Upload/PagePath/family.png',
         path: './bindsubs?role=家属'
       },
       {
         name: '租户',
-        img: '/pages/regist/renter.png',
+        img: 'http://dongfangwuye.1juke.cn/Content/Upload/PagePath/renter.png',
         path: './bindsubs?role=租户'
       },
       {
         name: '二手业主',
-        img: '/pages/regist/second.png',
+        img: 'http://dongfangwuye.1juke.cn/Content/Upload/PagePath/second.png',
         path: './bindsecond'
       }
     ]

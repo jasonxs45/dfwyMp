@@ -193,10 +193,10 @@ page{
   z-index: 2;
 }
 .navs .nav{
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #fff;
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
   border-radius: 50%;
   text-align: center;
   margin: 15rpx 0;

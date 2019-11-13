@@ -21,7 +21,8 @@ Page({
         wx.hideNavigationBarLoading()
         const { code, data, msg } = res.data
         this.set({
-          houses: data
+          houses: data,
+          houseIndex: 0
         })
         if (code != 0) {
           wx.showModal({

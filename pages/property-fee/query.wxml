@@ -1,8 +1,8 @@
 <view class='main'>
   <container>
     <view class='tit'>选择房源</view>
-    <view class='picker'>
-      <x-picker disabled='{{!houses.length}}' range='{{houses}}' range-key='ProjectName' class='my-picker' placeholder='请选择房源' data-attr='current' bindchange='onChange' />
+    <view wx:if='{{houses.length}}' class='picker'>
+      <x-picker disabled='{{!houses.length}}' range='{{houses}}' range-key='ProjectName' class='my-picker' initValue='0' placeholder='请选择房源' data-attr='current' bindchange='onChange' />
     </view>
   </container>
 </view>

@@ -32,6 +32,17 @@ Page({
       }
     ],
     type: '',
+    vips: [
+      {
+        label: '否',
+        value: false
+      },
+      {
+        label: '是',
+        value: true
+      }
+    ],
+    vip: 0,
     unit: '元/月'
   },
   getProjects() {
@@ -233,6 +244,8 @@ Page({
       houseTypeIndex,
       types,
       type,
+      vips,
+      vip,
       floor: Floor,
       room: HouseID,
       area: Acreage,
@@ -279,6 +292,10 @@ Page({
       app.toast('请填写正确格式的手机号')
       return
     }
+    if (vip == '') {
+      app.toast('请选择是否置顶')
+      return
+    }
     if (!Title.trim()) {
       app.toast('请填写标题')
       return
@@ -290,12 +307,13 @@ Page({
     const UnionID = wx.getStorageSync('uid')
     const StageID = states[stateIndex].ID,
       HouseType = houseTypes[houseTypeIndex],
+      IsVip = vips[vip].value,
       Mode = types[type].value,
       ImgList = files.map(item => item.url).join(',')
     Price = Price + unit
-    console.log(UnionID, StageID, Title, Desc, ImgList, Phone, HouseID, Acreage, Mode, Price, Floor, HouseType)
+    console.log(UnionID, StageID, Title, Desc, ImgList, Phone, IsVip, HouseID, Acreage, Mode, Price, Floor, HouseType)
     app.loading('提交中')
-    _submit({ UnionID, StageID, Title, Desc, ImgList, Phone, HouseID, Acreage, Mode, Price, Floor, HouseType })
+    _submit({ UnionID, StageID, Title, Desc, ImgList, Phone, IsVip, HouseID, Acreage, Mode, Price, Floor, HouseType })
       .then(res => {
         wx.hideLoading()
         const { code, msg } = res.data

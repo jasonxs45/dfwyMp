@@ -108,7 +108,8 @@ MComponent({
           if (code === 0) {
             const { HouseList: houses } = data
             this.set({
-              houses
+              houses,
+              current: 0
             })
           } else {
             wx.showModal({

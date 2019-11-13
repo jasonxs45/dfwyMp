@@ -40,11 +40,11 @@
   </list-container>
 </scroll-view>
 <view class='navs'>
-  <navigator class='nav yellow' url='/pages/rent/record'>
-    <text>发布\n记录</text>
-  </navigator>
   <navigator class='nav blue' url='/pages/rent/submit'>
     <text>我要\n发布</text>
+  </navigator>
+  <navigator class='nav yellow' url='/pages/rent/record'>
+    <text>发布\n记录</text>
   </navigator>
 </view>
 <transition show='{{filterShow}}' custom-class='bg' bindtap='hideFilter' />

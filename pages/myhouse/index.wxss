@@ -68,12 +68,13 @@ page{
   width:140rpx;
   height:60rpx;
   border-radius:8rpx;
-  border:2rpx solid rgba(170,170,170,1);
+  /* border:2rpx solid rgba(170,170,170,1); */
   line-height: 60rpx;
   font-size:24rpx;
   font-weight:bold;
-  color:rgba(153,153,153,1);
+  /* color:rgba(153,153,153,1); */
   text-align: center;
+  color: #fff;
 }
 .info-detail{
   flex: 1;

@@ -143,3 +143,8 @@ export const _dispatch = ({ UnionID, RepairID, BuilderID, ReturnMsg }) => fetch(
   BuilderID,
   ReturnMsg
 })
+// 物业客服催单
+export const _remind = ({ RepairID }) => fetch({
+  action: 'Reminder',
+  RepairID
+})

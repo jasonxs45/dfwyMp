@@ -96,9 +96,11 @@ page{
   line-height:40rpx;
   margin: 0;
   padding:0;
-  height: 100rpx;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .cell .title .mark{
   color: rgba(255, 255, 255, 1);

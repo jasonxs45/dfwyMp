@@ -1,7 +1,7 @@
 <view class='sticky-wrapper'>
-  <container>
+  <container wx:if='{{houses.length}}'>
     <view class='title'>选择房源</view>
-    <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName' data-attr='houseIndex' bindchange='onChange' />
+    <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName'  initValue='0' data-attr='houseIndex' bindchange='onChange' />
   </container>
   <split height='10rpx' />
   <container>

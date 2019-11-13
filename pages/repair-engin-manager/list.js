@@ -4,29 +4,54 @@ import { formatDate } from '../../utils/util'
 const app = getApp()
 MComponent({
   data: {
-    loading: false,
-    list: [],
-    pageIndex: 1,
-    totalCount: 0
+    currentIndex: 0,
+    tabs: [
+      {
+        text: '待受理',
+        value: '待受理'
+      },
+      {
+        text: '已分配',
+        value: '已分配'
+      },
+      {
+        text: '已处理',
+        value: '已处理'
+      }
+    ],
+    loading: [],
+    lists: [],
+    pageIndexes: [],
+    totalCount: []
   },
   computed: {
-    finished() {
-      return this.data.totalCount <= this.data.list.length
+    finishes() {
+      return this.data.totalCount.map((item, index) => {
+        return item <= (this.data.lists[index] ? this.data.lists[index].length : 0)
+      })
     },
-    showList() {
-      return this.data.list.map(ele => {
-        ele.AddTime = formatDate(new Date(ele.AddTime), 'yyyy-MM-dd')
-        return ele
+    showLists() {
+      return this.data.lists.map(item => {
+        return item.map(ele => {
+          ele.AddTime = formatDate(new Date(ele.AddTime), 'yyyy-MM-dd')
+          return ele
+        })
       })
     }
   },
   methods: {
+    onChange(e) {
+      const { value, current } = e.detail
+      this.set({
+        currentIndex: current === undefined ? value : current
+      })
+    },
     init() {
       this.set({
-        loading: false,
-        pageIndexes: 1,
-        lists: [],
-        totalCount: 0
+        loading: [false, false, false],
+        pageIndexes: [1, 1, 1],
+        lists: [[], [], []],
+        totalCount: [0, 0, 0]
       }).then(() => {
         this.initQuery()
       })
@@ -34,35 +59,31 @@ MComponent({
     initQuery() {
       const UnionID = wx.getStorageSync('uid')
       const PageSize = 10
-      const { pageIndex } = this.data
+      const { currentIndex, tabs, pageIndexes } = this.data
+      const funcs = pageIndexes.map((item, index) => _list({ UnionID, State: tabs[index].value, PageIndex: item, PageSize }))
       this.set({
-        loading: true
+        [`loading[${currentIndex}]`]: true
       })
-      _list({ UnionID, State: '待审核', PageIndex: pageIndex, PageSize })
+      Promise.all(funcs)
         .then(res => {
-          const { code, msg, data } = res.data
-          if (code == 0) {
-            const totalCount = res.data.data ? res.data.data.count : 0
-            const list = res.data.data ? res.data.data.repairList : []
-            this.set({
-              totalCount,
-              list
-            })
-          } else {
-            wx.showModal({
-              title: '对不起',
-              content: msg,
-              showCancel: false
-            })
-          }
+          const totalCount = res.map(item => {
+            let count = item.data.data ? item.data.data.count : 0
+            return count
+          })
+          const lists = res.map(item => {
+            let list = item.data.data ? item.data.data.repairList : []
+            return list
+          })
           this.set({
-            loading: false
+            [`loading[${currentIndex}]`]: false,
+            totalCount,
+            lists
           })
         })
         .catch(err => {
           console.log(err)
           this.set({
-            loading: false
+            [`loading[${currentIndex}]`]: false
           })
           wx.showModal({
             title: '对不起',
@@ -71,28 +92,28 @@ MComponent({
           })
         })
     },
-    loadMore() {
-      const { pageIndex, list } = this.data
-      let PageIndex = pageIndex + 1
+    loadMore(current) {
+      const { tabs, pageIndexes, lists } = this.data
+      let PageIndex = pageIndexes[current] + 1
       const UnionID = wx.getStorageSync('uid')
       const PageSize = 10
       this.set({
-        loading: true
+        [`loading[${current}]`]: true
       })
-      _list({ UnionID, State: '待审核', PageIndex, PageSize })
+      _list({ UnionID, State: tabs[current].value, PageIndex, PageSize })
         .then(res => {
           const data = res.data.data.repairList
-          const list1 = list.slice().concat(data)
+          const list = lists[current].slice().concat(data)
           this.set({
-            loading: false,
-            list: list1,
-            pageIndex: PageIndex
+            [`loading[${current}]`]: false,
+            [`lists[${current}]`]: list,
+            [`pageIndexes[${current}]`]: PageIndex
           })
         })
         .catch(err => {
           console.log(err)
           this.set({
-            loading: false
+            [`loading[${current}]`]: false
           })
           wx.showModal({
             title: '对不起',
@@ -101,10 +122,11 @@ MComponent({
           })
         })
     },
-    onReachBottom() {
-      const { finished } = this.data
+    onReachLower() {
+      const { currentIndex, finishes } = this.data
+      const finished = finishes[currentIndex]
       if (!finished) {
-        this.loadMore()
+        this.loadMore(currentIndex)
       }
     },
     onLoad() {

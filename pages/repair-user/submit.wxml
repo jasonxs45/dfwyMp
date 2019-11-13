@@ -7,9 +7,9 @@
   </container>
   <view>
     <split height='10rpx' />
-    <container class='main'>
+    <container wx:if='{{houses.length}}' class='main'>
       <view class='title'>选择房源</view>
-      <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName' data-attr='houseIndex' bindchange='onChange' />
+      <x-picker class='field select' placeholder='选择房源' range='{{houses}}' range-key='HouseName' initValue='0' data-attr='houseIndex' bindchange='onChange' />
     </container>
   </view>
   <view hidden='{{parts.length <=0 }}'>
@@ -51,8 +51,8 @@
   <split height='10rpx' />
   <container class='main'>
     <view class='title'>填写联系方式</view>
-    <x-input class='field select' data-attr='name' placeholder='请填写姓名' bindinput='onInput' />
-    <x-input class='field select' data-attr='tel' placeholder='请填写手机号码' bindinput='onInput' />
+    <x-input class='field select' data-attr='name' value='{{name}}' placeholder='请填写姓名' bindinput='onInput' />
+    <x-input class='field select' data-attr='tel' value='{{tel}}' placeholder='请填写手机号码' bindinput='onInput' />
   </container>
   <view>
     <button class='blue round btn' bindtap='submit'>提交</button>

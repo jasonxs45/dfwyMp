@@ -62,7 +62,7 @@ MComponent({
           if (res1.data.code == 0) {
             this.set({
               houses: res1.data.data,
-              houseIndex: ''
+              houseIndex: 0
             })
           } else {
             wx.showModal({
@@ -232,10 +232,10 @@ MComponent({
         app.toast('请填写2-6位中文姓名')
         return
       }
-      if (!TEL_REG.test(Tel)) {
-        app.toast('请填写正确的手机号码')
-        return
-      }
+      // if (!TEL_REG.test(Tel)) {
+      //   app.toast('请填写正确的手机号码')
+      //   return
+      // }
       app.loading('提交中')
       _submit({ UnionID, HouseID, ToubleID, Part, Content, Image, Name, Tel })
         .then(res => {
@@ -292,6 +292,11 @@ MComponent({
               }
             })
           } else {
+            const { RealName: name, Tel: tel } = memberInfo
+            this.set({
+              name,
+              tel
+            })
             this.init()
           }
         })

@@ -5,6 +5,8 @@
   "backgroundColorBottom": "#f2f2f2",
   "usingComponents": {
     "list-container": "/components/list-container/index",
+    "tab-group": "/components/tabs/tab-group",
+    "tab-item": "/components/tabs/tab-item",
     "flex": "/components/flex/index"
   }
 }

@@ -18,7 +18,7 @@ export const _detail = id => fetch({
   ID: id
 })
 // 提交租房记录
-export const _submit = ({ UnionID, StageID, Title, Desc, ImgList, Phone, Acreage, Mode, Price, Floor, HouseType, HouseID }) => post({
+export const _submit = ({ UnionID, StageID, Title, Desc, ImgList, Phone, IsVip, Acreage, Mode, Price, Floor, HouseType, HouseID }) => post({
   action: 'AddSocial',
   UnionID,
   StageID,
@@ -26,6 +26,7 @@ export const _submit = ({ UnionID, StageID, Title, Desc, ImgList, Phone, Acreage
   Desc,
   ImgList,
   Phone,
+  IsVip,
   Acreage,
   Mode,
   Price,

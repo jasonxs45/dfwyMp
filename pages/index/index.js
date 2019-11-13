@@ -9,6 +9,13 @@ Page({
     entries: [],
     rents: []
   },
+  wait () {
+    wx.showModal({
+      title: '温馨提示',
+      content: '功能建设中，敬请期待',
+      showCancel: false
+    })
+  },
   initQuery () {
     wx.showNavigationBarLoading()
     let stack = [

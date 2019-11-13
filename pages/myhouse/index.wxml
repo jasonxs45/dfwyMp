@@ -15,7 +15,7 @@
                   {{item.StageName}} {{item.Build}}栋 {{item.Unit}}单元 {{item.HouseNO}}
                 </view>
               </view>
-              <navigator url='./members?id={{item.id}}' class='tag-nav'>成员列表</navigator>
+              <navigator url='./members?id={{item.id}}' class='tag-nav red'>成员解绑</navigator>
             </flex>
           </view>
           <split height='1rpx' />
