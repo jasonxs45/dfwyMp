@@ -24,6 +24,7 @@
       </view>
       <view class='body'>
         <view class='title'>
+          <text wx:if='{{item.isVIP}}'  class='mark red'>VIP</text>
           <text class='mark'>{{item.Mode}}</text>
           <text>{{item.Title}}</text>
         </view>
@@ -43,7 +44,7 @@
   <navigator class='nav blue' url='/pages/rent/submit'>
     <text>我要\n发布</text>
   </navigator>
-  <navigator class='nav yellow' url='/pages/rent/record'>
+  <navigator class='nav red' url='/pages/rent/record'>
     <text>发布\n记录</text>
   </navigator>
 </view>

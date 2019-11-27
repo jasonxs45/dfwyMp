@@ -19,7 +19,7 @@
       <text class='tips'>{{role}}绑定房源，必须业主审核，\n请将此页面转发给业主，提醒业主审核您的家属身份。</text>
     </container>
   </view>
-  <navigator class='check'>查看业主权益
+  <navigator class='check' url='/pages/news/detail?id=24'>查看业主权益
     <x-icon type='help' />
   </navigator>
   <view>

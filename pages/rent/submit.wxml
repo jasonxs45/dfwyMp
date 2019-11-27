@@ -47,6 +47,7 @@
         <radio value='0' checked class='radio'>否</radio>
         <radio value='1' class='radio'>是</radio>
       </radio-group>
+      <navigator class='nav {{vip==1?"active":""}}' url='/pages/news/detail?id=2'>(收费项目)</navigator>
     </view>
   </container>
   <split height='10rpx' />

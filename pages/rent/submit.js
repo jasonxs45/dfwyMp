@@ -148,7 +148,8 @@ Page({
         }
         if (attr === 'type') {
           this.set({
-            unit: this.data.type == 1 ? '元' : '元/月'
+            unit: this.data.type == 1 ? '万元' : '元/月',
+            price: ''
           })
         }
       })
@@ -191,6 +192,10 @@ Page({
           value = '' + Math.trunc(value)
           break
         case 'price':
+          const { type } = this.data
+          // if (type == 1) {
+          //   value = value / 10000
+          // }
           value = formatNumber(value, 2)
           break
       }
@@ -292,7 +297,7 @@ Page({
       app.toast('请填写正确格式的手机号')
       return
     }
-    if (vip == '') {
+    if (vip === '') {
       app.toast('请选择是否置顶')
       return
     }

@@ -163,6 +163,7 @@ MComponent({
           this.set({
             uid
           })
+          console.log(1)
           this.getManage()
           return app.getUserInfoByUid(uid, true)
         })

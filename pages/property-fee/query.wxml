@@ -32,7 +32,7 @@
     <view class='flex f'>
       <view class='fh'>缴费月数</view>
       <view class='fb'>
-        <stepper disabled='{{current === null}}' editable='{{current !== null}}' max='12' min='{{limitMonthes}}' data-attr='count' bindchange='onChange' />
+        <stepper disabled='{{current === null}}' editable='{{current !== null}}' max='12' min='{{limitMonthes}}' value='{{count}}' data-attr='count' bindchange='onChange' />
       </view>
     </view>
     <view class='flex f'>
@@ -41,6 +41,7 @@
     </view>
   </container>
 </view>
+<view class='nav'><image mode='widthFix' class='nav-img' src='./nav.png' bindtap='quick' /></view>
 <view class='btns'>
   <button disabled='{{current === null || !count}}' class='btn blue round' bindtap='submit'>支付</button>
   <navigator url='./history' class='to-history'>缴费记录</navigator>

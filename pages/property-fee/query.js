@@ -99,6 +99,11 @@ MComponent({
           }
         })
     },
+    quick () {
+      this.set({
+        count: 12
+      })
+    },
     getList() {
       const UnionID = wx.getStorageSync('uid')
       _list(UnionID)

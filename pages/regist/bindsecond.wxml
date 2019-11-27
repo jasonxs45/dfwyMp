@@ -45,7 +45,7 @@
       </view>
     </container>
   </view>
-  <navigator class='check'>查看业主权益
+  <navigator class='check' url='/pages/news/detail?id=24'>查看业主权益
     <x-icon type='help' />
   </navigator>
   <view>

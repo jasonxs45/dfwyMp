@@ -43,7 +43,7 @@
       </container>
     </view>
   </view>
-  <navigator class='check'>查看业主权益
+  <navigator class='check' url='/pages/news/detail?id=24'>查看业主权益
     <x-icon type='help' />
   </navigator>
   <button hidden='{{step!=1}}' class='blue round btn' bindtap='next'>下一步</button>

@@ -18,18 +18,32 @@
 .add{
   position: fixed;
   width: 100rpx;
-  height: 100rpx;
   bottom: 60rpx;
   right: 30rpx;
   z-index: 1;
+}
+.add .txt{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20rpx;
+  line-height: 1.5;
+  color: rgba(0,66,148,1);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+  margin-bottom: 10rpx;
+}
+.add .icon{
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 50rpx;
+  font-weight: bold;
   background: rgba(0,66,148,.6);
   color: #fff;
   border-radius: 50%;
   text-align: center;
   line-height: 100rpx;
   box-shadow: 1px 1px 6px 1px rgba(0,66,148,.2);
-  font-size: 50rpx;
-  font-weight: bold;
 }
 .card{
   margin: 30rpx;

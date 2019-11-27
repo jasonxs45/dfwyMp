@@ -8,7 +8,7 @@ Page({
     tags: ['表扬', '投诉', '建议'],
     tagIndex: null,
     houses: [],
-    houseIndex: '',
+    houseIndex: 0,
     houseid: '',
     mark: '',
     files: []
@@ -89,11 +89,11 @@ Page({
   },
   submit () {
     const { houses, houseIndex, tags, tagIndex, mark, files } = this.data
-    if (houseIndex == '') {
+    if (houseIndex === '') {
       app.toast('请选择房源')
       return
     }
-    if (tagIndex == null) {
+    if (tagIndex === null) {
       app.toast('请选择类别')
       return
     }
