@@ -70,3 +70,25 @@ page{
   margin: 15rpx 10rpx 0;
   border-radius: 4rpx;
 }
+.foot{
+  margin-top: 30rpx;
+  padding-top: 20rpx;
+  text-align: right;
+  border-top: 1rpx solid #ddd;
+}
+.foot .del,
+.foot .edit,
+.foot .switch{
+  display: inline-block;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+  background: rgba(30,87,158,.9);
+  /* color: rgba(30,87,158,1); */
+  color: #fff;
+  margin-left: 15rpx;
+  border-radius: 8rpx;
+  letter-spacing: 2px;
+}
+.foot .edit{}

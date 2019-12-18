@@ -297,10 +297,10 @@ Page({
       app.toast('请填写正确格式的手机号')
       return
     }
-    if (vip === '') {
-      app.toast('请选择是否置顶')
-      return
-    }
+    // if (vip === '') {
+    //   app.toast('请选择是否置顶')
+    //   return
+    // }
     if (!Title.trim()) {
       app.toast('请填写标题')
       return
@@ -312,7 +312,8 @@ Page({
     const UnionID = wx.getStorageSync('uid')
     const StageID = states[stateIndex].ID,
       HouseType = houseTypes[houseTypeIndex],
-      IsVip = vips[vip].value,
+      // IsVip = vips[vip].value,
+      IsVip = false,
       Mode = types[type].value,
       ImgList = files.map(item => item.url).join(',')
     Price = Price + unit

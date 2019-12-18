@@ -1,6 +1,6 @@
 <view class='main'>
   <swiper class='banner' autoplay previous-margin='15rpx' next-margin='15rpx'>
-    <swiper-item wx:for='{{news}}' wx:key='banner-{{index}}'>
+    <swiper-item wx:for='{{news}}' wx:key='ID'>
       <navigator url='/pages/news/detail?id={{item.ID}}' class='banner-item'>
         <img mode='aspectFill' src='{{item.Thumbnail}}' class='banner-img' round />
         <view class='banner-txt'>
@@ -12,7 +12,7 @@
   <view class='entries'>
     <container>
       <row>
-        <block wx:for='{{entries}}' wx:key='item-{{index}}'>
+        <block wx:for='{{entries}}' wx:key='PagePath'>
           <navigator wx:if='{{item.PagePath}}' url='{{item.PagePath}}' class='entry'>
             <img mode='aspectFill' class='nav-img' src='{{item.IconPath}}' round />
             <view class='nav-text'>{{item.Name}}</view>
@@ -34,7 +34,7 @@
       <x-icon type='arrow-right' />
     </navigator>
   </view>
-  <navigator wx:for='{{news}}' wx:key='news-{{index}}' url='/pages/news/detail?id={{item.ID}}' class='flex cell'>
+  <navigator wx:for='{{news}}' wx:key='Title' url='/pages/news/detail?id={{item.ID}}' class='flex cell'>
     <img mode='aspectFill' src='{{item.Thumbnail}}' class='thumbnail' />
     <view class='info flex'>
       <view class='title'>{{item.Title}}</view>

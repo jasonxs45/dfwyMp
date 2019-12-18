@@ -106,7 +106,7 @@ Page({
     this.data.type = type
     this.data.id = id
     this.set({
-      role: type == 1 ? '租户' : '家属'
+      role: type == 1 ? '租户' : type == 2 ? '家属' : type == 5 ? '商户' : ''
     })
       .then(res => {
         this.initQuery()

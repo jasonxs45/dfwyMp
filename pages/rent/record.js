@@ -1,6 +1,6 @@
 import MComponent from '../../common/MComponent'
 import { formatDate } from '../../utils/util'
-import { _record } from '../../api/rent'
+import { _record, _switch, _del } from '../../api/rent'
 const app = getApp()
 MComponent({
   data: {
@@ -17,6 +17,7 @@ MComponent({
       return this.data.list.map(ele => {
         ele.imgs = ele.ImgList ? ele.ImgList.split(',').splice(0, 4) : []
         ele.AddTime = formatDate(new Date(ele.AddTime), 'yyyy-MM-dd')
+        ele.online = ele.IsUp
         return ele
       })
     }
@@ -64,6 +65,80 @@ MComponent({
             showCancel: false
           })
         })
+    },
+    switchState (e) {
+      const { list } = this.data
+      const { index } = e.currentTarget.dataset
+      const UnionID = wx.getStorageSync('uid')
+      const ID = list[index].id
+      const IsUp = !list[index].IsUp
+      app.loading('加载中')
+      _switch({
+        UnionID,
+        ID,
+        IsUp
+      })
+        .then(res => {
+          wx.hideLoading()
+          const { code, msg, data } = res.data
+          app.toast(msg)
+          if (code === 0){
+            this.set({
+              [`list[${index}].IsUp`]: IsUp
+            })
+          }
+        })
+        .catch(err => {
+          wx.hideLoading()
+          wx.showModal({
+            title: '对不起',
+            content: err.toString(),
+            showCancel: false
+          })
+        })
+    },
+    edit (e) {
+      const { list } = this.data
+      const { index } = e.currentTarget.dataset
+      const ID = list[index].id
+      wx.navigateTo({
+        url: `/pages/rent/edit?id=${ID}`,
+      })
+    },
+    del (e) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '确定要进行此操作吗？',
+        success: r => {
+          if (r.confirm) {
+            let { list } = this.data
+            const { index } = e.currentTarget.dataset
+            const UnionID = wx.getStorageSync('uid')
+            const ID = list[index].id
+            app.loading('加载中')
+            _del({ UnionID, ID })
+              .then(res => {
+                wx.hideLoading()
+                const { code, msg, data } = res.data
+                app.toast(msg)
+                if (code === 0) {
+                  list.splice(index, 1)
+                  this.set({
+                    list
+                  })
+                }
+              })
+              .catch(err => {
+                wx.hideLoading()
+                wx.showModal({
+                  title: '对不起',
+                  content: err.toString(),
+                  showCancel: false
+                })
+              })
+          }
+        }
+      })
     },
     onLoad() {
       app.loading('加载中')

@@ -76,7 +76,7 @@ Page({
                   timeStamp,
                   nonceStr,
                   package: pack,
-                  signType: 'MD5',
+                  signType: 'RSA',
                   paySign,
                   success: res => {
                     wx.showModal({

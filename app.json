@@ -50,7 +50,10 @@
     "pages/expressage/detail",
     "pages/property-fee/history",
     "pages/property-fee/query",
-    "pages/property-fee/detail"
+    "pages/property-fee/detail",
+    "pages/rent/edit",
+    "pages/regist/bindshop",
+    "pages/advise-manager/delay"
   ],
   "style": "v2",
   "tabBar": {

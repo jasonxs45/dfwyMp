@@ -21,6 +21,9 @@
     <split height='10rpx' />
     <view class='main'>
       <container>
+        <view style='text-align:right'>
+          <view wx:if='{{detail.Record.State === 2}}' class='delay-tag yellow'>延时处理</view>
+        </view>
         <flex align='center' justify='justify'>
           <view class='dealer'>受理人：{{detail.Record.AdminName}}</view>
           <view class='contact'>联系方式：
@@ -40,5 +43,6 @@
   <block wx:if='{{detail.State == 1 && detail.IsMyManage}}'>
     <button wx:if='{{role=="地产"}}' class='btn blue round' bindtap='goSend'>指派</button>
     <button class='btn blue round' bindtap='goDeal'>处理</button>
+    <button wx:if='{{detail.IsDelay === 0 && role == "物业"}}' class='btn round yellow' bindtap='delay'>延时处理</button>
   </block>
 </view>

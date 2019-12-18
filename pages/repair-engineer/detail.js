@@ -124,6 +124,11 @@ Page({
       url: `./refuse?id=${this.data.id}`
     })
   },
+  delay () {
+    wx.navigateTo({
+      url: `./refuse?id=${this.data.id}&type=delay`
+    })
+  },
   done () {
     const UnionID = wx.getStorageSync('uid')
     const { mark: Desc, files, id: RepairID } = this.data

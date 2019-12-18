@@ -97,5 +97,6 @@
 </view>
 <view wx:if='{{ detail.State === 1 }}' class='btns'>
   <button class='btn round blue' bindtap='done'>完成维修</button>
+  <button wx:if='{{detail.IsDelay === 0}}' class='btn round yellow' bindtap='delay'>延时处理</button>
   <button wx:if='{{detail.AdminState === 0 }}' class='btn round' plain bindtap='refuse'>拒绝</button>
 </view>

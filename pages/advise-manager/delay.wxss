@@ -1,0 +1,36 @@
+.main{
+  background: #fff;
+  padding: 30rpx 0;
+}
+.sub-tit {
+  font-size:26rpx;
+  font-weight:bold;
+  color:rgba(30,87,158,1);
+  line-height:36rpx;
+  padding: 15rpx 30rpx;
+}
+.btn{
+  margin: 100rpx auto 60rpx;
+  font-size:28rpx;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}
+.textarea{
+  width: 100%;
+  padding: 15rpx;
+  background: rgba(30,87,158,.1);
+  border-radius: 4rpx;
+  color: rgba(30,87,158,1);
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+.uptit{
+  padding:0 ;
+}
+.sub-order-tit{
+  padding:0 30rpx;
+  font-size: 24rpx;
+  justify-content: space-between;
+  align-items: center;
+}

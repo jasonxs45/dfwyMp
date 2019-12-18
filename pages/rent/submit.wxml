@@ -40,15 +40,14 @@
       <view class='title'>电话</view>
       <x-input class='field input' type='number' placeholder='请填写手机号' data-attr='tel' value='{{tel}}' bindinput='onInput' bindblur='onBlur' />
     </view>
-    <view class='flex form-bar'>
+    <!-- <view class='flex form-bar'>
       <view class='title'>置顶</view>
       <radio-group class='radio-group' data-attr='vip' bindchange='onChange'>
-        <!-- <radio wx:for='{{vips}}' wx:key='item-{{index}}' value='{{index}}' class='radio'>{{item.label}}</radio> -->
         <radio value='0' checked class='radio'>否</radio>
         <radio value='1' class='radio'>是</radio>
       </radio-group>
       <navigator class='nav {{vip==1?"active":""}}' url='/pages/news/detail?id=2'>(收费项目)</navigator>
-    </view>
+    </view> -->
   </container>
   <split height='10rpx' />
   <container>

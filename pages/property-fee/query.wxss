@@ -63,5 +63,6 @@ stepper .btn{
   text-align: right;
 }
 .nav-img{
-  width: 98rpx;
+  width: 158rpx;
+  height: 158rpx;
 }

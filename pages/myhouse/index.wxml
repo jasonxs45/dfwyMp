@@ -1,5 +1,5 @@
 <list-container custom-class='list' noDataText='暂无房源信息' length='{{list.length}}' loading='{{loading}}' finished='{{finished}}'>
-  <block wx:for='{{list}}' wx:key='{{item.id}}'>
+  <block wx:for='{{list}}' wx:key='id'>
     <view class='house-item'>
       <flex>
         <view class='mark {{item.className}}' />

@@ -6,7 +6,7 @@ MComponent({
   data: {
     current: null,
     houses: [],
-    count: 0
+    count: 6
   },
   computed: {
     lackFee() {
@@ -158,7 +158,7 @@ MComponent({
                     timeStamp,
                     nonceStr,
                     package: pack,
-                    signType: 'MD5',
+                    signType: 'RSA',
                     paySign,
                     success: res => {
                       wx.showModal({

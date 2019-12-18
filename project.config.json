@@ -19,7 +19,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.0",
@@ -46,6 +47,10 @@
 		},
 		"game": {
 			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -81,16 +86,23 @@
 				},
 				{
 					"id": -1,
+					"name": "绑定商户",
+					"pathName": "pages/regist/bindshop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
 					"name": "个人中心",
 					"pathName": "pages/usercenter/index",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 5,
+					"id": 6,
 					"name": "业主确认",
 					"pathName": "pages/regist/ownerconfirm",
-					"query": "type=1&id=836",
+					"query": "type=5&id=836",
 					"scene": null
 				},
 				{
@@ -136,17 +148,17 @@
 					"scene": null
 				},
 				{
-					"id": 12,
+					"id": 13,
 					"name": "投诉-地产物业列表",
 					"pathName": "pages/advise-manager/list",
 					"query": "role=物业",
 					"scene": null
 				},
 				{
-					"id": 13,
+					"id": 14,
 					"name": "投诉-地产物业详情",
 					"pathName": "pages/advise-manager/detail",
-					"query": "id=565&role=地产",
+					"query": "id=628&role=物业",
 					"scene": null
 				},
 				{
@@ -213,6 +225,13 @@
 					"scene": null
 				},
 				{
+					"id": 45,
+					"name": "房屋租赁-修改",
+					"pathName": "pages/rent/edit",
+					"query": "id=102",
+					"scene": null
+				},
+				{
 					"id": -1,
 					"name": "报修-用户列表",
 					"pathName": "pages/repair-user/list",
@@ -248,17 +267,17 @@
 					"scene": null
 				},
 				{
-					"id": 28,
+					"id": 30,
 					"name": "报修-工程师详细",
 					"pathName": "pages/repair-engineer/detail",
-					"query": "id=741",
+					"query": "id=802",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 31,
 					"name": "报修-工程师拒单",
 					"pathName": "pages/repair-engineer/refuse",
-					"query": "id=740",
+					"query": "id=802&type=delay",
 					"scene": null
 				},
 				{
@@ -269,10 +288,10 @@
 					"scene": null
 				},
 				{
-					"id": 31,
+					"id": 33,
 					"name": "报修-工程师管理员详细",
 					"pathName": "pages/repair-engin-manager/detail",
-					"query": "id=477",
+					"query": "id=802",
 					"scene": null
 				},
 				{
@@ -290,10 +309,10 @@
 					"scene": null
 				},
 				{
-					"id": 34,
+					"id": 36,
 					"name": "报修-物业客服详细",
 					"pathName": "pages/repair-manager/detail",
-					"query": "id=736",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -364,6 +383,13 @@
 					"name": "物业缴费-对账详情",
 					"pathName": "pages/property-fee/detail",
 					"query": "id=13",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投诉建议-物业延时",
+					"pathName": "pages/advise-manager/delay",
+					"query": "id=628",
 					"scene": null
 				}
 			]

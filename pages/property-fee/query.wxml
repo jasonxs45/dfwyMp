@@ -41,7 +41,7 @@
     </view>
   </container>
 </view>
-<view class='nav'><image mode='widthFix' class='nav-img' src='./nav.png' bindtap='quick' /></view>
+<view class='nav'><image mode='widthFix' class='nav-img' src='http://dongfangwuye.1juke.cn/Content/Upload/PagePath/PayYearIco.png' bindtap='quick' /></view>
 <view class='btns'>
   <button disabled='{{current === null || !count}}' class='btn blue round' bindtap='submit'>支付</button>
   <navigator url='./history' class='to-history'>缴费记录</navigator>

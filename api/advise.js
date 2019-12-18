@@ -70,3 +70,11 @@ export const _deal = ({ UnionID, SuggestID, AdminName, Content, ImageList }) => 
   Content,
   ImageList
 })
+export const _delay = ({ UnionID, SuggestID, AdminName, Content, ImageList }) => fetch({
+  action: 'SuggestDelay',
+  UnionID,
+  SuggestID,
+  AdminName,
+  Content,
+  ImageList
+})

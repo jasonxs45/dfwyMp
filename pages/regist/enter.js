@@ -22,6 +22,11 @@ Page({
         name: '二手业主',
         img: 'http://dongfangwuye.1juke.cn/Content/Upload/PagePath/second.png',
         path: './bindsecond'
+      },
+      {
+        name: '商写用户',
+        img: 'http://dongfangwuye.1juke.cn/Content/Upload/PagePath/shop.png',
+        path: './bindshop'
       }
     ]
   },

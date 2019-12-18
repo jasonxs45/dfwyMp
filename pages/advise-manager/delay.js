@@ -1,5 +1,5 @@
 import Page from '../../common/Page'
-import { _enginnerrefuse, _delay } from '../../api/repair'
+import { _delay } from '../../api/advise'
 import { _uploadFile } from '../../api/uploadfile'
 const app = getApp()
 Page({
@@ -47,55 +47,18 @@ Page({
     files.splice(index, 1)
     this.data.files = files
   },
-  delay () {
+  delay() {
     const UnionID = wx.getStorageSync('uid')
-    const { mark: Desc, files, id: RepairID } = this.data
-    const Images = files.map(item => item.url).join(',')
-    if (!Desc.trim()) {
+    const { mark: Content, files, id: SuggestID } = this.data
+    const ImageList = files.map(item => item.url).join(',')
+    const AdminName = ''
+    if (!Content.trim()) {
       app.toast('请填写原因')
       return
     }
-    console.log(UnionID, Desc, Images, RepairID)
+    console.log(UnionID, SuggestID, AdminName, Content, ImageList)
     app.loading('加载中')
-    _delay({ UnionID, Desc, Images, RepairID })
-      .then(res => {
-        wx.hideLoading()
-        const { code, msg } = res.data
-        wx.showModal({
-          title: code == 0 ? '温馨提示' : '对不起',
-          content: msg,
-          showCancel: false,
-          success: r => {
-            console.log(r.confirm, code)
-            if (r.confirm && code == 0) {
-              wx.redirectTo({
-                url: './list'
-              })
-            }
-          }
-        })
-      })
-      .catch(err => {
-        wx.hideLoading()
-        console.log(err)
-        wx.showModal({
-          title: '对不起',
-          content: err.toString(),
-          showCancel: false
-        })
-      })
-  },
-  submit () {
-    const UnionID = wx.getStorageSync('uid')
-    const { mark: RefuseReason, files, id: RepairID } = this.data
-    const Images = files.map(item => item.url).join(',')
-    if (!RefuseReason.trim()) {
-      app.toast('请填写拒单原因')
-      return
-    }
-    console.log(UnionID, RefuseReason, Images, RepairID)
-    app.loading('加载中')
-    _enginnerrefuse({ UnionID, RefuseReason, Images, RepairID })
+    _delay({ UnionID, SuggestID, AdminName, Content, ImageList})
       .then(res => {
         wx.hideLoading()
         const { code, msg } = res.data
@@ -125,15 +88,6 @@ Page({
   },
   onLoad(opt) {
     this.data.id = opt.id
-    this.data.type = opt.type
-    if (this.data.type === 'delay') {
-      wx.setNavigationBarTitle({
-        title: '延时处理'
-      })
-      this.set({
-        type: this.data.type
-      })
-    }
     this.set({
       selectFile: this.selectFile.bind(this),
       uplaodFile: this.uplaodFile.bind(this)

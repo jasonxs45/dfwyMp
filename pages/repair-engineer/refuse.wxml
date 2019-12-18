@@ -1,8 +1,8 @@
 <view class='main'>
-  <view class='sub-tit'>请填写拒单原因</view>
+  <view class='sub-tit'>请填写{{type==='delay' ? '延时处理': '拒单'}}原因</view>
   <container>
-    <textarea class='textarea' placeholder='请填写拒单原因' bindinput='onInput' />
-    <uploader bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='上传照片' titleClass='sub-tit uptit' />
+    <textarea class='textarea' placeholder='请填写{{type==="delay" ? "延时处理": "拒单"}}原因' bindinput='onInput' />
+    <uploader wx:if='{{type!=="delay"}}' bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='上传照片' titleClass='sub-tit uptit' />
   </container>
 </view>
-<button class='blue round btn' bindtap='submit'>提交</button>
+<button class='blue round btn' bindtap='{{type === "delay"?"delay":"submit"}}'>提交</button>

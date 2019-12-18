@@ -3,7 +3,7 @@ page{
 }
 .sticky-wrapper{
   min-height: 100vh;
-  padding-bottom: 400rpx;
+  padding-bottom: 450rpx;
 }
 .top{
   font-size:24rpx;
@@ -169,8 +169,8 @@ page{
 .btns{
   padding: 30rpx;
   position: relative;
-  margin-top: -400rpx;
-  height: 400rpx;
+  margin-top: -450rpx;
+  height: 450rpx;
 }
 .btn{
   margin: 30rpx auto;

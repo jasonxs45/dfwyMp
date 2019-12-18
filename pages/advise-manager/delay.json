@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "延时处理",
+  "usingComponents": {
+    "flex": "/components/flex/index",
+    "container": "/components/container/index",
+    "uploader": "/components/uploader/uploader"
+  }
+}

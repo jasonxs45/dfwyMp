@@ -39,19 +39,12 @@
   margin: 60rpx auto;
   font-size:28rpx;
   font-weight:600;
+  color:rgba(255,255,255,1);
   line-height:40rpx;
 }
 .tips{
   font-size: 24rpx;
   color: rgba(38,134,192,1);
-  margin: 0 0 30rpx;
+  margin: 30rpx 0;
   line-height: 34rpx;
-}
-.exit{
-  width: 184px;
-  height: 80rpx;
-  line-height: 80rpx;
-  border: 2rpx solid #333;
-  text-align: center;
-  border-radius: 40rpx;
 }

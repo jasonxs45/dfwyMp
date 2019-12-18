@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "编辑",
+  "usingComponents": {
+    "container": "/components/container/index",
+    "split": "/components/split/index",
+    "x-picker": "/components/x-picker/index",
+    "x-input": "/components/x-input/index",
+    "uploader": "/components/uploader/uploader"
+  }
+}

@@ -83,5 +83,5 @@
   </view>
 </view> -->
 <view wx:if='{{detail.State === 1 || detail.State === 0 }}' class='btns {{detail.btnNum}}'>
-    <button class='btn round blue' data-tar='accept' bindtap='remind'>催单</button>
+  <button class='btn round blue' data-tar='accept' bindtap='remind'>催单</button>
 </view>

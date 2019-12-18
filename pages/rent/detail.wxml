@@ -53,5 +53,5 @@
   </view>
 </view>
 <tel custom class='tel-btn' phoneNumber='{{detail.StageTel}}'>
-  <button class='blue btn round'>联系物业租赁服务</button>
+  <button class='blue btn round'>联系对方</button>
 </tel>

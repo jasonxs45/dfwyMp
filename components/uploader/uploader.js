@@ -55,7 +55,7 @@ Component({
     showPreview: false,
     previewImageUrls: []
   },
-  ready () { },
+  ready () {},
 
   methods: {
     previewImage (e) {

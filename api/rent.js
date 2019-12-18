@@ -44,3 +44,36 @@ export const _record = ({ UnionID, HouseType = '', StageID = '', KeyWord = '', P
   PageIndex,
   PageSize
 })
+// 删除单条记录
+export const _del = ({ UnionID, ID }) => fetch({
+  action: 'DeleteSocia',
+  UnionID,
+  ID
+})
+// 上架下架
+export const _switch = ({ UnionID, ID, IsUp }) => fetch({
+  action: 'changeIsUp',
+  UnionID,
+  ID,
+  IsUp
+})
+// 编辑修改
+export const _modify = ({ UnionID,
+  ID,
+  Title,
+  Desc,
+  ImageList,
+  Phone,
+  Acreage,
+  Price
+}) => fetch({
+  action: 'UpdateSocial',
+  UnionID,
+  ID,
+  Title,
+  Desc,
+  ImageList,
+  Phone,
+  Acreage,
+  Price
+})

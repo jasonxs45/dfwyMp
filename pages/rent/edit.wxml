@@ -1,0 +1,55 @@
+<container>
+  <view class='flex form-bar'>
+    <view class='title'>分期</view>
+    <view class='input'>{{detail.StageName}}</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>户型</view>
+    <view class='input'>{{detail.HouseType}}</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>楼层</view>
+    <view class='input'>{{detail.Floor}}</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>房号</view>
+    <view class='input'>{{detail.HouseNo}}</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>面积</view>
+    <x-input class='field input' type='digit' value='{{area}}' placeholder='请填写面积' data-attr='area' bindinput='onInput' bindblur='onBlur' />
+    <view>㎡</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>租售</view>
+    <view class='input'>{{detail.Mode}}</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>{{detail.Mode ==='出租' ? '价格' : '总价'}}</view>
+    <x-input class='field input' type='digit' placeholder='请填写{{type == 0 ? "价格" : "总价"}}' data-attr='price' value='{{price}}' bindinput='onInput' bindblur='onBlur' />
+    <view>{{unit}}</view>
+  </view>
+  <view class='flex form-bar'>
+    <view class='title'>电话</view>
+    <x-input class='field input' type='number' placeholder='请填写手机号' data-attr='tel' value='{{tel}}' bindinput='onInput' bindblur='onBlur' />
+  </view>
+</container>
+<split height='10rpx' />
+<container>
+  <view class='flex form-bar'>
+    <view class='title'>标题</view>
+    <x-input class='field input' maxlength='20' value='{{title}}' placeholder='8-20字以内，请勿在此填写个人联系方式' data-attr='title' bindinput='onInput' />
+  </view>
+  <view class='title'>描述</view>
+  <textarea class='field textarea' value='{{mark}}' placeholder='请填写对您的房源描述' data-attr='mark' bindinput='onInput' />
+</container>
+<split height='10rpx' />
+<container>
+  <view class='title'>上传照片</view>
+  <view class='imgs'>
+    <uploader bindfail='uploadError' bindsuccess='uploadSuccess' binddelete='onDelete' select='{{selectFile}}' upload='{{uplaodFile}}' files='{{files}}' max-count='9' title='请上传照片' />
+  </view>
+</container>
+<view class='btns'>
+  <button class='btn blue' bindtap='submit'>提交</button>
+</view>

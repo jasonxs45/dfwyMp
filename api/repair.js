@@ -148,3 +148,11 @@ export const _remind = ({ RepairID }) => fetch({
   action: 'Reminder',
   RepairID
 })
+// 延时处理
+export const _delay = ({ UnionID, Desc, Images, RepairID }) => fetch({
+  action: 'LateDeal',
+  UnionID,
+  Desc,
+  Images,
+  RepairID
+})

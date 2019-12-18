@@ -54,7 +54,16 @@ Page({
           wx.showModal({
             title: '温馨提示',
             content: msg,
-            showCancel: false
+            confirmText: '确定',
+            cancelText: '提交资料',
+            cancelColor: '#666',
+            success: r => {
+              if (r.cancel) {
+                wx.navigateTo({
+                  url: '/pages/regist/bindsecond'
+                })
+              }
+            }
           })
         }
       })
@@ -124,14 +133,21 @@ Page({
         wx.hideLoading()
         const { code, msg } = res.data
         wx.showModal({
-          title: code == 0 ? '温馨提示' : '对不起',
+          title: code === 0 ? '温馨提示' : '对不起',
           content: msg,
-          showCancel: false,
+          cancelText: '提交资料',
+          cancelColor: '#666',
+          showCancel: code !== 0,
           success: r => {
             console.log(r.confirm, code)
             if (r.confirm && code == 0) {
               wx.switchTab({
                 url: '/pages/usercenter/index'
+              })
+            }
+            if (r.cancel) {
+              wx.navigateTo({
+                url: '/pages/regist/bindsecond'
               })
             }
           }

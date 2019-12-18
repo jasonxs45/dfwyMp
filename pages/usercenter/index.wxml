@@ -29,7 +29,7 @@
   </flex>
 </view>
 <view class='entries'>
-  <navigator wx:for='{{showList}}' wx:key='item.label' wx:if='{{item.show}}' url='{{item.path}}' class='entry'>
+  <navigator wx:for='{{showList}}' wx:key='label' wx:if='{{item.show}}' url='{{item.path}}' class='entry'>
     <flex align='center'>
       <image class='icon' mode='aspectFit' src='{{item.icon}}' />
       <flex class='content' justify='justify' align='center'>

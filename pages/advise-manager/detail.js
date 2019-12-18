@@ -12,6 +12,11 @@ Page({
       url: `./deal?id=${this.data.id}&role=${this.data.role}`
     })
   },
+  delay () {
+    wx.navigateTo({
+      url: `./delay?id=${this.data.id}`
+    })
+  },
   goSend() {
     wx.navigateTo({
       url: `./send?id=${this.data.id}&role=${this.data.role}`

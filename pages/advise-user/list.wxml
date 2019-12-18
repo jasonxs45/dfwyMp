@@ -17,6 +17,6 @@
   </swiper-item>
 </swiper>
 <navigator class='add' url='./submit'>
-  <text class='txt'>点击'+'\n添加记录</text>
+  <text class='txt'>请点击“+”\n开始添加</text>
   <x-icon class='icon' type='plus' />
 </navigator>
